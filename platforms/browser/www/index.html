@@ -10,12 +10,54 @@
     
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
     <title>DriveBox</title>
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            /* background: black; */
+            padding:20px 40px;
+        }
+
+        button.btn.btn-primary {
+            width: 100%;
+        }
+
+        .jumbotron{
+            padding:40px 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>hello world</p>
+    <div class="wrapper">
+            <h1 class="text-center">Login</h1>
+        <form class="jumbotron"> 
+            <div>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div> -->
+                  <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+        
+     </div>
+      
+              
     <!-- <div class="app">
         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
@@ -28,6 +70,9 @@
     <script type="text/javascript">
         app.initialize();
     </script> -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 
 </html>

@@ -1,78 +1,28 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <title>DriveBox</title>
-    <style>
-        .wrapper{
-            width: 100%;
-            height: 300px;
-            position: absolute;
-            /* background: black; */
-            padding:20px 40px;
-        }
-
-        button.btn.btn-primary {
-            width: 100%;
-        }
-
-        .jumbotron{
-            padding:40px 20px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
-
 <body>
-    <div class="wrapper">
-            <h1 class="text-center">Login</h1>
-        <form class="jumbotron"> 
-            <div>
-                
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div> -->
-                  <button type="submit" class="btn btn-primary">Login</button>
-            </div>
+    <div class="loginbox">
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <h1>login</h1>
+        <form>
+            <p>Username</p>
+                <input type="text" name="" placeholder="Enter username">
+            <p>Password</p>
+            <input type="text" name="" placeholder="Enter password">
+            <br>
+            <input type="submit" name="" value="login">
+            <br/>
+             <a href="#"> Lost your password ?</a><br>
+             <a href="#">Don't have an account</a>
         </form>
-        
-     </div>
-      
-              
-    <!-- <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script> -->
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-</body>
-
+</body> 
 </html>

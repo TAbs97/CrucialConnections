@@ -4,7 +4,11 @@ body{
     background-position: center;
     background-size: cover;
     font-family: sans-serif;
+<<<<<<< HEAD
  background: url(../img/logo.jpg);
+=======
+ background: url('../img/stonewall.jpg');
+>>>>>>> master
 }
 
 .loginbox{
@@ -20,7 +24,15 @@ body{
     border-radius: 15px;
     padding: 60px 30px;
 }
+ .signup{
+    height: 100% !important;
+    box-sizing: unset !important;
+    width: 220px;
+    margin-top: 50px;
+    height: 430px !important;
+    
 
+}
 .avatar{
     position:absolute;
     top: -50px;

@@ -1,0 +1,214 @@
+body{
+    top:0;
+    left: 0;
+    margin: 0;
+    font-family: sans-serif !important;
+    background: url('../img/stonewall.jpg');
+}
+
+*{
+    outline: 0;
+    outline: none;
+}
+
+.wrapper{
+    top:0;
+    position: absolute;
+    width: 100%;
+}
+
+.nav{
+    position: absolute;
+    background-color:#3a6f71;
+    background-image: linear-gradient(#7b7b7b, #026c6f 50%);
+    border-bottom: 1px solid cyan;
+    min-height: 42px;
+    z-index: 1;
+    width: 100%;
+    height: 74px;
+    box-shadow: 1px 1px 28px black;
+}
+
+.menu{
+    position: absolute;
+    list-style: none;
+    color: white;
+    right: 0; 
+    /* width: 100%; */
+    height: 200px;
+    float: right;
+    margin: 28px 20px;
+}
+
+.menu li {
+    display: block;
+    position: relative;
+    float: left;
+    padding: 20px 14px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: -18px;
+}
+
+.menu li a{
+    color:white;
+    text-decoration: none;
+    padding:10px;
+}
+
+.menu li a:hover{
+    border-bottom: 2px solid white;
+    transition: 300ms;
+}
+
+.appName{
+    position: relative;
+    float: left;
+    color: white;
+    font-size: 21pt;
+    z-index: 2;
+    padding: 17px;
+    font-family: sans-serif !important;
+}
+
+.menuicon{
+    display: none;
+    position: relative;
+    z-index: 3;
+    font-size: 20px;
+    top: 26px;
+    float: right;
+    right: 18px;
+    color: white;
+}
+
+#menu{
+    cursor: pointer;
+}
+
+
+    .menu {
+        display: block;
+    }
+
+
+#close{
+    display: none;
+}
+
+@media (max-width:650px){
+    .menuicon {
+        display: block;
+        z-index: 2;
+        position: absolute;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        float: right;
+        right: 22px;
+        background-color:#3a6f71;
+        background-image: linear-gradient(#7b7b7b, #026c6f 50%);
+        border-bottom: 1px solid cyan;
+        height: 102vh;
+        margin: 0px;
+        width: 212px;
+        color: white;
+        right: 0;
+        z-index: 2;
+    }
+    .menu li {
+        /* color: black; */
+        top: 66px;
+        float: none;
+        margin: 0 -20px;
+        padding: 9px 13px;
+        border-bottom: 1px solid #ffffff24;
+        width: 90%;
+    }
+
+}
+
+#overlay{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 102vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.float_btn{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color:#3a6f71;
+    background-image: linear-gradient(#7b7b7b, #026c6f 50%);
+  
+    box-shadow: 4px 3px 29px #000000b8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size:13pt;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.pluss{
+    position: fixed;
+    right: 24px;
+    bottom: 15px;
+    font-size: 28pt;
+    color: white;
+    font-weight: 100;
+    z-index: 0;
+    text-shadow: 1px 1px 13px black;
+}
+
+.floating_wrapper{
+    position: absolute;
+    /* height: 228px; */
+    width: 60px;
+    bottom: 62px;
+    right: 0px;
+    z-index: 0;
+    display: none;
+}
+
+.floating_wrapper .float_btn{
+    position: initial !important;
+    margin-bottom: 16px;
+}
+
+.floating_wrapper span{
+    position: relative;
+    top: 11px;
+    right: 0px;
+    font-size: 17pt;
+    text-shadow: 1px 1px 13px black;
+}
+
+
+ #homePage{    
+    position: absolute;
+    top: 57px;
+    padding: 10px;
+ }
+ 
+ 
+ /*
+
+.homeContent{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin-top: 20px;
+    height: 85vh;
+    position: absolute;
+    width: 47vh;
+} */

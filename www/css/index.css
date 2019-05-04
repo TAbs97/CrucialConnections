@@ -4,11 +4,7 @@ body{
     background-position: center;
     background-size: cover;
     font-family: sans-serif;
-<<<<<<< HEAD
  background: url(../img/logo.jpg);
-=======
- background: url('../img/stonewall.jpg');
->>>>>>> master
 }
 
 .loginbox{
@@ -20,7 +16,7 @@ body{
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     border-radius: 15px;
     padding: 60px 30px;
 }

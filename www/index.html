@@ -14,16 +14,51 @@
         <h1>Login</h1>
         <form>
             <p>Username</p>
-                <input type="text" name="" placeholder="Enter username">
+                <input id="username"type="text" name="" placeholder="Enter username">
             <p>Password</p>
-            <input type="text" name="" placeholder="Enter password">
+            <input id="password" type="text" name="" placeholder="Enter password">
             <br>
-            <input type="submit" name="" value="login">
+            <input type="button" id="Login" type="submit" onclick="getdata()" name="" value="login">
             <br/>
              <a href="#"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account</a>
         </form>
     </div>
+<script src="js/jquery.js"></script>
+    <script >
+        $(document).ready(function(){
+$("#Login").click(function(){
+var username = $("#username").val();
+var password = $("#password").val();
+// Checking for blank fields.
+    if( username =='' || password ==''){
+    $('input[type="text"],input[type="password"]').css("border","2px solid red");
+    $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
+    $("#username").focus();
+
+}else {
+$.post("login.php",{ email1: email, password1:password},
+function(data) {
+if(data=='Invalid Email.......') {
+    $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
+    $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
+alert(data);
+}else if(data=='Email or Password is wrong...!!!!'){
+    $('input[type="text"],input[type="password"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
+    alert(data);
+} else if(data=='Successfully Logged in...'){
+    $("form")[0].reset();
+    $('input[type="text"],input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
+    alert(data);
+} else{
+alert(data);
+}
+});
+}
+});
+});
+    
+    </script>
 </body> 
 </html>
 

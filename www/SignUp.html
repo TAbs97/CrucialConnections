@@ -12,7 +12,7 @@
     <div class="loginbox signup" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Sign Up</h1>
-        <form>
+        <form name="myForm"> 
             <p>Firstname</p>
                 <input type="text" name="" placeholder="Enter firstname">
 
@@ -21,16 +21,32 @@
             <br/>
 
             <p>Email</p>
-            <input type="text" name="" placeholder="Enter Email">
+            <input type="text" name="Email" placeholder="Enter Email">
             <br>
 
             <p>Password</p>
             <input type="text" name="" placeholder="Enter Password">
             <br>
             
-            <input type="submit" name="" value="Submit">
-            <br/>
+            <input type="button" id="Login" type="submit" onclick="getdata()" name="" value="Submit">           <br/>
              <a href="index.html" class="text-center">Already have an account?</a>
+
+             <script type = "text/javascript">
+                
+                   function validateEmail() {
+                      var emailID = document.myForm.EMail.value;
+                      atpos = emailID.indexOf("@");
+                      dotpos = emailID.lastIndexOf(".");
+                      
+                      if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                         alert("Please enter a correct email ID")
+                         document.myForm.EMail.focus() ;
+                         return false;
+                      }
+                      return( true );
+                   }
+                //-->
+             </script
         </form>
     </div>
 </body> 

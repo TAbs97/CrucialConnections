@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,69 +15,44 @@
     <div class="Booking" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Booking</h1>
-        <form>
-           <table>
+        <form name="myForm"> 
+            <p>Code Type</p>
+            <select class="select">
+                <option value="">Select Code</option>
+                <option value="1">8</option>
+                <option value="2">10</option>
+                <option value="3">14</option>
+              </select>
 
-                <tr>
-                        <td class="name">
-                                Code Type 
-                        </td>
-                        <td>
-                            <select class="select">
-                                <option placeholder="Select Code"></option>
-                                <option value="1">8</option>
-                                <option value="2">10</option>
-                                <option value="3">14</option>
-                              </select>
-                             
-                        </td>
-                </tr>
-                <tr>
-                    <td class="name">
-                            Lessons 
-                    </td>
-                    <td>
-                        <select class="select">
-                            <option placeholder="Select Lesson"></option>
-                            <option value="1">INDIVIDUAL LESSON</option>
-                            <option value="2">FULL PACKAGE</option>
-                            <option value="3">HALF COURSE</option>  
-                            <option value="4">BRUSH UP</option>
-                            <option value="5">SUPPER BRUSH UP</option>                       
-                          </select>
-                          
-                    </td>
-                <tr>
-                        <td class="name">
-                                Time 
-                        </td>
-                        <td>
-                            <select class="select"> 
-                                <option value="1"></option>
-                                <option value="1">07:00</option>
-                                <option value="2">10:00</option>
-                                <option value="3">11:30</option>  
-                                <option value="4">13:00</option>
-                                <option value="5">15:00</option>                       
-                              </select>
-    
-                        </td>
-                </tr>
-                    <tr>
-                        <td class="name">
-                                Date 
-                        </td>
-                        <td>
-                                    <input type="date" name="">                     
-                        </td>
-                </tr>
-            <tr>
-                    <td>
-                            <input type="button" id="book" type="submit" onclick="getdata()" name="" value="Book">
-                    </td>
-            </tr>
-           </table>
+            <p>Lesson</p>
+            <select class="select">
+                <option value="">Select Lessons</option>
+                <option value="1">INDIVIDUAL LESSON</option>
+                <option value="2">FULL PACKAGE</option>
+                <option value="3">HALF COURSE</option>  
+                <option value="4">BRUSH UP</option>
+                <option value="5">SUPPER BRUSH UP</option>                       
+              </select>
+            <br/>
+
+            <p>Time</p>
+            <select class="select"> 
+                <option value="">Select Time</option>
+                <option value="1">07:00</option>
+                <option value="2">10:00</option>
+                <option value="3">11:30</option>  
+                <option value="4">13:00</option>
+                <option value="5">15:00</option>                       
+              </select>
+            <br>
+
+            <p>Date</p>
+            <input type="date" name=""> 
+            <br>
             
+            <input type="button" id="Login" type="submit" onclick="getdata()" name="" value="Submit">           <br/>
+             <a href="index.html" class="text-center">Already have an account?</a>
+
         </form>
     </div>
 </body> 

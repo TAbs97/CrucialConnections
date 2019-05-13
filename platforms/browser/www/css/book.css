@@ -9,7 +9,7 @@ body{
 
 .Booking{
     width: 300px;
-    height: 420px;
+    height: 490px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -35,16 +35,7 @@ h1{
     text-align: center;
 }
 
-.Booking tr{
-    margin: 0;
-    padding: 0;
-    font-weight:bold;
-    width: 12px;
-    height: 50px;
- 
-    /* text-align: center; */
-}
-.Booking input[type="button"] {
+.Booking input[type="submit"] {
     border: none;
     outline:none;
     height: 40px;

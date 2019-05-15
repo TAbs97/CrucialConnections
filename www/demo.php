@@ -1,5 +1,5 @@
 <?php
-$name=$_Request['username'];
+$name=$_REQUEST['username'];
 
 echo $name; 
 ?>

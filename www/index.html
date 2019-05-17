@@ -12,54 +12,46 @@
     <div class="loginbox">
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Login</h1>
-        <form Action="demo.php" method="POST">
+      
             <p>Username</p>
                 <input id="username"type="text" name="username" placeholder="Enter username" required>
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
-            <input type="submit" id="Login" name="submit" value="login">
+            <button id="Login">Login</button>
             <br/>
              <a href="#"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account </a>
-        </form>
+        
     </div>
-<script src="js/jquery.js"></script>
-    <!-- <script >
-        $(document).ready(function(){
-$("#Login").submit(function(){
-var username = $("#username").val();
-var password = $("#password").val();
-// Checking for blank fields.
-    if( username =='' || password ==''){
-    $('input[type="text"],input[type="password"]').css("border","2px solid red");
-    $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
-    $("#username").focus() ||  $("password").focus() ;
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#Login').click(function(){
+            var u_username = $('#username').val();
+            var u_password = $('#password').val();
 
-}else {
+            //alert("username : "+$username+"\nPassword : "+$password);
 
-$.post("Login.php",{ username:username,password:password},
-function(data) {
-if(data=='Invalid username.......') {
-    $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
-    $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
-alert(data);
-}else if(data=='username or Password is wrong...!!!!'){
-    $('input[type="text"],input[type="password"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
-    alert(data);
-} else if(data=='Successfully Logged in...'){
-    $("form")[0].reset();
-    $('input[type="text"],input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
-    alert(data);
-} else{
-alert(data);
-}
-});
-}
-});
-});
-    
-    </script> -->
+            $.ajax({
+                url:"http://localhost/CC_APIS/apis/login.php",
+                method:"POST",
+                dataType:"JSON",
+                data:{username : u_username,password : u_password},
+                success:function(data){
+                    console.log(data);
+
+                    if(data.rows > 0){
+                        window.location.href = "http://www.google.com";
+                    }else{
+                        console.log("Fuseg");
+                    }
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body> 
 </html>
 

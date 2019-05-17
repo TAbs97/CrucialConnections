@@ -5,8 +5,8 @@ session_start();
 //3.1 If the form is submitted
 if (isset($_POST['username1']) and isset($_POST['password'])){
 //3.1.1 Assigning posted values to variables.
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_GET['username'];
+$password = $_GET['password'];
 //3.1.2 Checking the values are existing in the database or not
 $query = "SELECT * FROM `users` WHERE U_NAME='$username' and U_PASSWORD='$password'";
  

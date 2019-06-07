@@ -33,17 +33,18 @@
             //alert("username : "+$username+"\nPassword : "+$password);
 
             $.ajax({
-                url:"http://localhost/CC_APIS/apis/login.php",
+                url:"http://localhost:8081/CC_APIS/apis/login.php",
                 method:"POST",
+                
                 dataType:"JSON",
                 data:{username : u_username,password : u_password},
                 success:function(data){
                     console.log(data);
 
-                    if(data.rows > 0){
-                        window.location.href = "http://www.google.com";
+                    if(data.rows> 0){
+                        window.location.href="../lessonBooking.html";
                     }else{
-                        console.log("Fuseg");
+                        //console.log("Fuseg");
                     }
                 },
                 error:function(err){
@@ -52,6 +53,7 @@
             });
         });
     </script>
+    
 </body> 
 </html>
 

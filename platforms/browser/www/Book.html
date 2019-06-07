@@ -9,12 +9,42 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/book.css">
+
+    <script>
+    
+    function date() {
+				 n = new Date();
+				 
+				 y = n.getFullYear();
+				 m = n.getMonth()+1 ;
+				 d = n.getDate();
+				 h = n.getHours();
+				 mi = n.getMinutes();
+				 s = n.getSeconds();
+				 
+				 return d +"/"+ m+"/"+y+" at "+ h+":"+ mi +":"+ s;
+
+}
+setInterval(function(){
+document.getElementById("dt").value= date();
+},1000);
+
+
+    </script>
 </head>
 <body>
     <div class="Booking" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Booking</h1>
         <form name="myForm">
+          <table>
+            <tr>
+              <td><input type="text" id="dt"></td>
+            </tr>
+          </table>
+          <script>
+            document.getElementById("dt").value=date();
+          </script>
 
             <p>Time</p>
             <select class="select" required id="time"> 
@@ -25,12 +55,19 @@
                 <option id="13:00" value="13:00">13:00</option>
                 <option id="15:00" value="15:00">15:00</option>                       
               </select>
-            <br>
+            <hr>
 
             <p>Date</p>
             <input type="date" name="date" required> 
-            <br>
-            </br>
+           <hr>
+           <p>Days</p>
+           <select class="select" required id="day"> 
+               <option value="">Select Days</option>
+               <option id="1 day" value="1 day">1 day</option>
+               <option id="2 days" value="2 days">2 days</option>
+               <option id="3 days" value="3 days">3 days</option>                        
+             </select>
+             <hr>
             <input type="submit" id="book" type="submit" onclick="getdata()" name="" value="Book">           <br/>
            
 

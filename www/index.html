@@ -41,10 +41,17 @@
                 success:function(data){
                     console.log(data);
 
+<<<<<<< HEAD
                     if(data.rows> 0){
                         window.location.href="../lessonBooking.html";
                     }else{
                         //console.log("Fuseg");
+=======
+                    if(data.rows > 0){
+                        window.location.href = "http://CrucialConnections/www/lessonBooking.html";
+                    }else{
+                        console.log("user not found");
+>>>>>>> 306ebe10694b4378a76dc3491bad2cc5905039e8
                     }
                 },
                 error:function(err){

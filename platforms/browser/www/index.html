@@ -33,7 +33,7 @@
             //alert("username : "+$username+"\nPassword : "+$password);
 
             $.ajax({
-                url:"http://localhost/CC_APIS/apis/login.php",
+                url:"http://localhost:8081/CC_APIS/apis/login.php",
                 method:"POST",
                 dataType:"JSON",
                 data:{username : u_username,password : u_password},
@@ -41,7 +41,7 @@
                     console.log(data);
 
                     if(data.rows > 0){
-                        window.location.href = "http://www.google.com";
+                        window.location.href = "http://CrucialConnections/www/lessonBooking.html";
                     }else{
                         console.log("user not found");
                     }

@@ -9,12 +9,13 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
 <body>
+    <form action="">
     <div class="loginbox">
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Login</h1>
       
-            <p>Username</p>
-                <input id="username"type="text" name="username" placeholder="Enter username" required>
+            <p>Email</p>
+                <input id="username"type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
@@ -24,6 +25,7 @@
              <a href="SignUp.html">Don't have an account </a>
         
     </div>
+</form>
     <script src="js/jquery.js"></script>
     <script>
         $('#Login').click(function(){
@@ -40,6 +42,7 @@
                 data:{username : u_username,password : u_password},
                 success:function(data){
                     console.log(data);
+<<<<<<< HEAD
 
                     if(data.rows> 0){
                         window.location.href="https://www.google.com";
@@ -48,6 +51,10 @@
                     }
                     if(data.rows > 0){
                         window.location.href = "https://www.google.com";
+=======
+                    if(data.rows>0){
+                        window.location.href="lessonBooking.html";
+>>>>>>> 8775697737fefd808ec3bae0ff2b0d36bae8f1ac
                     }else{
                         console.log("user not found");
                     }

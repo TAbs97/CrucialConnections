@@ -28,7 +28,8 @@
 </form>
     <script src="js/jquery.js"></script>
     <script>
-        $('#Login').click(function(){
+        $('#Login').click(function(e){
+            e.preventDefault();
             var u_username = $('#username').val();
             var u_password = $('#password').val();
 
@@ -37,20 +38,16 @@
             $.ajax({
                 url:"http://localhost:8081/CC_APIS/apis/login.php",
                 method:"POST",
-                
                 dataType:"JSON",
                 data:{username : u_username,password : u_password},
                 success:function(data){
                     console.log(data);
-
                     if(data.rows> 0){
                         window.location.href="https://www.google.com";
-                    }
-                    else
-                    {
+                    }else{
                         console.log("Fuseg");
                     }
-                },
+                    },
                 error:function(err){
                     console.log(err);
                 }

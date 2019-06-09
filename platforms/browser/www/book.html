@@ -11,6 +11,34 @@
     <link rel="stylesheet"  type=" text/css" href="css/book.css">
 
     <script>
+      function getDate(x){
+        
+        if( x === '1 day'){
+		        document.getElementById("date1").style.visibility = "visible";
+            document.getElementById("date2").style.visibility = "hidden";
+            document.getElementById("date3").style.visibility = "hidden";
+            document.getElementById("time1").style.visibility = "visible";
+            document.getElementById("time2").style.visibility = "hidden";
+            document.getElementById("time3").style.visibility = "hidden";
+	      }
+	      else if(x === "2 days"){
+		          document.getElementById("date1").style.visibility = "visible";
+              document.getElementById("date2").style.visibility = "visible";
+              document.getElementById("date3").style.visibility = "hidden";
+              document.getElementById("time1").style.visibility = "visible";
+              document.getElementById("time2").style.visibility = "visible";
+              document.getElementById("time3").style.visibility = "hidden";
+	          }
+            else if(x=== "3 days"){
+		          document.getElementById("date1").style.visibility = "visible";
+              document.getElementById("date2").style.visibility = "visible";
+              document.getElementById("date3").style.visibility = "visible";
+              document.getElementById("time1").style.visibility = "visible";
+              document.getElementById("time2").style.visibility = "visible";
+              document.getElementById("time3").style.visibility = "visible";
+	          }
+
+      }
     
     function date() {
 				 n = new Date();
@@ -45,29 +73,60 @@ document.getElementById("dt").value= date();
           <script>
             document.getElementById("dt").value=date();
           </script>
-
-            <p>Time</p>
-            <select class="select" required id="time"> 
-                <option value="">Select Time</option>
-                <option id="07:00" value="07:00">07:00</option>
-                <option id="10:00" value="10:00">10:00</option>
-                <option id="11:00" value="11:00">11:00</option>  
-                <option id="13:00" value="13:00">13:00</option>
-                <option id="15:00" value="15:00">15:00</option>                       
-              </select>
-            <hr>
-
-            <p>Date</p>
-            <input type="date" name="date" required> 
-           <hr>
-           <p>Days</p>
-           <select class="select" required id="day"> 
+               <p>Days</p>
+           <select class="select" required id="day" onchange="getDate(this.options[this.selectedIndex].value)"> 
                <option value="">Select Days</option>
                <option id="1 day" value="1 day">1 day</option>
                <option id="2 days" value="2 days">2 days</option>
                <option id="3 days" value="3 days">3 days</option>                        
              </select>
-             <hr>
+            <br>
+
+            <p>Dates in a Week</p>
+            <input type="date" name="date" id="date1" style="visibility:hidden;" required> 
+            <input type="date" name="date" id="date2" style="visibility:hidden;" required> 
+            <input type="date" name="date" id="date3" style="visibility:hidden;" required> 
+            <br>
+           <p>Time</p>
+           <table>
+             <tr>
+                <td>
+           <select class="select" required id="time1" style="visibility:hidden;"> 
+               <option value="">Select Time</option>
+               <option id="07:00" value="07:00">07:00</option>
+               <option id="10:00" value="10:00">10:00</option>
+               <option id="11:00" value="11:00">11:00</option>  
+               <option id="13:00" value="13:00">13:00</option>
+               <option id="15:00" value="15:00">15:00</option>                       
+             </select>
+                <td>
+             </tr>
+             <tr>
+                <td>
+           <select class="select" required id="time2" style="visibility:hidden;"> 
+               <option value="">Select Time</option>
+               <option id="07:00" value="07:00">07:00</option>
+               <option id="10:00" value="10:00">10:00</option>
+               <option id="11:00" value="11:00">11:00</option>  
+               <option id="13:00" value="13:00">13:00</option>
+               <option id="15:00" value="15:00">15:00</option>                       
+             </select>
+                <td>
+             </tr>
+             <tr>
+                <td>
+           <select class="select" required id="time3" style="visibility:hidden;"> 
+               <option value="">Select Time</option>
+               <option id="07:00" value="07:00">07:00</option>
+               <option id="10:00" value="10:00">10:00</option>
+               <option id="11:00" value="11:00">11:00</option>  
+               <option id="13:00" value="13:00">13:00</option>
+               <option id="15:00" value="15:00">15:00</option>                       
+             </select>
+                <td>
+             </tr>
+           </table>
+        
             <input type="submit" id="book" type="submit" onclick="getdata()" name="" value="Book">           <br/>
            
 

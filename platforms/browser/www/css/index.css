@@ -55,7 +55,7 @@ h1{
 }
 
 
-.loginbox input[type="text"],input[type="password"] {
+.loginbox input[type="text"],input[type="password"],input[type="Email"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;

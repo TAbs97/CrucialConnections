@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> DriveBox</title>
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="C:\xampp\htdocs\CrucialConnectinos\CrucialConnections\www\css\hStyle.css">
+        <link rel="stylesheet"  type=" text/css" href="css/book.css">
+        <link rel="stylesheet"  type=" text/css" href="css/book.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> DriveBox</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="C:\xampp\htdocs\CrucialConnectinos\CrucialConnections\www\css\hStyle.css">
 </head>
 <body>
 
@@ -17,12 +19,12 @@
             <div class="appName">DriveBox</div>
             <ul class="menu" id="smallnav">
                     <li>
-                            <a href="#">HOME </a>       
+                            <a href="Admin.html">HOME </a>       
                            </li>
                     <li>
                             <a href="#">CLIENTS </a>
                             <ul class="hidden">
-                                <li><a href="SignUp.html"> ADD</a></li>
+                                <li><a href="AddClient.html"> ADD</a></li>
                                 <li><a href="Abooking.htm"> BOOKING</a></li>
                             </ul>
                         </li>
@@ -30,7 +32,7 @@
                 <a href="#">ADMIN </a>
                     <ul class="hidden">
                         <li><a href="AdminAdd.html">REGISTER</a></li>
-                        <li><a href="AdminRemove.htm">REMOVE</a></li>
+                        <li><a href="#">REMOVE</a></li>
                         
                     </ul>
                
@@ -100,5 +102,22 @@
 
     </script>
     
-</body>
+
+<div class="Booking" >
+        
+            <h1>Admin Removing</h1>
+            <form name="myForm"> 
+            <label>Admin Name</label><br>   
+            <input type="text" name ="name" required><br>     
+            <label>Admin Surname</label><br>   
+            <input type="text" name ="surname" required><br>       
+            
+                <br>
+                </br>
+                <input type="submit" id="book" type="submit" name="" value="REMOVE ">           <br/>
+               
+    
+            </form>
+        </div>
+        </body>
 </html>

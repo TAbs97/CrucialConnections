@@ -22,17 +22,12 @@
                     <li>
                             <a href="#">CLIENTS </a>
                             <ul class="hidden">
-                                <li><a href="SignUp.html"> ADD</a></li>
+                                <li><a href="AddClient.html"> ADD</a></li>
                                 <li><a href="Abooking.htm"> BOOKING</a></li>
                             </ul>
                         </li>
             <li>
                 <a href="#">ADMIN </a>
-                    <ul class="hidden">
-                        <li><a href="AdminAdd.html">REGISTER</a></li>
-                        <li><a href="AdminRemove.htm">REMOVE</a></li>
-                        
-                    </ul>
                
             </li>
             <li>
@@ -95,10 +90,30 @@
             function floatBtn(){
                 $('.floating_wrapper').slideToggle('slow');
             }
-            
-                
-
     </script>
-    
+    <div class="Booking" >
+        
+        <h1>Admin Adding</h1>
+        <form name="myForm"> 
+            <br>
+                <label>Name</label><br>
+                <input type="text" name ="Name" required><br>
+                <label>Surname</label><br>   
+                <input type="text" name ="Surname" required><br>  
+                <label>Cell Number</label><br>   
+                <input type="text" name ="cell" required><br>  
+                <label>Email Address</label><br>   
+                <input type="text" name ="email" required><br>  
+                    <br>
+          
+            <p>Date</p>
+            <input type="date" name="date" required> 
+            <br>
+            </br>
+            <input type="submit" id="book" type="submit" name="" value="ADD INSTRUCTOR"> <br/>
+           
+
+        </form>
+    </div>
 </body>
 </html>

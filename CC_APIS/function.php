@@ -31,7 +31,7 @@ if ($conn->connect_error) {
         $sql = "SELECT * FROM users WHERE U_EMAIL = '".$username."' AND U_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
-               print_r($results->fetch_assoc())."<br/>";
+               return $results; 
               // echo "Found";
         }else{
             echo "Not Found";

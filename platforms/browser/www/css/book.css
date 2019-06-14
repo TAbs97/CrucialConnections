@@ -1,7 +1,7 @@
 
 .Booking{
-    width: 280px;
-    height: 550px;
+    width: 500px;
+    height: 700px;
    
     color: #fff;
     top: 50%;
@@ -12,15 +12,6 @@
     border-radius: 15px;
     padding: 60px 30px;
     margin-top: 5%;
-    background-color: black;
-}
-body{
-    margin: 0;
-    padding: 0;
-    background-position: center;
-    background-size: cover;
-    font-family: sans-serif;
-    background: url(../img/logo.jpg);
 }
 .avatar{
     position:absolute;

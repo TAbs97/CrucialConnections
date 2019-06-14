@@ -9,6 +9,24 @@ ul {
     padding:0;
     position: absolute;
 }
+.Buttons {
+    
+    color: green;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 60px 30px;
+    margin-top: 5%;
+    height:80px;
+    width:80px;
+    
+
+    
+  }
+
 .hidden{
     position: relative;
     display: inline-block;

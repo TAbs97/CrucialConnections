@@ -55,7 +55,7 @@
          <li>
                  <a href="#">INSTRUCTOR </a>
                  <ul class="hidden">
-                     <li><a href="">REGISTER</a></li>
+                     <li><a href="Abooking.htm">REGISTER</a></li>
                      <li><a href="#">REMOVE</a></li>
                      
                  </ul>
@@ -71,16 +71,56 @@
      </div>
  </div>
     
-   
-    <div class="Booking" >
-        <h1>ADD INSTRUCTOR</h1>
+    <div class="floating_wrapper">
+        
+        <div class="float_btn btn2"><span class="pluss"><i class="fa fa-pencil" aria-hidden="true"></i></span></div>
+    </div>
+    <div class="float_btn" onclick="floatBtn()"><span class="pluss">+</span></div>
+    <script src="js/jquery.js"></script>
+    <script>
+            $('#showw').click(function(){                
+                $('#smallnav').show(500);
+                $(this).hide();
+                $('#close').show();
+                $('.floating_wrapper').hide();
+            });
 
+            $('#close').click(function(){                
+                $('#smallnav').hide(500);
+                $(this).hide();
+                $('#showw').show();
+            });
+            
+            $(window).resize(function(){
+                if($(window).width() > 650){
+                    $('.menu').show();
+                    console.log(''+$(window).width());
+                }else{
+                    $('.menu').hide();
+                    $('#close').hide();
+                    $('#showw').show();
+                    console.log('new'+$(window).width());
+                }
+            });
+
+            function floatBtn(){
+                $('.floating_wrapper').slideToggle('slow');
+            }
+            
+                
+
+    </script>
+    
+    <div class="Booking" >
+        <h1>ADD ADMIN</h1>
+
+        
         <form name="myForm"> 
             
             
-            <label>Instructor name</label><br>
+            <label>Admin name</label><br>
             <input type="text" name ="InstID" value=" " required><br>
-            <label>Instructor Surname</label><br>
+            <label>Admin Surname</label><br>
             <input type="text" name ="InstID" value=" " required><br>
             <label>Cell Number</label><br>   
                 <input type="text" name ="cell" required><br>  

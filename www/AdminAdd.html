@@ -3,126 +3,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-   
-    
-    <link rel="stylesheet"  type=" text/css" href="css/book.css">
-    <link rel="stylesheet"  type=" text/css" href="css/book.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> DriveBox</title>
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="C:\xampp\htdocs\CrucialConnectinos\CrucialConnections\www\css\hStyle.css">
-    <li>
+        <link rel="stylesheet"  type=" text/css" href="css/book.css">
+        <link rel="stylesheet"  type=" text/css" href="css/book.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> DriveBox</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="C:\xampp\htdocs\CrucialConnectinos\CrucialConnections\www\css\hStyle.css">
 </head>
 <body>
-   
-        <div id="overlay"></div>
+
+    <div id="overlay"></div>
     <div class="wrapper">
-        
         <div class="nav">
             <div class="appName">DriveBox</div>
             <ul class="menu" id="smallnav">
                     <li>
                             <a href="Admin.html">HOME </a>       
-                        </li>
-                 <li>
-                         <a href="#">CLIENTS </a>
-                         <ul class="hidden">
-                             <li><a href="AddClient.html"> ADD</a></li>
-                             <li><a href="#"> BOOKING</a></li>
-                         </ul>
-                     </li>
-         <li>
-             <a href="#">ADMIN </a>
-             <ul class="hidden">
-                    <li><a href="AdminAdd.html">REGISTER</a></li>
-                    <li><a href="AdminRemove.htm">REMOVE</a></li>
-                    
-                </ul>
-           
-         </li>
-         <li>
-             <a href="#">VEHICLES </a>
-             <ul class="hidden">
-                     <li><a href="AddVehicle.html">ADD</a></li>
-                     <li><a href="#">REMOVE</a></li>
-                     <li><a href="#">AVAILABIITY</a></li>
-                 </ul>
-         </li>
-         <li>
-                 <a href="#">INSTRUCTOR </a>
-                 <ul class="hidden">
-                     <li><a href="Abooking.htm">REGISTER</a></li>
-                     <li><a href="#">REMOVE</a></li>
-                     
-                 </ul>
-             </li>
-         
-        
-             <li><a href="#">Profile</a></li>
-             <li class="logout"><a href="#">Logout</a></li>
-         </ul>
-         <div class="menuicon" id="menu">
-             <span id="showw"><i class="fa fa-bars"></i></span><span id="close"><i class="fa fa-times"></i></span>
-         </div>
-     </div>
- </div>
-    
-    <div class="floating_wrapper">
-        
-        <div class="float_btn btn2"><span class="pluss"><i class="fa fa-pencil" aria-hidden="true"></i></span></div>
-    </div>
-    <div class="float_btn" onclick="floatBtn()"><span class="pluss">+</span></div>
-    <script src="js/jquery.js"></script>
-    <script>
-            $('#showw').click(function(){                
-                $('#smallnav').show(500);
-                $(this).hide();
-                $('#close').show();
-                $('.floating_wrapper').hide();
-            });
-
-            $('#close').click(function(){                
-                $('#smallnav').hide(500);
-                $(this).hide();
-                $('#showw').show();
-            });
-            
-            $(window).resize(function(){
-                if($(window).width() > 650){
-                    $('.menu').show();
-                    console.log(''+$(window).width());
-                }else{
-                    $('.menu').hide();
-                    $('#close').hide();
-                    $('#showw').show();
-                    console.log('new'+$(window).width());
-                }
-            });
-
-            function floatBtn(){
-                $('.floating_wrapper').slideToggle('slow');
-            }
-            
-                
-
-    </script>
-    
+                   </li>
+                          
+                          <li>
+                               <a href="regButtons.html">REGISTER </a>
+                               
+                           </li>
+               
+               
+                           <li>
+                              <a href="remove.html">Remove </a>
+                              
+                          </li>
+                          <li>
+                              <a href="book.html">BOOKING </a>
+                          </li>
+              
+                   <li><a href="#">Profile</a></li>
+                   <li class="logout"><a href="#">REPORTS</a></li>
+               </ul>
+               <div class="menuicon" id="menu">
+                   <span id="showw"><i class="fa fa-bars"></i></span><span id="close"><i class="fa fa-times"></i></span>
+               </div>
+           </div>
+       </div>
+       
     <div class="Booking" >
         <h1>ADD ADMIN</h1>
 
+        
         <form name="myForm"> 
             
             
             <label>Admin name</label><br>
-            <input type="text" name ="InstID" value=" " required><br>
+            <input type="text" name ="name" value=" " required><br>
             <label>Admin Surname</label><br>
-            <input type="text" name ="InstID" value=" " required><br>
+            <input type="text" name ="Surname" value=" " required><br>
             <label>Cell Number</label><br>   
                 <input type="text" name ="cell" required><br>  
+                <label>Password</label><br>   
+                <input type="text" name ="Pass" required><br>  
                 <label>Email Address</label><br>   
                 <input type="text" name ="email" required><br>  
             <br>

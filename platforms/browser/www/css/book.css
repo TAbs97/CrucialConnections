@@ -1,16 +1,8 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-position: center;
-    background-size: cover;
-    font-family: sans-serif;
-    background: url(../img/logo.jpg);
-}
 
 .Booking{
-    width: 300px;
-    height: 500px;
-    background: #000;
+    width: 280px;
+    height: 550px;
+   
     color: #fff;
     top: 50%;
     left: 50%;
@@ -20,6 +12,15 @@ body{
     border-radius: 15px;
     padding: 60px 30px;
     margin-top: 5%;
+    background-color: black;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    background: url(../img/logo.jpg);
 }
 .avatar{
     position:absolute;

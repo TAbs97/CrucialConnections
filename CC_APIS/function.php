@@ -38,9 +38,9 @@ if ($conn->connect_error) {
         }
     }
 
-    function registerUser($name,$surname,$email,$role,$password){
+    function registerUser($name,$surname,$email,$role,$password,$balance){
         global $conn;
-        $sql = "INSERT INTO users VALUES('','".$name."','".$surname."','".$email."',".$role.",'".$password."',0.0)";
+        $sql = "INSERT INTO users VALUES('','".$name."','".$surname."','".$email."',".$role.",'".$password."',$balance)";
         if ($conn->query($sql)) {
             echo "Successful";
         }else{

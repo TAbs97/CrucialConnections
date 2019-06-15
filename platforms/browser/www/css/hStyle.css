@@ -9,6 +9,17 @@ ul {
     padding:0;
     position: absolute;
 }
+.hidden{
+    position: relative;
+    display: inline-block;
+}
+ul.hidden{
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    padding: 0px;
+    background-color: transparent;
+}
 
 li {
     display:inline-block;
@@ -26,21 +37,6 @@ li a {
     text-decoration: none;
 }
 
-li:hover a {
-    background: #40395e;
-}
-/*Style for dropdown links*/
-li:hover ul a {
-    background: #f3f3f3;
-    color: #2f3036;
-    height: 40px;
-    line-height: 40px;
-}
-
-li:hover ul a:hover {
-    background: #19c589;
-    color: #fff;
-}
 
 li ul {
     display: none;
@@ -59,25 +55,13 @@ li ul li a {
 
 ul li a:hover + .hidden, .hidden:hover {
     display: block;
+    padding: 0%;
+    
 }
 
-.show-menu {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    color: #fff;
-    background: #19c589;
-    text-align: center;
-    padding: 10px 0;
-    display: none;
-}
 
-input[type=checkbox]{
-    display: none;
-}
 
-input[type=checkbox]:checked ~ #menu{
-    display: block;
-}
+
 
 @media screen and (max-width : 760px){
     

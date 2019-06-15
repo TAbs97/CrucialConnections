@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+</head>
+<body>
+    <div class="loginbox signup" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <h1>Sign Up</h1>
+        <form name="myForm" action="detail.php" method="post"> 
+            <p>Firstname</p>
+                <input type="text" name="" placeholder="Enter firstname"required>
+
+            <p>Surname</p>
+            <input type="text" name="" placeholder="Enter Surname" required>
+            <br/>
+
+            <p>Email</p>
+            <input type="Email" name="Email" placeholder="Enter Email" required>
+            <br>
+
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password" required >
+            <br>
+            
+            <input type="submit" id="Login" type="submit" onclick="getdata()" name="" value="Submit">           <br/>
+             <a href="index.html" class="text-center">Already have an account?</a>
+             
+
+             <script type = "text/javascript">
+                
+                   function validateEmail() {
+                      var emailID = document.myForm.EMail.value;
+                      atpos = emailID.indexOf("@");
+                      dotpos = emailID.lastIndexOf(".");
+                      
+                      if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                         alert("Please enter a correct email ID")
+                         document.myForm.EMail.focus() ;
+                         return false;
+                      }
+                      return( true );
+                   }
+              
+             </script>
+
+        
+
+        </form>
+    </div>
+</body> 
+</html>

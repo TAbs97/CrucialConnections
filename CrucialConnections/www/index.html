@@ -9,7 +9,7 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
 <body>
-   
+    <form action="">
     <div class="loginbox">
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Login</h1>
@@ -25,6 +25,7 @@
              <a href="SignUp.html">Don't have an account </a>
         
     </div>
+</form>
     <script src="js/jquery.js"></script>
     <script>
         $('#Login').click(function(){
@@ -41,15 +42,25 @@
                 data:{username : u_username,password : u_password},
                 success:function(data){
                     console.log(data);
-                    if(data.rows>0){
+
+                    if(data.rows> 0){
                         window.location.href="https://www.google.com";
                     }else{
+                        console.log("Fuseg");
+                    }
+                    if(data.rows > 0){
+                        window.location.href = "https://www.google.com";
+                    if(data.rows>0){
+                        window.location.href="lessonBooking.html";
+                    }else{
                         console.log("user not found");
+                    }
                     }
                 },
                 error:function(err){
                     console.log(err);
                 }
+                
             });
         });
     </script>

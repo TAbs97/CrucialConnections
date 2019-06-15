@@ -1,0 +1,14 @@
+<?php
+$a=20;
+$B=11;
+
+$sum=0;
+$difference=0;
+$product=0;
+$qoutient=0;
+
+echo $sum =$a . $B;
+echo $difference =$a - $B;
+echo $product =$a * $B;
+echo $qoutient =$a / $B;
+?>

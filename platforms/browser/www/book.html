@@ -1,74 +1,77 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> DriveBox</title>
-    <link rel="stylesheet" href="css/">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-    <div id="overlay"></div>
-    <div class="wrapper">
-        
-        <div class="nav">
-            <div class="appName">DriveBox</div>
-            <ul class="menu" id="smallnav">
-                <li><a href="#">Profile</a></li>
-                <li class="logout"><a href="#">Logout</a></li>
-            </ul>
-            <div class="menuicon" id="menu">
-                <span id="showw"><i class="fa fa-bars"></i></span><span id="close"><i class="fa fa-times"></i></span>
-            </div>
-            <!-- <div class="smallMenu"></div> -->
-            <!-- <div id="homePage">
-                <div class="homeContent">
-                    <h1>Home Page</h1>
-                </div>
-            </div> -->
-        </div>
-    </div>
-    <div class="floating_wrapper">
-        <!-- <div class="float_btn btn1"><span class="pluss"><i class="fa fa-users" aria-hidden="true"></i></span></div> -->
-        <div class="float_btn btn2"><span class="pluss"><i class="fa fa-pencil" aria-hidden="true"></i></span></div>
-        <!-- <div class="float_btn btn3"><span class="pluss"><i class="fa fa-user-plus" aria-hidden="true"></i></span></div> -->
-        <div class="float_btn btn4"><span class="pluss"><i class="fa fa-file" aria-hidden="true"></i></span></div>
-    </div>
-    <div class="float_btn" onclick="floatBtn()"><span class="pluss">+</span></div>
-    <script src="js/jquery.js"></script>
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/book.css">
+
     <script>
-            $('#showw').click(function(){                
-                $('#smallnav').show(500);
-                $(this).hide();
-                $('#close').show();
-                $('.floating_wrapper').hide();
-            });
+    
+    function date() {
+				 n = new Date();
+				 
+				 y = n.getFullYear();
+				 m = n.getMonth()+1 ;
+				 d = n.getDate();
+				 h = n.getHours();
+				 mi = n.getMinutes();
+				 s = n.getSeconds();
+				 
+				 return d +"/"+ m+"/"+y+" at "+ h+":"+ mi +":"+ s;
 
-            $('#close').click(function(){                
-                $('#smallnav').hide(500);
-                $(this).hide();
-                $('#showw').show();
-            });
-            
-            $(window).resize(function(){
-                if($(window).width() > 650){
-                    $('.menu').show();
-                    console.log(''+$(window).width());
-                }else{
-                    $('.menu').hide();
-                    $('#close').hide();
-                    $('#showw').show();
-                    console.log('new'+$(window).width());
-                }
-            });
+}
+setInterval(function(){
+document.getElementById("dt").value= date();
+},1000);
 
-            function floatBtn(){
-                $('.floating_wrapper').slideToggle('slow');
-            }
-            
-                
 
     </script>
-</body>
+</head>
+<body>
+    <div class="Booking" >
+        
+        <h1>Booking</h1>
+        <form name="myForm">
+          <table>
+            <tr>
+              <td><input type="text" id="dt"></td>
+            </tr>
+          </table>
+          <script>
+            document.getElementById("dt").value=date();
+          </script>
+
+            <p>Time</p>
+            <select class="select" required id="time"> 
+                <option value="">Select Time</option>
+                <option id="07:00" value="07:00">07:00</option>
+                <option id="10:00" value="10:00">10:00</option>
+                <option id="11:00" value="11:00">11:00</option>  
+                <option id="13:00" value="13:00">13:00</option>
+                <option id="15:00" value="15:00">15:00</option>                       
+              </select>
+            <hr>
+
+            <p>Date</p>
+            <input type="date" name="date" required> 
+           <hr>
+           <p>Days</p>
+           <select class="select" required id="day"> 
+               <option value="">Select Days</option>
+               <option id="1 day" value="1 day">1 day</option>
+               <option id="2 days" value="2 days">2 days</option>
+               <option id="3 days" value="3 days">3 days</option>                        
+             </select>
+             <hr>
+            <input type="submit" id="book" type="submit" onclick="getdata()" name="" value="Book">           <br/>
+           
+
+        </form>
+    </div>
+</body> 
 </html>

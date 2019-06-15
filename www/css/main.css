@@ -117,7 +117,7 @@ body{
         right: 0;
         z-index: 2;
     }
-    .menu li {
+    .menu li  li{
         /* color: black; */
         top: 66px;
         float: none;

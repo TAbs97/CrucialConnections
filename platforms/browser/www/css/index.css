@@ -55,7 +55,7 @@ h1{
 }
 
 
-.loginbox input[type="text"],input[type="password"] {
+.loginbox input[type="text"],input[type="password"],input[type="Email"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -64,6 +64,16 @@ h1{
     color: #fff;
     font-size: 16px;
   
+}
+#Login,.loginbox input[type="Submit"] {
+    border: none;
+    outline:none;
+    height: 40px;
+    background: cadetblue;
+    color: #fff;
+    font-size: 18px;
+    border-radius:5px;
+    width: 100%;
 }
 .loginbox input[type="button"] {
     border: none;
@@ -93,6 +103,7 @@ h1{
     background-color: #000;
     color: #fff;
 }
+
 .Document{
     position: absolute;
     width: 100%;
@@ -103,3 +114,45 @@ h1{
     height: 430px !important;
     
 }
+
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 12px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 7px;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background:  cadetblue; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 14px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background:  cadetblue; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }

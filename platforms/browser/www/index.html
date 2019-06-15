@@ -26,37 +26,34 @@
         
     </div>
 </form>
-    <script src="js/jquery.js"></script>
-    <script>
-        $('#Login').click(function(){
-            var u_username = $('#username').val();
-            var u_password = $('#password').val();
+<script src="js/jquery.js"></script>
+<script>
+    $('#Login').click(function(){
+        var u_username = $('#username').val();
+        var u_password = $('#password').val();
 
-            //alert("username : "+$username+"\nPassword : "+$password);
+        //alert("username : "+$username+"\nPassword : "+$password);
 
-            $.ajax({
-                url:"http://localhost:8081/CC_APIS/apis/login.php",
-                method:"POST",
-                
-                dataType:"JSON",
-                data:{username : u_username,password : u_password},
-                success:function(data){
-                    console.log(data);
-
-                    if(data.rows> 0){
-                        window.location.href="https://www.google.com";
-                    }else{
-                        console.log("user not found");
-                    }
-                    }
-                },
-                error:function(err){
-                    console.log(err);
+        $.ajax({
+            url:"http://localhost:8081/CC_APIS/apis/login.php",
+            method:"POST",
+            
+            dataType:"JSON",
+            data:{username : u_username,password : u_password},
+            success:function(data){
+                console.log(data);
+                if(data.rows>0){
+                    window.location.href="https://www.google.com";
+                }else{
+                    console.log("user not found");
                 }
-                
-            });
+            },
+            error:function(err){
+                console.log(err);
+            }
         });
-    </script>
+    });
+</script>
     
 </body> 
 </html>

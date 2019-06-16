@@ -15,21 +15,21 @@
         <h1>Sign Up</h1>
         <form name="myForm" action="detail.php" method="post"> 
             <p>Firstname</p>
-                <input type="text" name="" placeholder="Enter firstname"required>
+                <input type="text" name="" id="firstname" placeholder="Enter firstname"required>
 
             <p>Surname</p>
-            <input type="text" name="" placeholder="Enter Surname" required>
+            <input type="text" name="" id="surname" placeholder="Enter Surname" required>
             <br/>
 
             <p>Email</p>
-            <input type="Email" name="Email" placeholder="Enter Email" required>
+            <input type="Email" name="Email"  id=" Email"placeholder="Enter Email" required>
             <br>
 
             <p>Password</p>
-            <input type="password" name="" placeholder="Enter Password" required >
+            <input type="password" name=""  id="password"placeholder="Enter Password" required >
             <br>
             
-            <input type="submit" id="Login" type="submit" onclick="getdata()" name="" value="Submit">           <br/>
+            <input type="button" id="registerUser"  onclick="getdata()" name="" value="Submit">           <br/>
              <a href="index.html" class="text-center">Already have an account?</a>
              
 
@@ -49,10 +49,37 @@
                    }
               
              </script>
-
-        
-
         </form>
     </div>
+
+    <script>
+        $('#registerUser').click(function(){
+            var u_firstname = $('#firstname').val();
+            var u_surname = $('#surname').val();
+            var u_email = $('#Email').val();
+            var u_password = $('#password').val();
+    
+            //alert("username : "+$username+"\nPassword : "+$password);
+            // CC_APIS\apis\registerUser.php
+            $.ajax({
+                url:"http://localhost:8081/CC_APIS/apis/registerUser.php",
+                method:"POST",
+                
+                dataType:"JSON",
+                data:{firstname : u_firstname,surname : u_surname ,email : u_email,password : u_password},
+                success:function(data){
+                    console.log(data);
+                    if(data.rows>0){
+                        window.location.href="https://www.google.com";
+                    }else{
+                        console.log("user not found");
+                    }
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body> 
 </html>

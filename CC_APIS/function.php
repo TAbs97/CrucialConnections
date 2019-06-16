@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db_name = "drivebox";
+$db_name = "drivebox1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$db_name);
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     //selecting all users
     function getUsers(){
         global $conn;
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM client";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
             while($row = $results->fetch_assoc()){
@@ -26,22 +26,22 @@ if ($conn->connect_error) {
         }
     }
 
-    function login($username,$password){
+    function login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM users WHERE U_EMAIL = '".$username."' AND U_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND C_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
-               return $results; 
-              // echo "Found";
+               //return $results; 
+               echo "Found";
         }else{
             echo "Not Found";
         }
     }
 
 
-    function registerUser($name,$surname,$email,$role,$password,$balance){
+    function registerUser($name,$surname,$email,$password){
         global $conn;
-        $sql = "INSERT INTO users VALUES('','".$name."','".$surname."','".$email."',".$role.",'".$password."',$balance)";
+        $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
         if ($conn->query($sql)) {
             echo "Successful";
         }else{

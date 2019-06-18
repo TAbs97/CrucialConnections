@@ -2,69 +2,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- <link rel="stylesheet"  type=" text/css" href="css/book.css"> -->
-        <!-- <link rel="stylesheet"  type=" text/css" href="css/book.css"> -->
         <!-- <meta charset="UTF-8"> -->
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title> DriveBox</title>
         <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-        <link rel="stylesheet" href="css/hStyle.css">
-        <link rel="stylesheet" href="C:\xampp\htdocs\CrucialConnectinos\CrucialConnections\www\css\hStyle.css">
+        <!-- <link rel="stylesheet" href="css/hStyle.css"> -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
+
 <body>
+    <!-- Button trigger modal -->
 
-    <div id="overlay"></div>
-    <div class="wrapper">
-        <div class="nav">
-            <div class="appName">DriveBox</div>
-            <ul class="menu" id="smallnav">
-                    <li>
-                            <a href="Admin.html">HOME </a>       
-                   </li>
-                          
-                          <li>
-                               <a href="regButtons.html">REGISTER </a>
-                               
-                           </li>
-               
-               
-                           <li>
-                              <a href="remove.html">REMOVE </a>
+      <!-- Modal -->
+      <div class="modal fade" id="AddClientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add client data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2></h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="Container">
+        <div class="jumbotron">
+            <div class="card">
+                <h2> Add Clients</h2>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddClientmodal">
+                                Add
+                        </button>
                               
-                          </li>
-                          <li>
-                              <a href="book.html">BOOKING </a>
-                          </li>
-              
-                   <li><a href="#">Profile</a></li>
-                   <li class="logout"><a href="#">REPORTS</a></li>
-               </ul>
-               <div class="menuicon" id="menu">
-                   <span id="showw"><i class="fa fa-bars"></i></span><span id="close"><i class="fa fa-times"></i></span>
-               </div>
-           </div>
-       </div>
-      
-       
-      
-    
+                </div>
+            </div> 
 
-<div class="Buttons"  id="Buttons" >
-        <form action="AdminAdd.html" id="regB"> 
-            <button type="submit">REGISTER Admin</button>
-        </form> 
-        <form action="AddClient.html" id="regB"> 
-            <button type="submit">REGISTER Client</button>
-        </form> 
-        <form action="AdminAdd.html" id="regB"> 
-           <button type="submit">REGISTER Instructor</button>
-        </form> 
-        <form action="AddVehicle.html" id="regB"> 
-            <button type="submit">REGISTER VEHIVLE</button>
-        </form>
+
+        </div>
     </div>
-    </body>
-    </html>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
 
     

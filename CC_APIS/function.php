@@ -10,11 +10,12 @@ $conn = new mysqli($servername, $username, $password,$db_name);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " .$conn->connect_error);
+
 } 
 
  class Functions {
 
-    //selecting all users
+    //selecting all user
     function getUsers(){
         global $conn;
         $sql = "SELECT * FROM client";
@@ -26,12 +27,14 @@ if ($conn->connect_error) {
         }
     }
 
+
+
     function login($email,$password){
         global $conn;
         $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND C_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
-               //return $results; 
+               return $results; 
                echo "Found";
         }else{
             echo "Not Found";
@@ -43,7 +46,7 @@ if ($conn->connect_error) {
         global $conn;
         $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
         if ($conn->query($sql)) {
-            echo "Successful";
+            echo "successfully";
         }else{
             echo "Falied";
         }
@@ -51,3 +54,32 @@ if ($conn->connect_error) {
 }
 
 ?> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,18 +28,21 @@
 </form>
 <script src="js/jquery.js"></script>
 <script>
-    $('#Login').click(function(){
-        var u_username = $('#username').val();
-        var u_password = $('#password').val();
+    $('#Login').click(function(kho){
+        kho.preventDefault();
+        // var u_username = $('#username').val();
+        // var u_password = $('#password').val();
 
         //alert("username : "+$username+"\nPassword : "+$password);
         // C:\xampp\htdocs\github\CrucialConnections\CC_APIS\apis\login.php
         $.ajax({
-            url:"http://localhost:8081/CC_APIS/apis/login.php",
-            method:"POST",
+            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/login.php",
+            method:"POST",           
             
+            data: JSON.stringify({EMAIL : $('#username').val(),C_PASSWORD : $('#password').val() }),
+            contentType: "application/json; charset=utf-8",
             dataType:"JSON",
-            data:{username : u_username,password : u_password},
+                      
             success:function(data){
                 console.log(data);
                 if(data.rows>0){

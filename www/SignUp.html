@@ -22,7 +22,7 @@
             <br/>
 
             <p>Email</p>
-            <input type="Email" name="Email"  id=" Email"placeholder="Enter Email" required>
+            <input type="Email" name="Email"  id=" Email"placeholder="Enter Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <br>
 
             <p>Password</p>
@@ -32,23 +32,6 @@
             <input type="button" id="registerUser"  onclick="getdata()" name="" value="Submit">           <br/>
              <a href="index.html" class="text-center">Already have an account?</a>
              
-
-             <script type = "text/javascript">
-                
-                   function validateEmail() {
-                      var emailID = document.myForm.EMail.value;
-                      atpos = emailID.indexOf("@");
-                      dotpos = emailID.lastIndexOf(".");
-                      
-                      if (atpos < 1 || ( dotpos - atpos < 2 )) {
-                         alert("Please enter a correct email ID")
-                         document.myForm.EMail.focus() ;
-                         return false;
-                      }
-                      return( true );
-                   }
-              
-             </script>
         </form>
     </div>
 

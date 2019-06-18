@@ -24,8 +24,8 @@ nav{
 .Booking{
     
        width: 800px;
-        height: 350px;
-        background: #000;
+        height: 400px;
+        background-color: transparent;
         color: #fff;
         top: 38%;
         left: 50%;
@@ -45,7 +45,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 .Booking input[type="text"],input[type="password"],input[type="Email"] {
     border: none;
     border-bottom: 1px solid #fff;
-    background: transparent;
+    background: black;
     outline:none;
     height: 30px;
     color: #fff;
@@ -56,11 +56,11 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   
 }
 
-#Login,.Booking input[type="Submit"] {
+.Booking input[type="button"] {
     border: none;
     outline:none;
     height: 40px;
-    background: cadetblue;
+    background-color: cadetblue;
     color: #fff;
     font-size: 18px;
     border-radius:5px;
@@ -71,6 +71,21 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     
 }
 
+
+button{
+  border: none;
+  outline:none;
+  height: 40px;
+  background-color: cadetblue;
+  color: #fff;
+  font-size: 18px;
+  border-radius:5px;
+  width: 80%;
+  align-content: center;
+  margin-left: 7%;
+  margin-bottom: 5%
+  
+}
 
 ul {
     list-style-type: none;

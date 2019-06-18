@@ -19,7 +19,7 @@
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
-            <button id="Login" > Login</button>
+           <button id="Login" value="Login">Login</button> 
             <br/>
              <a href="#"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account </a>
@@ -42,9 +42,8 @@
             data:{username : u_username,password : u_password},
             success:function(data){
                 console.log(data);
-
                 if(data.rows>0){
-                    window.location.href="khozaBook.html";
+                    window.location.href="https://www.google.com";
                 }else{
                     console.log("user not found");
                 }

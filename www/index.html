@@ -9,7 +9,7 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
 <body>
-    <form>
+    <form method="">
     <div class="loginbox">
             <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
             <h1>Login</h1>
@@ -19,7 +19,7 @@
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
-            <button id="Login">Login</button>
+           <button id="Login" value="Login">Login</button> 
             <br/>
              <a href="#"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account </a>
@@ -33,7 +33,7 @@
         var u_password = $('#password').val();
 
         //alert("username : "+$username+"\nPassword : "+$password);
-
+        // C:\xampp\htdocs\github\CrucialConnections\CC_APIS\apis\login.php
         $.ajax({
             url:"http://localhost:8081/CC_APIS/apis/login.php",
             method:"POST",

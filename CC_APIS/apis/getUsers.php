@@ -4,6 +4,8 @@ require("../function.php");
 
 $func = new Functions();
 
-$func->getUsers();
+$register=$func->getUsers();
+
+
 
 ?>

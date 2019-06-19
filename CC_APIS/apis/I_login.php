@@ -11,7 +11,7 @@ $data = json_decode(file_get_contents('php://input'));
 $a = $data->EMAIL;
 $b = $data->C_PASSWORD;
 
- $login = $func->login($a,$b);
+ $login = $func->I_login($a,$b);
 
 if($login){
     echo json_encode(array("data"=>$login->fetch_assoc(),"rows" => $login->num_rows));

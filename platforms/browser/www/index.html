@@ -15,7 +15,7 @@
             <h1>Login</h1>
         
             <p>Email</p>
-                <input id="username" type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input id="username"type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
@@ -31,6 +31,10 @@
 <script>
     $('#Login').click(function(kho){
         kho.preventDefault();
+        // var u_username = $('#username').val();
+        // var u_password = $('#password').val();
+
+        //alert("username : "+$username+"\nPassword : "+$password);
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/login.php",
@@ -43,7 +47,7 @@
             success:function(data){
                 console.log(data);
                 if(data.rows>0){
-                    window.location.href="lessonBooking.html";
+                    window.location.href="https://www.google.com";
                 }else{
                     console.log("user not found");
                 }

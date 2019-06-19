@@ -51,6 +51,17 @@ if ($conn->connect_error) {
             echo "Falied";
         }
     }
+
+    
+    function bookLesson($name,$surname,$email,$password){
+        global $conn;
+        $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+        if ($conn->query($sql)) {
+            echo "Registered successfully";
+        }else{
+            echo "Falied";
+        }
+    }
 }
 
 ?> 

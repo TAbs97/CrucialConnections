@@ -15,6 +15,7 @@ $a = $data->CLIENT_NAME;
 $b = $data->CLIENT_SURNAME;
 $c = $data->EMAIL;
 $d = $data->C_PASSWORD;
+
  $func->registerUser($a,$b,$c,$d);
 
 

@@ -11,15 +11,15 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->CLIENT_NAME;
-$b = $data->CLIENT_SURNAME;
+$a = $data->ADMIN_NAME;
+$b = $data->ADMIN_SURNAME;
 $c = $data->EMAIL;
 $d = $data->C_PASSWORD;
 
- $func->registerUser($a,$b,$c,$d);
+ $func->A_registerUser($a,$b,$c,$d);
 
 
 
-echo "CLIENT_NAME : ".$a."\nCLIENT_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
+echo "ADMIN_NAME : ".$a."\nADMIN_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
 
 ?>

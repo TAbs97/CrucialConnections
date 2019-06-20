@@ -37,7 +37,7 @@
         //alert("username : "+$username+"\nPassword : "+$password);
 
         $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/login.php",
+            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_login.php",
             method:"POST",           
             
             data: JSON.stringify({EMAIL : $('#username').val(),C_PASSWORD : $('#password').val() }),

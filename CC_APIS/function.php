@@ -55,7 +55,7 @@ if ($conn->connect_error) {
 // client login
     function C_login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND C_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 

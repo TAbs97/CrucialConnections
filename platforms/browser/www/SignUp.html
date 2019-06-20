@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,42 +26,41 @@
             <br>
 
             <p>Password</p>
-            <input type="password" name=""  id="password"placeholder="Enter Password" required>
+            <input type="password" name=""  id="password"placeholder="Enter Password" required >
             <br>
             
             <input type="button" id="registerUser" name="" value="Submit"> 
-                      <br>
+              <br>
              <a href="index.html" class="text-center">Already have an account?</a>
              
         </form>
     </div>
 
     <script src="js/jquery.js"></script>
-<script>
-     $('#registerUser').click(function(kho){
+    <script>
+        $('#registerUser').click(function(kho){
             kho.preventDefault();
+            // var u_username = $('#username').val();
+            // var u_password = $('#password').val();
     
             //alert("username : "+$username+"\nPassword : "+$password);
-            // CC_APIS\apis\registerUser.php
+    
             $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/registerUser.php",
-            method:"POST",           
-            
-            data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME : $('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val()}),
-            contentType: "application/json; charset=utf-8",
-            dataType:"JSON",                 
-            success:function(data){
-            location.href="https://www.google.com";
-            },
-            error:function(err){
-                console.log(err);
-            }
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method:"POST",           
+                
+                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType:"JSON",
+                          
+                success:function(data){
+                    window.location.href="https://www.google.com";
+                },
+                error:function(err){
+                    console.log(err);
+                }
             });
         });
-    
-</script>
+    </script>
 </body> 
 </html>
-
-
-

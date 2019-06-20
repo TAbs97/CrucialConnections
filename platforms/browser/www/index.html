@@ -20,7 +20,7 @@
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
             <!-- <input type="button" value="Login"> -->
-           <button id="Login">Login</button> 
+           <button id="Login" >Login</button> 
             <br/>
              <a href="#"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account </a>
@@ -37,7 +37,7 @@
         //alert("username : "+$username+"\nPassword : "+$password);
 
         $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/login.php",
+            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_login.php",
             method:"POST",           
             
             data: JSON.stringify({EMAIL : $('#username').val(),C_PASSWORD : $('#password').val() }),

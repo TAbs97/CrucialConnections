@@ -122,9 +122,31 @@ if ($conn->connect_error) {
             echo "Falied";
         }
     }
-}
 
-?> 
+    // selectClients
+    function client_Display(){
+        global $conn;
+        $sql = "select * from client";
+        $query=mysqli_query($conn,$sql);
+        if (mysqli_num_rows($query)>0) {
+            while($results=mysqli_fetch_array($query)){
+                ?>
+              <tr>
+                 <td> <?php echo$results['CLIENT_ID']?></td>
+                 <td> <?php echo$results['CLIENT_NAME']?></td>
+                 <td><?php echo$results['CLIENT_SURNAME']?></td>
+                 <td><?php echo$results['EMAIL']?></td>
+              </tr>
+
+            }<?php
+            //echo "Selected successfully";
+        }//else{
+           // echo "Falied";
+        }
+    }
+}
+?>
+ 
 
 
 

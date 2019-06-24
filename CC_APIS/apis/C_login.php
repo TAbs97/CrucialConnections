@@ -21,6 +21,6 @@ else{
     echo json_encode(array("data"=>"empty"));
    // echo false;
 }
-echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
+//echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
 
 ?>

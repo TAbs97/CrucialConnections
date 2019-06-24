@@ -6,10 +6,9 @@ body{
     font-family: sans-serif;
  background: url(../img/logo.jpg);
 }
-
 #kho{
-    font-size: 15px;
-    text-align:center;
+font-size: 20px;
+text-align: center;
 }
 
 .loginbox{

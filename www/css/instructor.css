@@ -7,9 +7,9 @@ body{
  background: url(../img/logo.jpg);
 }
 
-.loginbox{
+.loginbox signup{
     width: 300px;
-    height: 420px;
+    height: 465px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -20,7 +20,8 @@ body{
     border-radius: 15px;
     padding: 60px 30px;
 }
- .signup{
+
+ .loginbox{
     height: 100% !important;
     box-sizing: unset !important;
     width: 220px;
@@ -55,7 +56,7 @@ h1{
 }
 
 
-.loginbox input[type="text"],input[type="password"],input[type="Email"] {
+.loginbox input[type="text"],input[type="password"] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -65,7 +66,7 @@ h1{
     font-size: 16px;
   
 }
-#Login,.loginbox input[type="Submit"] {
+.loginbox input[type="Submit"] {
     border: none;
     outline:none;
     height: 40px;
@@ -114,45 +115,3 @@ h1{
     height: 430px !important;
     
 }
-
-
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 12px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    border-radius: 7px;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background:  cadetblue; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 14px;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background:  cadetblue; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }

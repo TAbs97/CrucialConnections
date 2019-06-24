@@ -9,7 +9,7 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
 <body>
-    <form >
+    <form method>
     <div class="loginbox">
             <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
             <h1>Login</h1>
@@ -19,12 +19,10 @@
             <p>Password</p>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
             <br>
-            
-           <!-- <button id="Login">Login</button>  -->
-           <input type="button" value="login" id="Login"/>
+
+           <button id="Login">Login</button> 
             <br/>
-             <a href="forgottenpassword.html"> Lost your password ?</a><br>
-             <a href="SignUp.html">Don't have an account </a>
+             <a href="#"> Lost your password ?</a><br>
         
     </div>
 </form>
@@ -32,23 +30,19 @@
 <script>
     $('#Login').click(function(kho){
         kho.preventDefault();
-        // var u_username = $('#username').val();
-        // var u_password = $('#password').val();
-
-        //alert("username : "+$username+"\nPassword : "+$password);
 
         $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_login.php",
+            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Ins_Login.php",
             method:"POST",           
             
-            data: JSON.stringify({EMAIL : $('#username').val(),C_PASSWORD : $('#password').val() }),
+            data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
             contentType: "application/json; charset=utf-8",
             dataType:"JSON",
                       
             success:function(data){
                 console.log(data);
                 if(data.rows>0){
-                    window.location.href="lessonBooking.html";
+                    window.location.href="https://www.google.com";
                 }else{
                     console.log("user not found");
                 }

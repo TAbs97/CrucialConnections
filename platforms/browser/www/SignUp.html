@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,21 +40,21 @@
     <script>
         $('#registerUser').click(function(kho){
             kho.preventDefault();
+            // var u_username = $('#username').val();
+            // var u_password = $('#password').val();
+    
+            //alert("username : "+$username+"\nPassword : "+$password);
     
             $.ajax({
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),USER_PASSWORD : $('#password').val() }),
+                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
                 success:function(data){
-                    
-                if (data.redirectTo) {
-
-                    window.location.href = "ClientLogin.html";
-                }
+                    window.location.href="https://www.google.com";
                 },
                 error:function(err){
                     console.log(err);

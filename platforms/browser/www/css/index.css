@@ -114,18 +114,6 @@ h1{
     height: 430px !important;
     
 }
-#kho{
-text-align: center;
-font-style: italic;
-font-size: 20px;
-
-}
-#kh{
-    text-align: center;
-    font-style: italic;
-    font-size: 20px;
-    
-    }
 
 
 .slidecontainer {
@@ -167,8 +155,4 @@ font-size: 20px;
     height: 25px; /* Slider handle height */
     background:  cadetblue; /* Green background */
     cursor: pointer; /* Cursor on hover */
-  }
-
-  a{
-
   }

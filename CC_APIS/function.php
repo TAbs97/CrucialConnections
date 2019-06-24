@@ -56,9 +56,9 @@ if ($conn->connect_error) {
 
 
 // client login
-    function C_login($email,$password){
+    function login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND C_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 
@@ -67,10 +67,10 @@ if ($conn->connect_error) {
             echo "Not Found";
         }
     }
-// instructor login
-    function I_login($email,$password){
+
+    function Ins_login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND I_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 
@@ -83,7 +83,7 @@ if ($conn->connect_error) {
     // admin login
     function A_login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM adminn WHERE EMAIL = '".$email."' AND A_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM adminn WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 

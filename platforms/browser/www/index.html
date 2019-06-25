@@ -9,58 +9,16 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 </head>
 <body>
-    <form method="">
+    <form >
     <div class="loginbox">
             <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
-            <h1>Login</h1>
-        
-            <p>Email</p>
-                <input id="username"type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-            <p>Password</p>
-            <input type="password" id="password" type="text" name="" placeholder="Enter password" required>
-            <br>
-           
-           <!-- <button id="Login">Login</button>  -->
-           <input type="button" value="login" id="Login"/>
-            <br/>
-             <a href="forgottenpassword.html"> Lost your password ?</a><br>
-             <a href="SignUp.html">Don't have an account </a>
+            <h1>Welcome<br>to<br>DriveBox</h1>
+        <br><br><br>
+             <a href="Client_Login.html" id="kho" style="color:  cadetblue"> Login as Client</a><br><br>
+             <a href="Ins_Login.html" id="kho"  style="color: rgba(21, 151, 184, 0.651);">Login as Instructor </a>
         
     </div>
 </form>
-<script src="js/jquery.js"></script>
-<script>
-    $('#Login').click(function(kho){
-        kho.preventDefault();
-        // var u_username = $('#username').val();
-        // var u_password = $('#password').val();
-
-        //alert("username : "+$username+"\nPassword : "+$password);
-        
-        $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
-            method:"POST",           
-            
-            data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
-            contentType: "application/json; charset=utf-8",
-            dataType:"JSON",
-                      
-            success:function(data){
-                console.log(data);
-                if(data.rows>0){
-                    window.location.href="lessonBooking.html";
-                }else{
-                    console.log("user not found");
-                }
-            },
-            error:function(err){
-                console.log(err);
-            }
-        });
-    });
-</script>
-
     
 </body> 
 </html>
-

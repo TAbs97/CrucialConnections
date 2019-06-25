@@ -7,11 +7,6 @@ body{
  background: url(../img/logo.jpg);
 }
 
-#kho{
-    font-size: 15px;
-    text-align:center;
-}
-
 .loginbox{
     width: 300px;
     height: 420px;

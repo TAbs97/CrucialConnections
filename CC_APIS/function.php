@@ -80,7 +80,7 @@ if ($conn->connect_error) {
     // admin login
     function A_login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM adminn WHERE EMAIL = '".$email."' AND A_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM adminn WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 
@@ -122,7 +122,17 @@ if ($conn->connect_error) {
             echo "Falied";
         }
     }
-
+     
+    // vehicle register
+    function V_registerVehicle($MODEL,$VEHICLE_ID,$VEHICLE_NAME){
+        global $conn;
+        $sql = "INSERT INTO vehicles VALUES('','".$MODEL."','".$VEHICLE_ID."','".$VEHICLE_NAME."')";
+        if ($conn->query($sql)) {
+            echo "Registered successfully";
+        }else{
+            echo "Falied";
+        }
+    }
     // selectClients
     function client_Display(){
         global $conn;

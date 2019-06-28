@@ -14,7 +14,7 @@ $data = json_decode(file_get_contents('php://input'));
 $a = $data->CLIENT_NAME;
 $b = $data->CLIENT_SURNAME;
 $c = $data->EMAIL;
-$d = $data->C_PASSWORD;
+$d = $data->USER_PASSWORD;
 
  $func->C_registerUser($a,$b,$c,$d);
 

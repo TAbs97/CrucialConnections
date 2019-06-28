@@ -1,4 +1,7 @@
 <?php
+
+// header('Content-Type: application/json');
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -53,9 +56,9 @@ if ($conn->connect_error) {
 
 
 // client login
-    function C_login($email,$password){
+    function login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND C_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM client WHERE EMAIL = '".$email."' AND USER_PASSWORD ='".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 
@@ -64,10 +67,10 @@ if ($conn->connect_error) {
             echo "Not Found";
         }
     }
-// instructor login
-    function I_login($email,$password){
+
+    function Ins_login($email,$password){
         global $conn;
-        $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND I_PASSWORD = '".$password."'";
+        $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
                return $results; 
@@ -138,23 +141,31 @@ if ($conn->connect_error) {
         global $conn;
         $sql = "select * from client";
         $query=mysqli_query($conn,$sql);
-        if (mysqli_num_rows($query)>0) {
-            while($results=mysqli_fetch_array($query)){
-                ?>
-              <tr>
-                 <td> <?php echo$results['CLIENT_ID']?></td>
-                 <td> <?php echo$results['CLIENT_NAME']?></td>
-                 <td><?php echo$results['CLIENT_SURNAME']?></td>
-                 <td><?php echo$results['EMAIL']?></td>
-              </tr>
-
-            }<?php
-            //echo "Selected successfully";
-        }//else{
-           // echo "Falied";
-        }
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+    }
+///select bookings
+    function booking_Display(){
+        global $conn;
+        $sql = "select * from booking";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
     }
 }
+    
 ?>
  
 

@@ -1,8 +1,7 @@
-
 .Booking{
-    width: 500px;
-    height: 700px;
-   
+    width: 300px;
+    height: 550px;
+    background: #000;
     color: #fff;
     top: 50%;
     left: 50%;
@@ -12,6 +11,9 @@
     border-radius: 15px;
     padding: 60px 30px;
     margin-top: 5%;
+}
+body{
+    background: url(../img/logo.jpg);
 }
 .avatar{
     position:absolute;
@@ -28,7 +30,7 @@ h1{
     text-align: center;
 }
 
-.Booking input[type="submit"] {
+.Booking input[type="button"] {
     border: none;
     outline:none;
     height: 40px;
@@ -52,6 +54,3 @@ h1{
     font-weight:bold;
 
 }
-
-
-

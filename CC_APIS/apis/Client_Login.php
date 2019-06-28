@@ -9,9 +9,9 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 $a = $data->EMAIL;
-$b = $data->C_PASSWORD;
+$b = $data->USER_PASSWORD;
 
- $login = $func->C_login($a,$b);
+ $login = $func->login($a,$b);
 
 if($login){
     echo json_encode(array("data"=>$login->fetch_assoc(),"rows" => $login->num_rows));
@@ -21,6 +21,6 @@ else{
     echo json_encode(array("data"=>"empty"));
    // echo false;
 }
-echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
+echo "EMAIL : ".$a."\n USER_PASSWORD : ".$b;
 
 ?>

@@ -67,7 +67,7 @@ if ($conn->connect_error) {
             echo "Not Found";
         }
     }
-
+// instructor login
     function Ins_login($email,$password){
         global $conn;
         $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
@@ -119,6 +119,17 @@ if ($conn->connect_error) {
     function A_registerUser($name,$surname,$email,$password){
         global $conn;
         $sql = "INSERT INTO adminn VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+        if ($conn->query($sql)) {
+            echo "Registered successfully";
+        }else{
+            echo "Falied";
+        }
+    }
+
+     // Add vehicle
+     function AddVehicle($vehicleName,$model,$Code_ID){
+        global $conn;
+        $sql = "INSERT INTO vehicle('','".$VEHICLE_NAME."','".$MODEL."','".$CODE_ID."')";
         if ($conn->query($sql)) {
             echo "Registered successfully";
         }else{

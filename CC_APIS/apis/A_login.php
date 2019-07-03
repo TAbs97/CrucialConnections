@@ -9,7 +9,7 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 $a = $data->EMAIL;
-$b = $data->A_PASSWORD;
+$b = $data->USER_PASSWORD;
 
  $login = $func->A_login($a,$b);
 

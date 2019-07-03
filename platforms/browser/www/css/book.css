@@ -42,6 +42,18 @@ h1{
     position: absolute;
 }
 
+.Booking input[type="submit"] {
+    border: none;
+    outline:none;
+    height: 40px;
+    background: cadetblue;
+    color: #fff;
+    font-size: 18px;
+    border-radius:5px;
+    width: 78%;
+    position: absolute;
+}
+
 .Booking input[type="submit"]:hover{
     cursor:pointer;
     background: grey;

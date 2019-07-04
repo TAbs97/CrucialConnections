@@ -136,7 +136,6 @@ if ($conn->connect_error) {
             echo "Falied";
         }
     }
-
     // selectClients
     function client_Display(){
         global $conn;

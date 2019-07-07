@@ -150,6 +150,20 @@ if ($conn->connect_error) {
             echo json_encode($rows);
     
     }
+
+    function clientDetails(){
+        global $conn;
+        $sql = "select client.";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+    }
 ///select bookings
     function booking_Display(){
         global $conn;

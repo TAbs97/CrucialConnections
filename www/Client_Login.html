@@ -29,8 +29,8 @@
 </form>
 <script src="js/jquery.js"></script>
 <script>
-    $('#Login').click(function(kho){
-        kho.preventDefault();
+    $('#Login').click(function(){
+        
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
@@ -49,7 +49,14 @@
                 }
             },
             error:function(err){
+
                 console.log(err);
+                swal({
+                title: "Good job!",
+                text: "incorrect login details!",
+                icon: "warning",
+                button: "OK",
+                });
             }
         });
     });

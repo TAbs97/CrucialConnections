@@ -29,7 +29,7 @@ text-align: center;
     box-sizing: unset !important;
     width: 220px;
     margin-top: 50px;
-    height: 430px !important;
+    height: 480px !important;
     
 
 }
@@ -90,11 +90,13 @@ h1{
     width: 100%;
 }
 
+
+/* 
 .loginbox input[type="submit"]:hover{
     cursor:pointer;
     background: grey;
     color:white;
-}
+} */
 .loginbox a{
     text-decoration: none;
     font-size: 12px;

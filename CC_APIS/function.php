@@ -67,7 +67,7 @@ if ($conn->connect_error) {
             echo "Not Found";
         }
     }
-
+// instructor login
     function Ins_login($email,$password){
         global $conn;
         $sql = "SELECT * FROM instructor WHERE EMAIL = '".$email."' AND USER_PASSWORD = '".$password."'";
@@ -126,10 +126,34 @@ if ($conn->connect_error) {
         }
     }
 
+     // Add vehicle
+     function AddVehicle($vehicleName,$model,$Code_ID){
+        global $conn;
+        $sql = "INSERT INTO vehicle('','".$VEHICLE_NAME."','".$MODEL."','".$CODE_ID."')";
+        if ($conn->query($sql)) {
+            echo "Registered successfully";
+        }else{
+            echo "Falied";
+        }
+    }
     // selectClients
     function client_Display(){
         global $conn;
         $sql = "select * from client";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+    }
+
+    function clientDetails(){
+        global $conn;
+        $sql = "select client.";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){

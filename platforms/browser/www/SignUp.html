@@ -8,17 +8,19 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
     <div class="loginbox signup" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Sign Up</h1>
-        <form name="myForm" action="" method=""> 
+        <form  action="" method=""> 
             <p>Firstname</p>
-                <input type="text" name="" id="firstname" placeholder="Enter firstname"required>
+                <input type="text" name="" id="firstname" placeholder="Enter firstname"required pattern="[A-Za-z]">
 
             <p>Surname</p>
-            <input type="text" name="" id="surname" placeholder="Enter Surname" required>
+            <input type="text" name="" id="surname" placeholder="Enter Surname" required pattern="[A-Za-z]">
             <br/>
 
             <p>Email</p>
@@ -26,8 +28,13 @@
             <br>
 
             <p>Password</p>
-            <input type="password" name=""  id="password"placeholder="Enter Password" required >
+            <input type="password" name=""  id="password"placeholder="Enter Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
             <br>
+           
+            <p>Confirm password</p>
+            <input type="password" name=""  id="ConfirmPassword"placeholder="Confirm password"  oninput="check(this)" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+            <br>
+           
             
             <input type="button" id="registerUser" name="" value="Submit"> 
               <br>
@@ -38,8 +45,8 @@
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function(kho){
-            kho.preventDefault();
+        $('#registerUser').click(function(){
+            // kho.preventDefault();
             // var u_username = $('#username').val();
             // var u_password = $('#password').val();
     
@@ -54,13 +61,24 @@
                 dataType:"JSON",
                           
                 success:function(data){
-                    window.location.href="https://www.google.com";
+                    window.location.href="Client_Login.html";
                 },
                 error:function(err){
                     console.log(err);
                 }
             });
         });
+    </script>
+<!-- check if password and confirm password are the same -->
+<script language='javascript' type='text/javascript'>
+    function check(input) {
+    if (input.value != document.getElementById('password').value) {
+    input.setCustomValidity('Password Must be Matching.');
+    } else {
+    // input is valid -- reset the error message
+    input.setCustomValidity('');
+    }
+    }
     </script>
 </body> 
 </html>

@@ -7,6 +7,11 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+
+
 </head>
 <body>
 
@@ -15,19 +20,43 @@
                 
                 <form>
 
-                     <input  type="button" name="username" onclick="window.location.href=''" value="View Profile" >
+                     <input  type="button" name="username" onclick="window.location.href=''" value="Profile" >
                     <br>
-                    <input  type="button" name="username" onclick="window.location.href='book.html'" value="Book a Lesson" >
+                    <input  type="button" name="username" onclick="window.location.href='#'" value="Lessons" >
                     <br>
-                    <input  type="button" name="username" value="View booking" >
+                    <input  type="button" name="username" value="View bookings" >
                     <br>
                     <input type="button" id="password" value="Cancel booking">
                     <br>
-                    <input type="button" id="password" onclick="window.location.href='index.html'" value="LogOut">
+                    <input type="button" id="password" onclick="JSconfirm()" value="LogOut">
                     
 
                 </form>
             </div>
+
+            <script type="text/javascript">
+                function JSconfirm(){
+                    swal({ 
+                    title: "logOut?",   
+                    text: "Redirect me to home page?",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes",   
+                    cancelButtonText: "No",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false }, 
+                    function(isConfirm){   
+                        if (isConfirm) 
+                    {   
+                        window.location = "instructorlogin.html";   
+                        } 
+                        else {     
+                            window.location = "instructorHomePage.html";   
+                            } });
+                }
+                </script>
+
 
 </body> 
 </html>

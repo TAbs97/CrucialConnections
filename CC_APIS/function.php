@@ -96,33 +96,58 @@ if ($conn->connect_error) {
 // client register
     function C_registerUser($name,$surname,$email,$password){
         global $conn;
-        $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
-        if ($conn->query($sql)) {
-            echo "Registered successfully";
-        }else{
-            echo "Falied";
+        $sql = "SELECT * FROM client WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "User Already registered";
         }
+        else
+        {
+        $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+            if ($conn->query($sql)) {
+                echo "Registered successfully";
+                }else{
+                echo "Falied";
+            }
+        }
+
     }
 
     // instructor register
     function I_registerUser($name,$surname,$email,$password){
         global $conn;
-        $sql = "INSERT INTO instructor VALUES('','".$name."','".$surname."','".$email."','".$password."')";
-        if ($conn->query($sql)) {
-            echo "Registered successfully";
-        }else{
-            echo "Falied";
+        $sql = "SELECT * FROM instructor WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "User Already registered";
+        }
+        else
+        {
+            $sql = "INSERT INTO instructor VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+            if ($conn->query($sql)) {
+                echo "Registered successfully";
+            }else{
+                echo "Falied";
+            }
         }
     }
 
     // admin register
     function A_registerUser($name,$surname,$email,$password){
         global $conn;
-        $sql = "INSERT INTO adminn VALUES('','".$name."','".$surname."','".$email."','".$password."')";
-        if ($conn->query($sql)) {
-            echo "Registered successfully";
-        }else{
-            echo "Falied";
+        $sql = "SELECT * FROM adminn WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "User Already registered";
+        }
+        else
+        {
+            $sql = "INSERT INTO adminn VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+            if ($conn->query($sql)) {
+                echo "Registered successfully";
+            }else{
+                echo "Falied";
+            }
         }
     }
 
@@ -139,7 +164,7 @@ if ($conn->connect_error) {
     // selectClients
     function client_Display(){
         global $conn;
-        $sql = "select * from client";
+        $sql = "SELECT * from client";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){
@@ -153,7 +178,7 @@ if ($conn->connect_error) {
 
     function clientDetails(){
         global $conn;
-        $sql = "select client.";
+        $sql = "SELECT client.";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){
@@ -167,7 +192,7 @@ if ($conn->connect_error) {
 ///select bookings
     function booking_Display(){
         global $conn;
-        $sql = "select * from booking";
+        $sql = "SELECT * from booking";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){

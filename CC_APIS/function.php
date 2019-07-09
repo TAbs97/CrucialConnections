@@ -45,7 +45,7 @@ if ($conn->connect_error) {
     // get admin
     function A_getUsers(){
         global $conn;
-        $sql = "SELECT * FROM [admin]";
+        $sql = "SELECT * FROM adminn";
         $results = $conn->query($sql);
         if ($results->num_rows > 0) {
             while($row = $results->fetch_assoc()){
@@ -154,11 +154,19 @@ if ($conn->connect_error) {
      // Add vehicle
      function AddVehicle($vehicleName,$model,$Code_ID){
         global $conn;
-        $sql = "INSERT INTO vehicle('','".$VEHICLE_NAME."','".$MODEL."','".$CODE_ID."')";
-        if ($conn->query($sql)) {
-            echo "Registered successfully";
-        }else{
+        $sql = "SELECT * FROM adminn WHERE EMAIL ='".$CODE_ID."'";
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "User Already registered";
+        }
+        else
+        {
+            $sql = "INSERT INTO vehicle('','".$VEHICLE_NAME."','".$MODEL."','".$CODE_ID."')";
+            if ($conn->query($sql)) {
+                echo "Registered successfully";
+            }else{
             echo "Falied";
+            }
         }
     }
     // selectClients

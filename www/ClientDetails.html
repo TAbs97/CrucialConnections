@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+</head>
+<body>
+    <div class="loginbox signup" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <h2>Profile</h2>
+        <form name="myForm"> 
+
+            <label for=""></label>
+            <label for=""></label>
+            <label for=""></label>
+            <label for=""></label>
+            <label for=""></label>
+            <label for=""></label>
+            <label for=""></label>
+          
+        </form>
+    </div>
+
+    fetch client details,package selected,lessons remaining
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#clients").click(function(){
+                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
+                        console.log(data);
+                        var data=JSON.parse(data);
+
+                        data.forEach(function(dt) {
+                          $("#ClientsData").append("<tr>" + 
+                            "<td>"+ dt.CLIENT_ID+"</td>" +       
+                            "<td>"+ dt.CLIENT_NAME+"</td>" +
+                            "<td>"+ dt.CLIENT_SURNAME+"</td>" +
+                            "<td>"+ dt.EMAIL+"</td>"+
+                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>"+
+                            "</tr>");
+                       
+                        });
+                            
+                  });
+            });
+
+        });     
+    </script>
+</body> 
+</html>

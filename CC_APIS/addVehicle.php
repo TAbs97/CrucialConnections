@@ -15,6 +15,6 @@ $c = $data->VEHICLE_NAME;
 
 
 
-echo "MODEL : ".$a."\n VEHICLE_ID : ".$b."\n VEHICLE_NAME : ".$c;
+//echo "MODEL : ".$a."\n VEHICLE_ID : ".$b."\n VEHICLE_NAME : ".$c;
 
 ?>

@@ -38,11 +38,11 @@
             data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
             contentType: "application/json; charset=utf-8",
             dataType:"JSON",
-                      
+           
             success:function(data){
                 console.log(data);
                 if(data.rows>0){
-                    window.location.href="https://www.google.com";
+                    window.location.href="instructorHomePage.html";
                 }else{
                     console.log("user not found");
                 }

@@ -8,31 +8,39 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="css/parsley.css">
+
+
 </head>
 <body>
     <div class="loginbox signup" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Sign Up</h1>
-        <form  action="" method=""> 
+
+        <script src="js/jquery.js"></script>
+        <script src="js/parsley.js"></script>
+        <script src="js/parsley.min.js"></script>
+
+        <form data-parsley-validate=""> 
             <p>Firstname</p>
-                <input type="text" name="" id="firstname" placeholder="Enter firstname"required pattern="[A-Za-z]">
+                <input type="text" name="" id="firstname" placeholder="Enter firstname" required="" >
 
             <p>Surname</p>
-            <input type="text" name="" id="surname" placeholder="Enter Surname" required pattern="[A-Za-z]">
+            <input type="text" name="" id="surname" placeholder="Enter Surname" required="">
             <br/>
 
             <p>Email</p>
-            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" required="">
             <br>
 
             <p>Password</p>
-            <input type="password" name=""  id="password"placeholder="Enter Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <input type="password" name=""  id="password"placeholder="Enter Password" required="">
             <br>
            
             <p>Confirm password</p>
-            <input type="password" name=""  id="ConfirmPassword"placeholder="Confirm password"  oninput="check(this)" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+            <input type="password" name=""  id="ConfirmPassword"placeholder="Confirm password"  oninput="check(this)" required="" >
             <br>
            
             
@@ -41,6 +49,10 @@
              <a href="index.html" class="text-center">Already have an account?</a>
              
         </form>
+<!--         
+                <script>
+                    $('#form').parsley();
+                </script> -->
     </div>
 
     <script src="js/jquery.js"></script>
@@ -65,7 +77,7 @@
         });
     </script>
 <!-- check if password and confirm password are the same -->
-<script language='javascript' type='text/javascript'>
+<!-- <script language='javascript' type='text/javascript'>
     function check(input) {
     if (input.value != document.getElementById('password').value) {
     input.setCustomValidity('Password Must be Matching.');
@@ -74,6 +86,8 @@
     input.setCustomValidity('');
     }
     }
-    </script>
+    </script> -->
+
+    
 </body> 
 </html>

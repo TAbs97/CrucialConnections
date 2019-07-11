@@ -132,6 +132,20 @@ if ($conn->connect_error) {
         }
     }
 
+     // packageSelection
+     function SelectPackage($name,$surname,$email,$password){
+        global $conn;
+        
+            $sql = "INSERT INTO instructor VALUES('','".$name."','".$surname."','".$email."','".$password."')";
+            if ($conn->query($sql)) {
+                echo "package selected successfully";
+            }else{
+                echo "Falied";
+            }
+        
+    }
+
+
     // admin register
     function A_registerUser($name,$surname,$email,$password){
         global $conn;

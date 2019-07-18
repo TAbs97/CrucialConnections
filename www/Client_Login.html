@@ -51,11 +51,10 @@
             dataType:"JSON",
                
             success:function(data){
-              //  alert(data.data["CLIENT_ID"]+ "" + data.data["EMAIL"]);
+                var id=data.data["CLIENT_ID"];
+                localStorage.setItem('clientID',id);
+
               console.log(data);
-            
-                //console.log(data.data.CLIENT_ID);
-   
                 if(data.rows> 0 ){
                     window.location.href="lessonBooking.html";
                 }else{

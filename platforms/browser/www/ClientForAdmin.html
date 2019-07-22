@@ -15,6 +15,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" integrity="sha256-Z8TW+REiUm9zSQMGZH4bfZi52VJgMqETCbPFlGRB1P8=" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+
+
       </head>
 
 
@@ -37,23 +45,23 @@
 
                   <div class="form-group">
                       <label>Last Name</label>               
-                      <input type="text" class="form-control" id="LastName" placeholder="LastName" required>
+                      <input type="text" class="form-control" id="LastName" placeholder="LastName" required maxlength="20">
                     </div>
   
                   <div class="form-group">
                       <label>First Name</label>
-                      <input type="text" class="form-control" id="FirstName" placeholder="FirstName" required>
+                      <input type="text" class="form-control" id="FirstName" placeholder="FirstName" required maxlength="20">
                     </div>
   
                     
                   <div class="form-group">
                     <label 8>Email address</label>
-                    <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
                   </div>
               
             </div>
@@ -95,12 +103,12 @@
                     
                   <div class="form-group">
                     <label 8>Email address</label>
-                    <input type="email" class="form-control" id="c_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email"required/>
+                    <input type="email" class="form-control" id="c_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email"required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                     
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="c_password" placeholder="Password"required/>
+                    <input type="password" class="form-control" id="c_password" placeholder="Password"required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
                   </div>
               
             </div>
@@ -163,7 +171,7 @@
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CLIENT_NAME : $('#c_firstname').val(),CLIENT_SURNAME :$('#c_surname').val(),EMAIL : $('#c_EmailAddress').val(),C_PASSWORD : $('#c_password').val() }),
+                data: JSON.stringify({CLIENT_NAME : $('#FirstName').val(),CLIENT_SURNAME :$('#LastName').val(),EMAIL : $('#EmailAddress').val(),USER_PASSWORD: $('#password').val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
@@ -215,7 +223,7 @@
                   console.log(data);
                   var data=JSON.parse(data);
 
-                  data.forEach(function(dt) {
+                  success:(function(dt) {
                       $("#c_LastName").val(dt.CLIENT_SURNAME),
                       $("#c_FirstName").val(dt.CLIENT_NAME),
                       $("#c_EmailAddress").val(dt.c_EmailAddress)

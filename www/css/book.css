@@ -56,7 +56,7 @@ h1{
 
 .Booking input[type="submit"]:hover{
     cursor:pointer;
-    background: grey;
+    /* background: grey; */
     color:white;
 }
 

@@ -11,6 +11,8 @@
 
     <script>
 
+var ClientID = localStorage.getItem('clientID');
+
 function getDate(x){
         
         if( x === '1 day'){
@@ -84,9 +86,9 @@ document.getElementById("dt").value= date();
   <br>
 
   <p>Dates in a Week</p>
-  <input type="date" name="date" id="date1" style="visibility:hidden;" required> 
-  <input type="date" name="date" id="date2" style="visibility:hidden;" required> 
-  <input type="date" name="date" id="date3" style="visibility:hidden;" required> 
+  <input type="date" name="date" id="date1" style="visibility:hidden;" required/> 
+  <input type="date" name="date" id="date2" style="visibility:hidden;" required/> 
+  <input type="date" name="date" id="date3" style="visibility:hidden;" required/> 
   <br>
 
 
@@ -130,9 +132,35 @@ document.getElementById("dt").value= date();
     </tr>
   </table>
 <br>
-<input id="book" type="button" onclick="getdata()" name="" value="Book">           <br/>  
+<input id="book" type="button" name="" value="Book">           <br/>  
 
         </form>
     </div>
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#book').click(function(kho){
+            kho.preventDefault();
+           
+            $.ajax({
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method:"POST",           
+                
+                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType:"JSON",
+                          
+                success:function(data){
+                  swal()
+
+                    
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body> 
 </html>

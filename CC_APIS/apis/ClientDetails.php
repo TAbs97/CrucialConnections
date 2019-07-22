@@ -20,6 +20,6 @@ if($details){
 //     echo json_encode(array("data"=>"empty"));
 
 // }
-//echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
+ //echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
 
 ?>

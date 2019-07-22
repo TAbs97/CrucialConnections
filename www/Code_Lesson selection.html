@@ -40,5 +40,27 @@
 
         </form>
     </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#registerUser').click(function(){
+    
+            $.ajax({
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method:"POST",           
+                
+                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType:"JSON",
+                          
+                success:function(data){
+                    window.location.href="Client_Login.html";
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body> 
 </html>

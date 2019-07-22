@@ -7,17 +7,25 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+    <script src="js/parsley.min.js"></script>
 </head>
 <body>
-    <form method="">
+    <form >
     <div class="loginbox">
             <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
             <h1>Login</h1>
         
             <p>Email</p>
-                <input id="username"type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                <input id="username"type="Email" name="username" placeholder="Enter username" required=""  />
             <p>Password</p>
+<<<<<<< HEAD
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required/>
+=======
+            <input type="password" id="password" type="text" name="" placeholder="Enter password" required =""/>
+>>>>>>> bc8c54de291555a11f5cc4d2c63630a065536489
             <br>
 
            <button id="Login">Login</button> 
@@ -27,10 +35,16 @@
         
     </div>
 </form>
+
+        <script>
+            $('#form').parsley();
+        </script>
+
 <script src="js/jquery.js"></script>
 <script>
     $('#Login').click(function(kho){
         kho.preventDefault();
+        
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
@@ -41,7 +55,10 @@
             dataType:"JSON",
                
             success:function(data){
-                console.log(data);
+                var id=data.data["CLIENT_ID"];
+                localStorage.setItem('clientID',id);
+
+              console.log(data);
                 if(data.rows> 0 ){
                     window.location.href="lessonBooking.html";
                 }else{
@@ -51,12 +68,12 @@
             error:function(err){
 
                 console.log(err);
-                swal({
-                title: "Good job!",
-                text: "incorrect login details!",
-                icon: "warning",
-                button: "OK",
-                });
+                // swal({
+                // title: "Good job!",
+                // text: "incorrect login details!",
+                // icon: "warning",
+                // button: "OK",
+                // });
             }
         });
     });

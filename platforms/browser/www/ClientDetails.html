@@ -14,18 +14,17 @@
         <h2>Profile</h2>
         <form name="myForm"> 
 
-            <label for=""></label>
-            <label for=""></label>
-            <label for=""></label>
-            <label for=""></label>
-            <label for=""></label>
-            <label for=""></label>
-            <label for=""></label>
+         <p></p>
+         <p></p>
+         <p></p>
+         <p></p>
+         <p></p>
+         
           
         </form>
     </div>
 
-    fetch client details,package selected,lessons remaining
+    <!-- fetch client details,package selected,lessons remaining -->
 
     <script src="js/jquery.js"></script>
     <script>
@@ -36,13 +35,10 @@
                         var data=JSON.parse(data);
 
                         data.forEach(function(dt) {
-                          $("#ClientsData").append("<tr>" + 
-                            "<td>"+ dt.CLIENT_ID+"</td>" +       
-                            "<td>"+ dt.CLIENT_NAME+"</td>" +
-                            "<td>"+ dt.CLIENT_SURNAME+"</td>" +
-                            "<td>"+ dt.EMAIL+"</td>"+
-                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>"+
-                            "</tr>");
+                            $("#c_LastName").val(dt.CLIENT_SURNAME),
+                             $("#c_FirstName").val(dt.CLIENT_NAME),
+                             $("#c_EmailAddress").val(dt.c_EmailAddress)
+                                $().html();
                        
                         });
                             

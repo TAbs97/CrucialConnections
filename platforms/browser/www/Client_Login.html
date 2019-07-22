@@ -17,7 +17,7 @@
             <p>Email</p>
                 <input id="username"type="Email" name="username" placeholder="Enter username" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
             <p>Password</p>
-            <input type="password" id="password" type="text" name="" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+            <input type="password" id="password" type="text" name="" placeholder="Enter password" required/>
             <br>
 
            <button id="Login">Login</button> 
@@ -29,8 +29,8 @@
 </form>
 <script src="js/jquery.js"></script>
 <script>
-    $('#Login').click(function(){
-        
+    $('#Login').click(function(kho){
+        kho.preventDefault();
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",

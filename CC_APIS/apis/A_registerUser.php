@@ -20,6 +20,6 @@ $d = $data->USER_PASSWORD;
 
 
 
-echo "ADMIN_NAME : ".$a."\nADMIN_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
+//echo "ADMIN_NAME : ".$a."\nADMIN_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
 
 ?>

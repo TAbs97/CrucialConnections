@@ -1,0 +1,44 @@
+.Learning{
+    width: 300px;
+    height: 550px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 60px 30px;
+    margin-top: 5%;
+}
+body{
+    background: url(../img/logo.jpg);
+}
+h1{
+    margin:0;
+    padding: 0 0 20px;
+    font-size: 22px;
+    text-align: center;
+}
+.button{
+    border: none;
+    outline:none;
+    height: 40px;
+    background: cadetblue;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 8px;
+    width: 78%;
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.avatar{
+    position:absolute;
+    top: -50px;
+    left:calc(50% - 50px );
+/* border-radius: 50px; */
+    widows: 100px;
+    height: 100px;
+}

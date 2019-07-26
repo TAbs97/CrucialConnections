@@ -14,12 +14,15 @@
         <h2>Profile</h2>
         <form name="myForm"> 
 
-         <p></p>
-         <p></p>
-         <p></p>
-         <p></p>
-         <p></p>
-         
+        <label id="name"></label>
+        <label id="surname"></label>
+        <label id="email"></label>
+        <label id="code"></label>
+        <label id="package"></label>
+        <label id="lessonbalance"></label>
+        <label id="balance"></label>
+        <label id="amountpaid"></label>
+                          
           
         </form>
     </div>
@@ -27,20 +30,24 @@
     <!-- fetch client details,package selected,lessons remaining -->
 
     <script src="js/jquery.js"></script>
+    
     <script>
+        var ClientID = sessionStorage.getItem("id");
+
         $(document).ready(function(){
             $("#clients").click(function(){
                   $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
                         console.log(data);
                         var data=JSON.parse(data);
 
-                        data.forEach(function(dt) {
-                            $("#c_LastName").val(dt.CLIENT_SURNAME),
-                             $("#c_FirstName").val(dt.CLIENT_NAME),
-                             $("#c_EmailAddress").val(dt.c_EmailAddress)
-                                $().html();
-                       
-                        });
+                        document.getElementById("name").innerHTML = data.data["CLIENT_NAME"];
+                        document.getElementById("surname").innerHTML = data.data["CLIENT_SURNAME"];
+                        document.getElementById("email").innerHTML = data.data["EMAIL"];
+                        document.getElementById("code").innerHTML = data.data["CODE_ID"];
+                        document.getElementById("package").innerHTML = data.data["PACKAGE_ID"];
+                        document.getElementById("lessonbalance").innerHTML = data.data["LESSON_BALANCE"];
+                        document.getElementById("balance").innerHTML = data.data["BALANCE"];
+                        document.getElementById("amountpaid").innerHTML = data.data["AMOUNT_PAID"];
                             
                   });
             });

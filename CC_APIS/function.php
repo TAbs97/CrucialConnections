@@ -229,6 +229,20 @@ function codeAndPackage($CODESELECTED,$PACKAGESELECTED,$CLIENT_ID){
             echo json_encode($rows);
     
     }
+
+    function bookedlesson(){
+        global $conn;
+        $sql ="SELECT booking.BOOKING_ID,booking.CLIENT_ID,booking.BOOKING_DATE,booking.LESSON_DATE,booking.LESSON_TIME FROM booking";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+    }
 ///select bookings
     function booking_Display(){
         global $conn;

@@ -9,18 +9,18 @@ $func = new Functions();
 //  $b = @($_POST["C_PASSWORD"]);
 
 $data = json_decode(file_get_contents('php://input'));
-$a = $data->EMAIL;
-$b = $data->USER_PASSWORD;
+// $a = $data->EMAIL;
+// $b = $data->A_PASSWORD;
 
- $login = $func->A_login($a,$b);
+ $lessons= $func->bookedlesson();
 
-// if($login){
-//     echo json_encode(array("data"=>$login->fetch_assoc(),"rows" => $login->num_rows));
-// }
+if($lessons){
+    echo json_encode(array("data"=>$lessons->fetch_assoc(),"rows" => $lessons->num_rows));
+}
 // else{
 //     echo json_encode(array("data"=>"empty"));
 
 // }
-//echo "EMAIL : ".$a."\n A_PASSWORD : ".$b;
+ //echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
 
 ?>

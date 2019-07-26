@@ -132,20 +132,6 @@ if ($conn->connect_error) {
         }
     }
 
-     // packageSelection
-     function SelectPackage($name,$surname,$email,$password){
-        global $conn;
-        
-            $sql = "INSERT INTO instructor VALUES('','".$name."','".$surname."','".$email."','".$password."')";
-            if ($conn->query($sql)) {
-                echo "package selected successfully";
-            }else{
-                echo "Falied";
-            }
-        
-    }
-
-
     // admin register
     function A_registerUser($name,$surname,$email,$password){
         global $conn;
@@ -200,7 +186,23 @@ if ($conn->connect_error) {
 
     function clientDetails(){
         global $conn;
-        $sql = "SELECT client.";
+        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_ID,package_selection.PACKAGE_ID,client_balance.LESSON_BALANCE,
+        payment.BALANCE,payment.AMOUNT_PAID FROM payment,package_selection,client,client_balance
+        WHERE client.CLIENT_ID =package_selection.CLIENT_ID and payment.CLIENT_ID=client.CLIENT_ID";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+    }
+
+    function bookedlesson(){
+        global $conn;
+        $sql ="SELECT booking.BOOKING_ID,booking.CLIENT_ID,booking.BOOKING_DATE,booking.LESSON_DATE,booking.LESSON_TIME FROM booking";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){

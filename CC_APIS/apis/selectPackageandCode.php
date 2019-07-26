@@ -12,15 +12,15 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->ADMIN_NAME;
-$b = $data->ADMIN_SURNAME;
-$c = $data->EMAIL;
-$d = $data->USER_PASSWORD;
-
- $func->A_registerUser($a,$b,$c,$d);
+$a = $data->CODESELECTED;
+$b = $data->PACKAGESELECTED;
+$c = $data->CLIENT_ID;
 
 
+ $func->selectPackage($a,$b,$c);
 
-//echo "ADMIN_NAME : ".$a."\nADMIN_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
+
+
+//echo "CLIENT_NAME : ".$a."\nCLIENT_SURNAME : ".$b."\nEMAIL : ".$c."\nC_PASSWORD : ".$d;
 
 ?>

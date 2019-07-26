@@ -10,6 +10,19 @@
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/book.css">
     <link rel="stylesheet" href="css/code.css">
+    
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="css/bootstrap-sweetalert-master/dist/sweetalert.js"> </script>
+    <link rel="stylesheet" href="css/bootstrap-sweetalert-master/dist/sweetalert.css">
+    <script src="css/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
+
+    <!-- form validation -->
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+
+
+</head>
 </head>
 <body>
     <div class="Booking" >
@@ -18,7 +31,7 @@
         <!-- <h1>Select Package</h1> -->
         <form name="myForm"> 
             <div>
-            <p>Code Type</p>
+            <!-- <p>Code Type</p> -->
             <select class="select" name="platform "required id="Code">
                  <option value="">Select Code</option>
                      <option value="1">8</option>
@@ -26,7 +39,9 @@
                     <option value="3">14</option>
                 </select>
             </div>
-            <p>Lesson</p>
+            <br>
+
+            <!-- <p>Lesson</p> -->
             <select class="select" required id="PACKAGE">
                 <option value="">Select Lesson</option>
                 <option  value="1">INDIVIDUAL LESSON</option>
@@ -36,30 +51,36 @@
                 <option  value="5">SUPPER BRUSH UP</option>                       
               </select>
            <br>
+           <br>
 <!-- <hr> -->
             <input type="button" id="selectpackage"  name="" value="Select">           <br/>
            
-
         </form>
+
+        <script>
+                $('#myform').parsley(options);
+            </script>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script>
 
-var sel = document.getElementById('code');
+    <script src="js/jquery.js"></script>
+
+    <script>
+        var ClientID = sessionStorage.getItem("id");
 
         $('#selectpackage').click(function(){
-    
+           
             $.ajax({
-                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CODESELECTED: $("#code option:selected").val(),PACKAGESELECTED : $("#selectpackage option:selected").val(),CLIENT_ID : $('#Email').val() }),
+                data: JSON.stringify({CODESELECTED: $("#Code").val(),PACKAGESELECTED: $("#PACKAGE").val(),CLIENT_ID: $(ClientID).val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
                 success:function(data){
                     // window.location.href="Client_Login.html";
+                    swal("Good job!", "code and package have been selected", "success");
                 },
                 error:function(err){
                     console.log(err);

@@ -162,3 +162,16 @@ h1{
     background:  cadetblue; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+  input:focus { 
+    background-color: transparent;
+  }
+  #back{
+      border-radius: 50px;
+      width: 50%;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: 50%;
+    margin-right: 50%;
+
+  }

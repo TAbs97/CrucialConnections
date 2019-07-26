@@ -8,10 +8,17 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
-    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="css/parsley.css">
+<!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
+<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
+
+<script src="js/jquery.js"></script>
+<script src="js/parsley.js"></script>
+<script src="js/parsley.min.js"></script>
 
 </head>
 <body>
@@ -19,28 +26,26 @@
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Sign Up</h1>
 
-        <script src="js/jquery.js"></script>
-        <script src="js/parsley.js"></script>
-        <script src="js/parsley.min.js"></script>
 
         <form data-parsley-validate=""> 
             <p>Firstname</p>
-                <input type="text" name="" id="firstname" placeholder="Enter firstname" required="" >
+            
+            <input type="text" name="" id="firstname" placeholder="Enter firstname" required="" >
 
             <p>Surname</p>
             <input type="text" name="" id="surname" placeholder="Enter Surname" required="">
             <br/>
 
             <p>Email</p>
-            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" required="">
+            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             <br>
 
             <p>Password</p>
             <input type="password" name=""  id="password"placeholder="Enter Password" required="">
             <br>
-           
+            <span id='message'></span>           
             <p>Confirm password</p>
-            <input type="password" name=""  id="ConfirmPassword"placeholder="Confirm password"  oninput="check(this)" required="" >
+            <input type="password" name=""  id="confirm_Password"placeholder="Confirm password" required="" >
             <br>
            
             
@@ -49,14 +54,23 @@
              <a href="index.html" class="text-center">Already have an account?</a>
              
         </form>
-<!--         
+         
                 <script>
                     $('#form').parsley();
-                </script> -->
+                </script> 
+                
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
+
+        $('#password, #confirm_password').on('keyup', function () {
+        if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else 
+            $('#message').html('Not Matching').css('color', 'red');
+        });
+       
         $('#registerUser').click(function(){
     
             $.ajax({
@@ -76,17 +90,7 @@
             });
         });
     </script>
-<!-- check if password and confirm password are the same -->
-<!-- <script language='javascript' type='text/javascript'>
-    function check(input) {
-    if (input.value != document.getElementById('password').value) {
-    input.setCustomValidity('Password Must be Matching.');
-    } else {
-    // input is valid -- reset the error message
-    input.setCustomValidity('');
-    }
-    }
-    </script> -->
+
 
     
 </body> 

@@ -113,22 +113,6 @@ if ($conn->connect_error) {
 
     }
 
-    
-//client selects code and package
-function codeAndPackage($CODESELECTED,$PACKAGESELECTED,$CLIENT_ID){
-    global $conn;
-  
-    $sql = "INSERT INTO package_selection VALUES('','".$CLIENT_ID."','".$CODESELECTED."','".$PACKAGESELECTED."')";
-        if ($conn->query($sql)) {
-            echo "package and code selected successfully";
-            }else{
-            echo "Falied";
-            }
-}
-    
-
-
-
     // instructor register
     function I_registerUser($name,$surname,$email,$password){
         global $conn;
@@ -147,20 +131,6 @@ function codeAndPackage($CODESELECTED,$PACKAGESELECTED,$CLIENT_ID){
             }
         }
     }
-
-     // packageSelection
-     function SelectPackage($CODESELECTED,$PACKAGESELECTED,$CLIENT_ID ){
-        global $conn;
-        
-            $sql = "INSERT INTO package_selection VALUES('','".$CLIENT_ID."','".$CODESELECTED."','".$PACKAGESELECTED."')";
-            if ($conn->query($sql)) {
-                echo "package selected successfully";
-            }else{
-                echo "Falied";
-            }
-        
-    }
-
 
     // admin register
     function A_registerUser($name,$surname,$email,$password){
@@ -213,7 +183,7 @@ function codeAndPackage($CODESELECTED,$PACKAGESELECTED,$CLIENT_ID){
             echo json_encode($rows);
     
     }
-//CLIENT DETAILS. code,names,package etc.
+
     function clientDetails(){
         global $conn;
         $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_ID,package_selection.PACKAGE_ID,client_balance.LESSON_BALANCE,

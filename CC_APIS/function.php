@@ -106,8 +106,10 @@ if ($conn->connect_error) {
         $sql = "INSERT INTO client VALUES('','".$name."','".$surname."','".$email."','".$password."')";
             if ($conn->query($sql)) {
                 echo "Registered successfully";
-                }else{
-                echo "Falied";
+                }
+                else
+                {
+                echo "Failed";
             }
         }
 

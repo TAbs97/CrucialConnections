@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
 require("../function.php");
 
@@ -19,7 +20,6 @@ if($login){
 }
 else{
     echo json_encode(array("data"=>"empty"));
-   
    // echo false;
 }
 // echo "EMAIL : ".$a."\n USER_PASSWORD : ".$b;

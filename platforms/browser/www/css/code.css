@@ -1,39 +1,39 @@
-/* // vain stuff below */
-
-html {
-  font-size: 1.5rem;
-}
-
-div.container {
-  width: 500px;
-  margin: 50px auto;
-}
-
-/* // Here's where the good stuff starts */
-
-select {
-  border-bottom: 1px solid #c9c9c9;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  color: #444444;
-  -webkit-appearance: button;
-  -webkit-border-radius: 5px;
-  -webkit-padding-end: 20px;
-  -webkit-padding-start: 2px;
-  -webkit-user-select: none;
-  background-color: white;
-  background-image: url('https://d30y9cdsu7xlg0.cloudfront.net/png/221782-200.png');
-  background-position: 97% center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 15px;
-  overflow: hidden;
-  padding: 5px 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 200px;
-}
-option{
-    position: relative;
+/*** reset ***/
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    
+    -webkit-box-sizing: border-box;  
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
   }
+  
+  body {
+    background: #e5e5e5;
+    font-size: 14px;
+  }
+  
+  .wrapper { margin: 20px; }
+  
+  .custom-select {
+    background: #fff url('https://smartthings.zendesk.com/hc/article_attachments/203195173/DropdownIcon.png') no-repeat right center;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    height: 36px;
+    padding: 6px 42px 6px 6px;
+    
+    /* Hide default dropdown arrow */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+        -ms-appearance: none;
+            appearance: none;
+  }
+  
+  .custom-select:focus {
+    border-color: #014760;
+    outline: none;
+  }
+  
+  .custom-select option { padding: 6px; }
+  

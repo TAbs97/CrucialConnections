@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="css/bootstrap-sweetalert-master/dist/sweetalert.css">
     <script src="css/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
 
+    <!-- form validation -->
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+
 
 </head>
 </head>
@@ -27,7 +31,7 @@
         <!-- <h1>Select Package</h1> -->
         <form name="myForm"> 
             <div>
-            <p>Code Type</p>
+            <!-- <p>Code Type</p> -->
             <select class="select" name="platform "required id="Code">
                  <option value="">Select Code</option>
                      <option value="1">8</option>
@@ -35,7 +39,9 @@
                     <option value="3">14</option>
                 </select>
             </div>
-            <p>Lesson</p>
+            <br>
+
+            <!-- <p>Lesson</p> -->
             <select class="select" required id="PACKAGE">
                 <option value="">Select Lesson</option>
                 <option  value="1">INDIVIDUAL LESSON</option>
@@ -49,14 +55,18 @@
 <!-- <hr> -->
             <input type="button" id="selectpackage"  name="" value="Select">           <br/>
            
-
         </form>
+
+        <script>
+                $('#myform').parsley(options);
+            </script>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script>
 
-var ClientID = localStorage.getItem('clientID');
+    <script src="js/jquery.js"></script>
+
+    <script>
+        var ClientID = sessionStorage.getItem("id");
 
         $('#selectpackage').click(function(){
            
@@ -64,7 +74,7 @@ var ClientID = localStorage.getItem('clientID');
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CODESELECTED: $("#Code").val(),PACKAGESELECTED: $("#PACKAGE").val(),CLIENT_ID : $(ClientID).val() }),
+                data: JSON.stringify({CODESELECTED: $("#Code").val(),PACKAGESELECTED: $("#PACKAGE").val(),CLIENT_ID: $(ClientID).val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           

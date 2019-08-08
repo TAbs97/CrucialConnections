@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+
+    <!-- bootstrap scripts,parsley scripts -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="css/bootstrap-sweetalert-master/dist/sweetalert.js"> </script>
+    <link rel="stylesheet" href="css/bootstrap-sweetalert-master/dist/sweetalert.css">
+    <script src="css/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</head>
+<body>
+    <div class="loginbox signup" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+
+        <!-- <h2>Profile</h2> -->
+        <form name="myForm"> 
+
+        <label id="bookedID"></label>
+        <label id="client"></label>
+        <label id="date"></label>
+        <label id="lessondate"></label>
+        <label id="lessontime"></label>
+    
+          <input type="button" value="back" onclick="JSconfirm()">
+        </form>
+    </div>
+    <!-- fetch client details,package selected,lessons remaining -->
+
+    <script src="js/jquery.js"></script>
+    
+    <script>
+        var ClientID = sessionStorage.getItem("id");
+
+        $(document).ready(function(){
+            $("#clients").click(function(){
+                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/bookedlesson.php",function(data,status){
+                        console.log(data);
+                        var data=JSON.parse(data);
+
+                        document.getElementById("bookedID").innerHTML = data.data["BOOKING_ID"];
+                        document.getElementById("client").innerHTML = data.data["CLIENT_ID"];
+                        document.getElementById("date").innerHTML = data.data["BOOKING_DATE"];
+                        document.getElementById("lessondate").innerHTML = data.data["LESSON_DATE"];
+                        document.getElementById("lessontime").innerHTML = data.data["LESSON_TIME"];
+                      
+                  });
+            });
+
+        });     
+    </script>
+
+    <!-- confirmation box -->
+    <script type="text/javascript">
+        function JSconfirm(){
+            swal({ 
+            title: "Redirect",   
+            text: "Redirect me to home page?",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Yes",   
+            cancelButtonText: "No",   
+            closeOnConfirm: false,   
+            closeOnCancel: false }, 
+            function(isConfirm){   
+                if (isConfirm) 
+            {   
+                window.location = "instructorHomePage.html";   
+                } 
+                else {     
+                    window.location = "bookedlesson.html";   
+                    } });
+        }
+        </script>
+
+</body> 
+</html>

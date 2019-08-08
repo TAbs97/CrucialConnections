@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
 require("../function.php");
 
@@ -20,6 +21,6 @@ $b = $data->USER_PASSWORD;
 //     echo json_encode(array("data"=>"empty"));
 
 // }
-echo "EMAIL : ".$a."\n A_PASSWORD : ".$b;
+//echo "EMAIL : ".$a."\n A_PASSWORD : ".$b;
 
 ?>

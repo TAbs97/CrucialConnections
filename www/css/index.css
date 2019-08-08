@@ -4,7 +4,8 @@ body{
     background-position: center;
     background-size: cover;
     font-family: sans-serif;
- background: url(../img/logo.jpg);
+    background: url(../img/logo.jpg);
+    text-align: center;
 }
 #kho{
 font-size: 20px;

@@ -11,9 +11,13 @@
     <script src="js/jquery.js"></script>
     <script src="js/parsley.js"></script>
     <script src="js/parsley.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="css/preloader.css">
+    <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
 </head>
 <body>
+        <div id="overlay">
+                <div class="spinner"></div>         
+        </div>
 
     <!-- form validation -->
 
@@ -42,16 +46,17 @@
     </div>
 </form>
 
+        <script src="js/parsley.js"></script>
         <script>
-            $('#form').parsley(options);
+            $('#form').parsley();
         </script>
+
+
 
 <script src="js/jquery.js"></script>
 <script>
     $('#Login').click(function(kho){
-         kho.preventDefault();
-      
-        
+         kho.preventDefault();   
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
@@ -87,6 +92,16 @@
     });
 </script>
 
-    
+<!-- script for overlay -->
+<script>
+    var overlay = document.getElementById("overlay");
+window.addEventListener('load', function(){
+  overlay.style.display = 'none';
+})
+</script>
+
+  <!-- preloader -->
+
+
 </body> 
 </html>

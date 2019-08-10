@@ -1,0 +1,39 @@
+/*** reset ***/
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    
+    -webkit-box-sizing: border-box;  
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  body {
+    background: #e5e5e5;
+    font-size: 14px;
+  }
+  
+  .wrapper { margin: 20px; }
+  
+  .custom-select {
+    background: #fff url('https://smartthings.zendesk.com/hc/article_attachments/203195173/DropdownIcon.png') no-repeat right center;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    height: 36px;
+    padding: 6px 42px 6px 6px;
+    
+    /* Hide default dropdown arrow */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+        -ms-appearance: none;
+            appearance: none;
+  }
+  
+  .custom-select:focus {
+    border-color: #014760;
+    outline: none;
+  }
+  
+  .custom-select option { padding: 6px; }
+  

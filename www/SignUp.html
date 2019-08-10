@@ -10,7 +10,7 @@
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
     
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="css/parsley.css">
+<!-- <link rel="stylesheet" href="css/parsley.css"> -->
 <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
 <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
@@ -19,6 +19,7 @@
 <script src="js/jquery.js"></script>
 <script src="js/parsley.js"></script>
 <script src="js/parsley.min.js"></script>
+<script src="js/script.js"></script>
 
 </head>
 <body>
@@ -26,58 +27,48 @@
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <h1>Sign Up</h1>
 
-
-        <form data-parsley-validate=""> 
+        <div id="error"></div>
+        <form data-parsley-validate="" id="form"> 
             <p>Firstname</p>
             
-            <input type="text" name="" id="firstname" placeholder="Enter firstname" required="" >
+            <input type="text" name="" id="firstname" placeholder="Enter firstname"  >
 
             <p>Surname</p>
-            <input type="text" name="" id="surname" placeholder="Enter Surname" required="">
+            <input type="text" name="" id="surname" placeholder="Enter Surname" >
             <br/>
 
             <p>Email</p>
-            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="Email" name="Email"  id="Email"placeholder="Enter Email" >
             <br>
 
             <p>Password</p>
-            <input type="password" name=""  id="password"placeholder="Enter Password" required="">
+            <input type="password" name=""  id="password"placeholder="Enter Password" >
             <br>
             <span id='message'></span>           
             <p>Confirm password</p>
-            <input type="password" name=""  id="confirm_Password"placeholder="Confirm password" required="" >
+            <input type="password" name=""  id="confirm_Password"placeholder="Confirm password">
             <br>
-           
-            
+           <a href="" >Terms and conditions</a>
             <input type="button" id="registerUser" name="" value="Submit"> 
               <br>
              <a href="index.html" class="text-center">Already have an account?</a>
              
         </form>
          
-                <script>
-                    $('#form').parsley();
-                </script> 
                 
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
 
-        $('#password, #confirm_password').on('keyup', function () {
-        if ($('#password').val() == $('#confirm_password').val()) {
-            $('#message').html('Matching').css('color', 'green');
-        } else 
-            $('#message').html('Not Matching').css('color', 'red');
-        });
        
         $('#registerUser').click(function(){
-    
+            // kho.preventDefault();
             $.ajax({
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),USER_PASSWORD : $('#password').val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           

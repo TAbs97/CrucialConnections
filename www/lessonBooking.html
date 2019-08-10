@@ -7,17 +7,22 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
-
+    <link rel="stylesheet" href="css/preloader.css">
     <!-- scripts -->
         <link rel="stylesheet" href="css/bootstrap.css">
-        <script src="css/bootstrap-sweetalert-master/dist/sweetalert.js"> </script>
-        <link rel="stylesheet" href="css/bootstrap-sweetalert-master/dist/sweetalert.css">
-        <script src="css/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
+        <script src="js/sweetalert.js"> </script>
+        <link rel="stylesheet" href="css/sweetalert.css">
+        <script src="js/sweetalert.min.js"></script>
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        
 
 
 </head>
 <body>
+
+        <div id="overlay">
+                <div class="spinner"></div> 
+            </div>
 
         <div class="loginbox">
             
@@ -35,20 +40,22 @@
                     <br>
                     <input type="button" id="password" onclick="window.location.href='videos.html'" value="Video Tutorials">
                     <br>
-                  
+                    <input  type="button" name="username" onclick="window.location.href='LearningPage.html'" value="Start Learning" >
+                    <br>
                     <input type="button" id="password" onclick="JSconfirm()" value="LogOut">
                     
 
                 </form>
             </div>
 
+            
 
 <!-- confirmation box -->
             <script type="text/javascript">
                 function JSconfirm(){
                     swal({ 
                     title: "logOut?",   
-                    text: "Redirect me to home page?",   
+                    text: "Redirect to the login page?",   
                     type: "warning",   
                     showCancelButton: true,   
                     confirmButtonColor: "#DD6B55",   
@@ -65,6 +72,13 @@
                             window.location = "lessonBooking.html";   
                             } });
                 }
+                </script>
+
+                <script>
+                            var overlay = document.getElementById("overlay");
+                                window.addEventListener('load', function(){
+                                 overlay.style.display = 'none';
+                                })
                 </script>
 
 </body> 

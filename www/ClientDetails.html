@@ -36,7 +36,7 @@
 
         $(document).ready(function(){
             $("#clients").click(function(){
-                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
+                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/api/s/ClientDetails.php",function(data,status){
                         console.log(data);
                         var data=JSON.parse(data);
 
@@ -52,7 +52,18 @@
                   });
             });
 
-        });     
+        });  
+
+
+        $(document).ready(function () {
+    setInterval(function () {
+        SomeFunction();
+    }, 60000); // 1000 ==> 1 second
+});
+
+function SomeFunction() {
+    $(".msg_block").click();
+}   
     </script>
 </body> 
 </html>

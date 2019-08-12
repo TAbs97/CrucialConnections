@@ -11,9 +11,13 @@
     <script src="js/jquery.js"></script>
     <script src="js/parsley.js"></script>
     <script src="js/parsley.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="css/preloader.css">
+    <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
 </head>
 <body>
+        <div id="overlay">
+                <div class="spinner"></div>         
+        </div>
 
     <!-- form validation -->
 
@@ -44,21 +48,17 @@
     </div>
 </form>
 
+        <script src="js/parsley.js"></script>
         <script>
-            $('#form').parsley(options);
+            $('#form').parsley();
         </script>
+
+
 
 <script src="js/jquery.js"></script>
 <script>
-<<<<<<< HEAD
     $('#Login').click(function(kho){
          kho.preventDefault();   
-=======
-    $('#Login').click(function(){
-        // kho.preventDefault();
-      
-        
->>>>>>> parent of cbb771a... basic changes
 
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
@@ -89,7 +89,6 @@
     });
 </script>
 
-<<<<<<< HEAD
 <!-- script for overlay -->
 <script>
     var overlay = document.getElementById("overlay");
@@ -125,8 +124,5 @@ window.addEventListener('load', function(){
 
 
 
-=======
-    
->>>>>>> parent of cbb771a... basic changes
 </body> 
 </html>

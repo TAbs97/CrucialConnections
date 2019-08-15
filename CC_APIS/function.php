@@ -215,7 +215,7 @@ if ($conn->connect_error) {
             echo json_encode($rows);
     
     }
-///select bookings
+    ///select bookings
     function booking_Display(){
         global $conn;
         $sql = "SELECT * from booking";
@@ -229,7 +229,41 @@ if ($conn->connect_error) {
             echo json_encode($rows);
     
     }
+
+    function package_selection($clientId,$code,$package){
+        global $conn;
+     $sql = "SELECT client.EMAIL,code.CODE_NAME,package.PACKAGE_NAME FROM client,code,package,package_selection 
+        WHERE client.CLIENT_ID = package_selection.CLIENT_ID AND
+        code.CODE_ID = package_selection.CODE_ID AND package.PACKAGE_ID = package_selection.PACKAGE_ID";   
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "User Already registered";
+        }
+        else
+        {
+        $sql = "INSERT  INTO package_selection (CLIENT_ID,CODE_ID,PACKAGE_ID)
+        SELECT ";
+            if ($conn->query($sql)) {
+                echo "Registered successfully";
+                }
+                else
+                {
+                echo "Failed";
+            }
+        }
+
+    }
+    // FUNCTION GLOBALs($user){
+    //     GLOBAL $username;
+    //     $username= $user;
+    //     echo "you login as".$username;
+    // }
+   
 }
+
+
+
+
     
 ?>
  

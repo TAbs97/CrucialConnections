@@ -50,9 +50,9 @@
                     <div class="new-select-arrow"></div>
                         <select class="select" required id="Code" onchange="getLessons(this.options[this.selectedIndex].value)">
                                 <option value="">Select Code</option>
-                                <option id="8" value="8">8</option>
-                                <option id="10" value="10">10</option>
-                                <option id="14" value="14">14</option>
+                                <option id="8" value="1">8</option>
+                                <option id="10" value="2">10</option>
+                                <option id="14" value="3">14</option>
                               </select>                     
                 </div>
               <br>
@@ -130,7 +130,7 @@
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
                 method:"POST",           
                 
-                data: JSON.stringify({ ClientID :$('ClientID').val(),CODE_ID : $('#code').val(),PACKAGE_ID :$('#lesson1','#lesson2','#lesson3').val()}),
+                data: JSON.stringify({ ClientID :sessionStorage.getItem("id"),CODE_ID : $('#code').val(),PACKAGE_ID :$('#lesson1').val()}),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           

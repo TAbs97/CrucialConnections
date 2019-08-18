@@ -232,25 +232,29 @@ if ($conn->connect_error) {
 
     function selectPackage($clientId,$code,$package){
         global $conn;
-     $sql ="SELECT * FROM package_selection WHERE CLIENT_ID ='.$clientId.'";   
-        $results = $conn->query($sql);
-        if($results->num_rows > 0){
-            echo "Package Already selected";
+    //  $sql ="SELECT * FROM package_selection WHERE CLIENT_ID ='".$clientId."'";   
+    //     $results = $conn->query($sql);
+    //     if($results->num_rows > 0){
+    //         echo "Package Already selected";
+    //     }
+    //     else
+        // {
+        // $sql= "INSERT INTO package_selection(CLIENT_ID, CODE_ID, PACKAGE_ID)
+        //  VALUES('','".$clientId."','".$code."','".$package."')";
+        //     if ($conn->query($sql)) {
+        //         echo "Package Selected successfully";
+        //         }
+        //         else
+        //         {
+        //         echo "Failed";
+        //     }
+        $sql = "INSERT INTO package_selection('','".$clientId."','".$code."','".$package."')";
+        if ($conn->query($sql)) {
+            echo "Package Selected successfully";
+        }else{
+        echo "Falied";
         }
-        else
-        {
-        $sql= "INSERT INTO package_selection(CLIENT_ID, CODE_ID, PACKAGE_ID)
-         VALUES(( SELECT CLIENT_ID FROM client WHERE client.CLIENT_ID = $clientId ),
-                ( SELECT CODE_ID FROM code WHERE code.CODE_ID =$code ),
-                ( SELECT PACKAGE_ID FROM package WHERE package.PACKAGE_ID = $package ))";
-            if ($conn->query($sql)) {
-                echo "Package Selected successfully";
-                }
-                else
-                {
-                echo "Failed";
-            }
-        }
+        
 
     }
     // FUNCTION GLOBALs($user){

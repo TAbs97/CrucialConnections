@@ -71,7 +71,8 @@
                
             success:function(data){
                 // var id=data.data["CLIENT_ID"];
-                sessionStorage.setItem("id", JSON.stringify(data.data["EMAIL"]) );
+                sessionStorage.setItem("khoza", JSON.stringify(data.data["EMAIL"]) );
+                sessionStorage.setItem("id", JSON.stringify(data.data["CLIENT_ID"]) );
                 
 
               console.log(data);

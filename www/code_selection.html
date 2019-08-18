@@ -110,7 +110,7 @@
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method:"POST",           
                 
-                data: JSON.stringify({CODESELECTED : $('#code').val(),PACKAGESELECTED :$('#lesson').val() }),
+                data: JSON.stringify({CODESELECTED : $('#code').val(),PACKAGESELECTED :$('#lesson').val(),ClientID :$('#id').val() }),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           

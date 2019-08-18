@@ -59,7 +59,8 @@
 <script>
     $('#Login').click(function(kho){
          kho.preventDefault();   
-
+        //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
+        //  https://crucialconnections.000webhostapp.com/Client_Login.php
         $.ajax({
             url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
             method:"POST",           
@@ -70,7 +71,7 @@
                
             success:function(data){
                 // var id=data.data["CLIENT_ID"];
-                sessionStorage.setItem("id", data.data["EMAIL"]);
+                sessionStorage.setItem("id", JSON.stringify(data.data["EMAIL"]) );
                 
 
               console.log(data);

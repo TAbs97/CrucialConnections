@@ -241,6 +241,7 @@ if ($conn->connect_error) {
         }
         else
         {
+           
         $sql = "INSERT  INTO package_selection (CLIENT_ID,CODE_ID,PACKAGE_ID)
         VALUES ($clientId,$code,$package)";
             if ($conn->query($sql)) {

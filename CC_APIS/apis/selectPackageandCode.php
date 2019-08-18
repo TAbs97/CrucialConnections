@@ -5,16 +5,11 @@ require("../function.php");
 
 $func = new Functions();
 
-// $a = @($_POST["CLIENT_NAME"]);
-// $b = @($_POST["CLIENT_SURNAME"]);
-// $c = @($_POST["EMAIL"]);
-// $d = @($_POST["C_PASSWORD"]);
-
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->CODESELECTED;
-$b = $data->PACKAGESELECTED;
-$c = $data->CLIENT_ID;
+$a = $data->ClientID;
+$b = $data->CODE_ID;
+$c = $data->PACKAGE_ID;
 
 
 

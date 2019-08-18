@@ -14,7 +14,7 @@ text-align: center;
 
 .loginbox{
     width: 300px;
-    height: 420px;
+    height: 460px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -25,6 +25,7 @@ text-align: center;
     border-radius: 15px;
     padding: 60px 30px;
 }
+
  .signup{
     height: 100% !important;
     box-sizing: unset !important;
@@ -56,9 +57,12 @@ h1{
 }
 .loginbox input {
  width: 100%;
- margin-bottom: 20px;
+ margin-bottom: 18px;
 }
 
+#agree{
+    align-items: inherit;
+}
 
 .loginbox input[type="text"],input[type="password"],input[type="Email"] {
     border: none;
@@ -89,6 +93,9 @@ h1{
     font-size: 18px;
     border-radius:5px;
     width: 100%;
+}
+#agreed{
+    font-size: 10px;
 }
 
 

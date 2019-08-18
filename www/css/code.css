@@ -1,11 +1,11 @@
 .select-wrap {
   position: relative;
-  width: 300px;
+  width: 200px;
   height: 40px;
   margin: 0 auto;
-  
-  select {
-    // Убрать стрелочку у Select-а
+}
+  select{
+    /* // Убрать стрелочку у Select-а */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -16,6 +16,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 10px;
   }
   
   .new-select-arrow {
@@ -26,7 +27,7 @@
     top: 0;
     right: 0;
     z-index: 1;
-    background-image: url(https://image.flaticon.com/icons/svg/118/118738.svg);
+    /* background-image: url(https://image.flaticon.com/icons/svg/118/118738.svg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

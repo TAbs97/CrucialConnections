@@ -36,7 +36,7 @@
 
         $(document).ready(function(){
             $("#clients").click(function(){
-                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/api/s/ClientDetails.php",function(data,status){
+                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
                         console.log(data);
                         var data=JSON.parse(data);
 

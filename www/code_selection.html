@@ -128,17 +128,18 @@
         $('#book').click(function(){
     
             $.ajax({
+                // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
-                method:"POST",           
-                
-                data: JSON.stringify({ CLIENT_ID :$(JSON.parse(localStorage.getItem('#id'))).val(),CODE_ID : $('#Code').val(),PACKAGE_ID :$('#lesson1').val()}),
-                contentType: "application/json; charset=utf-8",
+                method:"POST",   
+                data: '{ "CLIENT_ID" : '+localStorage.id+',"CODE_ID" : '+$('#Code').val()+',"PACKAGE_ID" :'+$('#lesson1').val()+'}',
+                // contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
-                          
                 success:function(data){
                     window.location.href="MainPage.html";
                 },
                 error:function(err){
+                    console.log('{ "CLIENT_ID" : '+localStorage.id+',"CODE_ID" : '+$('#Code').val()+',"PACKAGE_ID" :'+$('#lesson1').val()+'}');
                     console.log(err);
                 }
             });

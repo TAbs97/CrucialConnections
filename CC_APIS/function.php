@@ -230,7 +230,7 @@ if ($conn->connect_error) {
     
     }
 
-    function selectPackage($clientId,$code,$package){
+    function selectPackage($clientId,$codeID,$packageID){
         global $conn;
     //  $sql ="SELECT * FROM package_selection WHERE CLIENT_ID ='".$clientId."'";   
     //     $results = $conn->query($sql);
@@ -240,7 +240,7 @@ if ($conn->connect_error) {
     //     else
         // {
 
-        $sql = "INSERT INTO package_selection('','".$clientId."','".$code."','".$package."')";
+        $sql = "INSERT INTO package_selection VALUES ('',$clientId,$codeID,$packageID)";
         if ($conn->query($sql)) {
             echo "Package Selected successfully";
         }else{

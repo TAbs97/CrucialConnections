@@ -71,8 +71,8 @@
                
             success:function(data){
                 // var id=data.data["CLIENT_ID"];
-                localStorage.setItem("khoza", JSON.stringify(data.data["EMAIL"]) );
-                localStorage.setItem("id", JSON.stringify(data.data["CLIENT_ID"]) );
+                localStorage.setItem("khoza", data.data["EMAIL"] );
+                localStorage.setItem("id", data.data["CLIENT_ID"] );
                 
 
               console.log(data);

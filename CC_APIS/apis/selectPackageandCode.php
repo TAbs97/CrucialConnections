@@ -7,9 +7,9 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->CLIENT_ID;
-$b = $data->CODE_ID;
-$c = $data->PACKAGE_ID;
+$a = $data->EMAIL;
+$b = $data->CODE_NAME;
+$c = $data->PACKAGE_NAME;
 
 
 

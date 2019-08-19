@@ -232,26 +232,21 @@ if ($conn->connect_error) {
 
     function selectPackage($clientId,$code,$package){
         global $conn;
-     $sql = "SELECT client.EMAIL,code.CODE_NAME,package.PACKAGE_NAME FROM client,code,package,package_selection 
-        WHERE client.CLIENT_ID = package_selection.CLIENT_ID AND
-        code.CODE_ID = package_selection.CODE_ID AND package.PACKAGE_ID = package_selection.PACKAGE_ID";   
-        $results = $conn->query($sql);
-        if($results->num_rows > 0){
-            echo "Package Already selected";
+    //  $sql ="SELECT * FROM package_selection WHERE CLIENT_ID ='".$clientId."'";   
+    //     $results = $conn->query($sql);
+    //     if($results->num_rows > 0){
+    //         echo "Package Already selected";
+    //     }
+    //     else
+        // {
+
+        $sql = "INSERT INTO package_selection('','".$clientId."','".$code."','".$package."')";
+        if ($conn->query($sql)) {
+            echo "Package Selected successfully";
+        }else{
+        echo "Failed";
         }
-        else
-        {
-           
-        $sql = "INSERT  INTO package_selection (CLIENT_ID,CODE_ID,PACKAGE_ID)
-        VALUES ($clientId,$code,$package)";
-            if ($conn->query($sql)) {
-                echo "Package Selected successfully";
-                }
-                else
-                {
-                echo "Failed";
-            }
-        }
+        
 
     }
     // FUNCTION GLOBALs($user){

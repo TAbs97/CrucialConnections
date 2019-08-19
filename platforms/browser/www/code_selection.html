@@ -66,11 +66,11 @@
                     
           <select class="select" required id="lesson1" style="visibility:hidden;"> 
                 <option value="">Select package</option>
-                <option id="INDIVIDUAL_LESSON" value="1">INDIVIDUAL LESSON </option>
-                <option id="FULL_PACKAGE" value="2">FULL PACKAGE</option>
-                <option id="HALF_COURSE" value="3">HALF COURSE</option>  
-                <option id="BRUSH_UP" value="4">BRUSH UP</option>
-                <option id="SUPPER_BRUSH_UP" value="5">SUPPER BRUSH UP</option>                       
+                <option id="INDIVIDUAL_LESSON" value="1">INDIVIDUAL LESSON R150</option>
+                <option id="FULL_PACKAGE" value="2">FULL PACKAGE R2499.99</option>
+                <option id="HALF_COURSE" value="3">HALF COURSE R1150.00</option>  
+                <option id="BRUSH_UP" value="4">BRUSH UP R799.99</option>
+                <option id="SUPPER_BRUSH_UP" value="5">SUPPER BRUSH UP R399.99</option>                       
               </select>
                 </div>
       </td>
@@ -83,11 +83,11 @@
                     <div class="new-select-arrow"></div>
                     <select class="select" required id="lesson2" style="visibility:hidden;"> 
                             <option value="">Select package</option>
-                            <option id="INDIVIDUAL LESSON" value="6">INDIVIDUAL LESSON</option>
-                            <option id="FULL PACKAGE" value="7">FULL PACKAGE</option>
-                            <option id="HALF COURSE" value="8">HALF COURSE</option>  
-                            <option id="BRUSH UP" value="9">BRUSH UP</option>
-                            <option id="SUPPER BRUSH UP" value="10">SUPPER BRUSH UP</option>                       
+                            <option id="INDIVIDUAL LESSON" value="6">INDIVIDUAL LESSON R250</option>
+                            <option id="FULL PACKAGE" value="7">FULL PACKAGE R3799.99</option>
+                            <option id="HALF COURSE" value="8">HALF COURSE R2499.99</option>  
+                            <option id="BRUSH UP" value="9">BRUSH UP R1799.99</option>
+                            <option id="SUPPER BRUSH UP" value="10">SUPPER BRUSH UP R1199.99</option>                       
                           </select>
                 </div>
       
@@ -99,11 +99,11 @@
                <div class="new-select-arrow"></div>
                <select class="select" required id="lesson3" style="visibility:hidden;"> 
                     <option value="">Select package</option>
-                    <option id="INDIVIDUAL LESSON" value="11">INDIVIDUAL LESSON</option>
-                    <option id="FULL PACKAGE" value="12">FULL PACKAGE</option>
-                    <option id="HALF COURSE" value="13">HALF COURSE</option>  
-                    <option id="BRUSH UP" value="14">BRUSH UP</option>
-                    <option id="SUPPER BRUSH UP" value="15">SUPPER BRUSH UP</option>                       
+                    <option id="INDIVIDUAL LESSON" value="11">INDIVIDUAL LESSON R400</option>
+                    <option id="FULL PACKAGE" value="12">FULL PACKAGE R4799.99</option>
+                    <option id="HALF COURSE" value="13">HALF COURSE R3199.99</option>  
+                    <option id="BRUSH UP" value="14">BRUSH UP R2499.99</option>
+                    <option id="SUPPER BRUSH UP" value="15">SUPPER BRUSH UP 1999.99</option>                       
                   </select>
            </div>
         
@@ -131,12 +131,12 @@
                 url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
                 method:"POST",           
                 
-                data: JSON.stringify({ ClientID :sessionStorage.getItem("#id"),CODE_ID : $('#Code').val(),PACKAGE_ID :$('#lesson1').val()}),
+                data: JSON.stringify({ CLIENT_ID :$(JSON.parse(localStorage.getItem('#id'))).val(),CODE_ID : $('#Code').val(),PACKAGE_ID :$('#lesson1').val()}),
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
                 success:function(data){
-                    window.location.href="Client_Login.html";
+                    window.location.href="MainPage.html";
                 },
                 error:function(err){
                     console.log(err);

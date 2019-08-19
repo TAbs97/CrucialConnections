@@ -121,12 +121,11 @@
 
     <script src="js/jquery.js"></script>
     <script>
-        var ClientID = sessionStorage.getItem("id");
-        console.log(ClientID);
+        var ID = localStorage.getItem("id");
+        console.log(ID);
         
 // console.log(customersDataString);
         $('#book').click(function(){
-    
             $.ajax({
                 // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
 

@@ -239,8 +239,7 @@ if ($conn->connect_error) {
     //     }
     //     else
         // {
-
-        $sql = "INSERT INTO package_selection VALUES ('',$clientId,$codeID,$packageID)";
+        $sql = "INSERT INTO package_selection VALUES('',$clientId,$codeID,$packageID)";
         if ($conn->query($sql)) {
             echo "Package Selected successfully";
         }else{

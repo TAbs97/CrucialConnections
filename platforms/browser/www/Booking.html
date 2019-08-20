@@ -146,21 +146,13 @@ document.getElementById("dt").value= date();
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#book').click(function(kho){
-            kho.preventDefault();
-            $.ajax(options);
-        //     $.ajax({
-        //         url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-        //         method:"POST",           
-                
-        // });
-        });
+        var url="http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php";
 
 
             var options =
                       {
                 method: "POST",
-                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                // url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 
                 data: JSON.stringify({BOOKINGTIME: $('#dt').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
                 
@@ -177,8 +169,11 @@ document.getElementById("dt").value= date();
                 dataType: dataType
                   };
 
-if (num === 1) { options.url = url; options.data = data; }
-
+if (x === 1) { options.url = url; options.data = data; }
+$('#book').click(function(kho){
+            kho.preventDefault();
+            $.ajax(options);
+        });
     </script>
 </body> 
 </html>

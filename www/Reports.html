@@ -15,135 +15,59 @@
         <form name="myForm"> 
           <select id="rating">
             <p>Control</p>
-
-            <input id="5q" type="radio" name="product_rating" checked="yes" value="20">
-            <label for="5q">
-             <i class="icofont icofont-star"></i>
-            </label>
-
-
-           <input id="4q" type="radio" name="product_rating" value="40">
-            <label for="4q">
-             <i class="icofont icofont-star"></i>
-            </label>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="50" class="slider" id="control">
+              </div>
+            <p>Signs</p>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="50" class="slider" id="signs">
+              </div>
             
-            <input id="3q" type="radio" name="product_rating" value="60">
-               <label for="3q">
-             <i class="icofont icofont-star"></i>
-               </label>
-               
-             <input id="2q" type="radio" name="product_rating"  value="80">
-               <label for="2q">
-             <i class="icofont icofont-star"></i>
-               </label>
-               
-             <input id="1q" type="radio" name="product_rating" value="100">
-               <label for="1q">
-             <i class="icofont icofont-star"></i>
-               </label>
-               <br>
-
-               <p>Observing</p>
-               <input id="5q" type="radio" name="product_rating" checked="yes" value="20">
-               <label for="5q">
-                <i class="icofont icofont-star"></i>
-               </label>
-   
-   
-              <input id="4q" type="radio" name="product_rating" value="40">
-               <label for="4q">
-                <i class="icofont icofont-star"></i>
-               </label>
-               
-               <input id="3q" type="radio" name="product_rating" value="60">
-                  <label for="3q">
-                <i class="icofont icofont-star"></i>
-                  </label>
-                  
-                <input id="2q" type="radio" name="product_rating"  value="80">
-                  <label for="2q">
-                <i class="icofont icofont-star"></i>
-                  </label>
-                  
-                <input id="1q" type="radio" name="product_rating" value="100">
-                  <label for="1q">
-                <i class="icofont icofont-star"></i>
-                  </label>
-                  <br>
-
-                  <p>Gear Changing</p>
-
-                  <input id="5q" type="radio" name="product_rating" checked="yes" value="20">
-                  <label for="5q">
-                   <i class="icofont icofont-star"></i>
-                  </label>
-      
-      
-                 <input id="4q" type="radio" name="product_rating" value="40">
-                  <label for="4q">
-                   <i class="icofont icofont-star"></i>
-                  </label>
-                  
-                  <input id="3q" type="radio" name="product_rating" value="60">
-                     <label for="3q">
-                   <i class="icofont icofont-star"></i>
-                     </label>
-                     
-                   <input id="2q" type="radio" name="product_rating"  value="80">
-                     <label for="2q">
-                   <i class="icofont icofont-star"></i>
-                     </label>
-                     
-                   <input id="1q" type="radio" name="product_rating" value="100">
-                     <label for="1q">
-                   <i class="icofont icofont-star"></i>
-                     </label>
-          </select>
-          <br>
-
-            
-            <textarea rows="4" cols="29" id="message">
+            <p>Observation</p>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="50" class="slider" id="observation">
+              </div>
+            <br>
+             <br>
+            <textarea rows="4" cols="29" id="inDepthreport">
               </textarea>
 
             <br>
 
             
-            <input type="button" id="submit"  onclick="getdata()" name="" value="Submit">           
+            <input type="submit" id="submit"  name="" value="Submit">           
    
         </form>
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
-        var ID = localStorage.getItem("id");
-        console.log(ID);
-        
-// console.log(customersDataString);
-        $('#submit').click(function(){
+        $('#registerUser').click(function(kho) {
+            kho.preventDefault();
             $.ajax({
-                // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method: "POST",
 
-                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/insrt_report.php",
-                method:"POST",   
-                data: '{ "REPORT" : '+$('#message').val()+',"INSTRUCTOR_ID" : '+localStorage.kho+',"rating" :'+$('#rating').val()+'}',
+                data: JSON.stringify({
+                    CONTROL:$( "#control" ).slider("value"),
+                    SIGNS: $( "#signs" ).slider("value"),
+                    OBSERVATION: $( "#observation" ).slider("value"),
+                    USER_PASSWORD: $( "#slider-range-max" ).slider("value")
+                }),
                 contentType: "application/json; charset=utf-8",
-                //  dataType:"JSON",
-                success:function(data){
-                    window.location.href="MainPage.html";
+                dataType: "JSON",
+
+                success: function(data) {
+                    sendemail();
+                    // window.location.href = "Client_Login.html";
                 },
-                error:function(err){
-                    console.log('{ "EMAIL" : '+localStorage.kho+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}');
+                error: function(err) {
                     console.log(err);
+
                 }
             });
         });
-    </script>
 
-<script>
-    var overlay = document.getElementById("overlay");
-        window.addEventListener('load', function(){
-         overlay.style.display = 'none';
-        })
-</script>
+    </script>
 </body> 
 </html>

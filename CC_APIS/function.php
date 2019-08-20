@@ -286,6 +286,20 @@ function client_balace($CLIENT_ID,$BOOKING_ID,$LESSON_BALANCE){
 
 }
 
+function book_a_lesson($client){
+    global $conn;
+    $sql ="INSERT INTO booking values(booking.BOOKING_ID,booking.CLIENT_ID,booking.BOOKING_DATE,booking.LESSON_DATE,booking.LESSON_TIME where CLIENT_ID='.$client.'";
+    $results = $conn->query($sql);
+    if($results==true){
+        $sql= "UPDATE client_balance SET LESSON_BALANCE= package.NO_OF_LESSON-1 WHERE CLIENT_ID='.$client.'";
+    }
+    else
+    {
+    echo "Failed";
+    }
+
+}
+
 
     // FUNCTION GLOBALs($user){
     //     GLOBAL $username;

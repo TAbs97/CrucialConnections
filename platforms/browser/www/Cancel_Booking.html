@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/book.css">
+    
+
+    <script>
+    
+    function date() {
+				 n = new Date();
+				 
+				 y = n.getFullYear();
+				 m = n.getMonth()+1 ;
+				 d = n.getDate();
+				 h = n.getHours();
+				 mi = n.getMinutes();
+				 s = n.getSeconds();
+				 
+				 return d +"/"+ m+"/"+y+" at "+ h+":"+ mi +":"+ s;
+
+}
+setInterval(function(){
+document.getElementById("dt").value= date();
+},1000);
+
+
+    </script>
+</head>
+<body>
+    <div class="Booking" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <h1>Booking</h1>
+        <form name="myForm">
+          <table>
+            <tr>
+              <td><input type="text" id="dt"></td>
+            </tr>
+          </table>
+          <script>
+            document.getElementById("dt").value=date();
+          </script>
+            <P>Reason to cancel the booking</P>
+            <textarea id="cr" rows="5" cols="31" placeholder="write ur reason here"></textarea>
+             <hr>
+            <input type="submit" id="book" type="submit" onclick="getdata()" name="" value="Cancel">           <br/>
+           
+
+        </form>
+    </div>
+</body> 
+</html>

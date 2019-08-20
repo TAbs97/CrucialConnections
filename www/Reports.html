@@ -34,29 +34,35 @@
             <br>
 
             
-            <input type="submit" id="submit"  name="" value="Submit">           
+            <input type="button" id="submit"  name="" value="Submit">           
    
         </form>
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function(kho) {
+      var ID = localStorage.getItem("id");
+        console.log(ID);
+        $('#submit').click(function(kho) {
             kho.preventDefault();
             $.ajax({
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/instr_report.php",
                 method: "POST",
 
                 data: JSON.stringify({
-                    CONTROL:$( "#control" ).slider("value"),
-                    SIGNS: $( "#signs" ).slider("value"),
-                    OBSERVATION: $( "#observation" ).slider("value"),
-                    REPORT: $("#inDepthreport").val()
+                  INSTUCTOR_ID:'+localStorage.khoza+',
+                  REPORT: $("#inDepthreport").val(),
+                    rating:$( "#control" ).slider("value"),
+                    rating: $( "#signs" ).slider("value"),
+                    rating: $( "#observation" ).slider("value"),
+
+                   
                 }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
                 success: function(data) {
+
                     sendemail();
                     // window.location.href = "Client_Login.html";
                 },

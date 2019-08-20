@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+</head>
+<body>
+    <div class="loginbox signup" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <!-- <h2>Profile</h2> -->
+        <form name="myForm"> 
+
+        <label id="name"></label>
+        <label id="surname"></label>
+        <label id="email"></label>
+        <label id="code"></label>
+        <label id="package"></label>
+        <label id="lessonbalance"></label>
+        <label id="balance"></label>
+        <label id="amountpaid"></label>
+                          
+          
+        </form>
+    </div>
+
+    <script>
+          var ID=localStorage.getItem(id);
+    </script>
+    <!-- fetch client details,package selected,lessons remaining -->
+
+    <script src="js/jquery.js"></script>
+    
+    
+    <script>
+        var ClientID = sessionStorage.getItem("id");
+
+        $(document).ready(function(){
+            $("#clients").click(function(){
+                  $.post("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
+                        console.log(data);
+                        var data=JSON.parse(data);
+
+                        document.getElementById("name").innerHTML = data.data["CLIENT_NAME"];
+                        document.getElementById("surname").innerHTML = data.data["CLIENT_SURNAME"];
+                        document.getElementById("email").innerHTML = data.data["EMAIL"];
+                        document.getElementById("code").innerHTML = data.data["CODE_ID"];
+                        document.getElementById("package").innerHTML = data.data["PACKAGE_ID"];
+                        document.getElementById("lessonbalance").innerHTML = data.data["LESSON_BALANCE"];
+                        document.getElementById("balance").innerHTML = data.data["BALANCE"];
+                        document.getElementById("amountpaid").innerHTML = data.data["AMOUNT_PAID"];
+                            
+                  });
+            });
+
+        });  
+
+
+        $(document).ready(function () {
+    setInterval(function () {
+        SomeFunction();
+    }, 5000); // 1000 ==> 1 second
+});
+
+function SomeFunction() {
+    $(".msg_block").click();
+}   
+    </script>
+</body> 
+</html>

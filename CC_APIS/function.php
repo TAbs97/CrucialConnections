@@ -300,6 +300,26 @@ function book_a_lesson($client){
 
 }
 
+function C_report($email,$report){
+    global $conn;
+ $sql ="SELECT * FROM c_report WHERE EMAIL ='".$email."'";
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+        echo "already reported";
+    }
+    else
+    {
+    $sql = "INSERT INTO c_report (CLIENT_ID,REPORT) VALUES('$email','$report')";
+     if ($conn->query($sql)) {
+        echo "Successfully reported";
+    }else{
+    echo "Failed";
+    }
+    // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+}
+}
+
 
     // FUNCTION GLOBALs($user){
     //     GLOBAL $username;

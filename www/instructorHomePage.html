@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style></style>
     <title>Document</title>
-
-    <link rel="stylesheet"  type=" text/css" href="css/index.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="css/bootstrap-sweetalert-master/dist/sweetalert.js"> </script>
-<link rel="stylesheet" href="css/bootstrap-sweetalert-master/dist/sweetalert.css">
-<script src="css/bootstrap-sweetalert-master/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="css/preloader.css">
-
+<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <!-- scripts -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/sweetalert.js"> </script>
+        <link rel="stylesheet" href="css/sweetalert.css">
+        <script src="js/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
                 
                 <form>
 
-                     <input  type="button" name="username" onclick="window.location.href=''" value="Profile" >
+                     <!-- <input  type="button" name="username" onclick="window.location.href=''" value="Profile" > -->
                     <br>
                     <input  type="button" name="username" onclick="window.location.href='bookedlesson.html'" value="lessons" >
                     <br>
@@ -53,7 +53,7 @@
                     function(isConfirm){   
                         if (isConfirm) 
                     {   
-                        window.location = "instructorlogin.html";   
+                        window.location = "Ins_login.html";   
                         } 
                         else {     
                             window.location = "instructorHomePage.html";   

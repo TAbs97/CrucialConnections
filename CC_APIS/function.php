@@ -190,7 +190,7 @@ if ($conn->connect_error) {
         global $conn;
         $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_ID,package_selection.PACKAGE_ID,client_balance.LESSON_BALANCE,
         payment.BALANCE,payment.AMOUNT_PAID FROM payment,package_selection,client,client_balance
-        WHERE client.CLIENT_ID =package_selection.CLIENT_ID and payment.CLIENT_ID=client.CLIENT_ID";
+        WHERE client.CLIENT_ID =package_selection.CLIENT_ID or payment.CLIENT_ID=client.CLIENT_ID";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){

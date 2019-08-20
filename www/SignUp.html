@@ -33,32 +33,32 @@
         <!-- <h2>Sign Up</h2> -->
 
         <div id="error"></div>
-        <form id="form">
+        <form id="form" onsubmit="return false">
             <p>Firstname</p>
 
-            <input type="text" name="" id="firstname" placeholder="Enter firstname">
+            <input type="text" name="" id="firstname" placeholder="Enter firstname" required min="" max="">
 
             <p>Surname</p>
-            <input type="text" name="" id="surname" placeholder="Enter Surname">
+            <input type="text" name="" id="surname" placeholder="Enter Surname" required min="" max="">
             <br />
 
             <p>Email</p>
-            <input type="Email" name="Email" id="Email" placeholder="Enter Email">
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email" required min="" max="">
             <br>
 
             <p>Password</p>
-            <input type="password" name="" id="password" placeholder="Enter Password">
+            <input type="password" name="" id="password" placeholder="Enter Password" required min="" max="">
             <br>
             <span id='message'></span>
             <p>Confirm password</p>
-            <input type="password" name="" id="confirm_Password" placeholder="Confirm password">
+            <input type="password" name="" id="confirm_Password" placeholder="Confirm password" required min="" max="">
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
                 <!-- <input type="checkbox" name="checkbox" value="check" id="agree"/> <br>  -->
                 <span id="agreed">i have read and agree to the Terms and Conditions and Privacy Policy</span> 
                 <br>
-            <input type="button" id="registerUser" name="" value="Submit">
+            <input type="submit" id="registerUser" name="" value="Submit">
             <br>
             <a href="Client_Login.html" class="text-center">Already have an account     ?</a>
 
@@ -101,8 +101,8 @@
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function() {
-            // kho.preventDefault();
+        $('#registerUser').click(function(kho) {
+            kho.preventDefault();
             $.ajax({
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method: "POST",
@@ -117,10 +117,12 @@
                 dataType: "JSON",
 
                 success: function(data) {
+                    sendemail();
                     window.location.href = "Client_Login.html";
                 },
                 error: function(err) {
                     console.log(err);
+
                 }
             });
         });
@@ -138,8 +140,9 @@
     <!-- email notification   -->
     <script src="js/smtp.js"></script>
     <script>
-        Email.send({
-            Host: "smtp.yourisp.com",
+        function sendemail (){
+            Email.send({
+            Host: "smtp.elasticemail.com",
             Username: "mutshinyanit@gmail.com",
             Password: "22d02885-2d96-4b83-91b0-8441c4a11c87",
             To: 'mutshinyanit@gmail.com',
@@ -150,6 +153,8 @@
             message => alert(message)
         );
 
+        };
+        
     </script>
 
 <script>
@@ -174,6 +179,36 @@
     // document.addEventListener(checkConnection());
     
 </script>
+
+<script type="text/javascript">
+    function JSconfirm(){
+        swal({ 
+        title: "logOut?",   
+        text: "Redirect to the login page?",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes",   
+        cancelButtonText: "No",   
+        closeOnConfirm: false,   
+        closeOnCancel: false }, 
+        function(isConfirm){   
+            if (isConfirm) 
+        {   
+            window.location = "Client_Login.html";   
+            } 
+            else {     
+                window.location = "MainPage.html";   
+                } });
+    }
+    </script>
+
+    <script>
+                var overlay = document.getElementById("overlay");
+                    window.addEventListener('load', function(){
+                     overlay.style.display = 'none';
+                    })
+    </script>
 
 
 </body>

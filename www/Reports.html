@@ -15,28 +15,58 @@
         <form name="myForm"> 
             <p>Control</p>
             <div class="slidecontainer">
-                <input type="range" min="1" max="10" value="50" class="slider" id="myRange">
+                <input type="range" min="1" max="10" value="50" class="slider" id="control">
               </div>
             <p>Signs</p>
             <div class="slidecontainer">
-                <input type="range" min="1" max="10" value="50" class="slider" id="myRange">
+                <input type="range" min="1" max="10" value="50" class="slider" id="signs">
               </div>
             
             <p>Observation</p>
             <div class="slidecontainer">
-                <input type="range" min="1" max="10" value="50" class="slider" id="myRange">
+                <input type="range" min="1" max="10" value="50" class="slider" id="observation">
               </div>
             <br>
              <br>
-            <textarea rows="4" cols="29">
+            <textarea rows="4" cols="29" id="inDepthreport">
               </textarea>
 
             <br>
 
             
-            <input type="submit" id="submit"  onclick="getdata()" name="" value="Submit">           
+            <input type="submit" id="submit"  name="" value="Submit">           
    
         </form>
     </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#registerUser').click(function(kho) {
+            kho.preventDefault();
+            $.ajax({
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    CONTROL:$( "#control" ).slider("value"),
+                    SIGNS: $( "#signs" ).slider("value"),
+                    OBSERVATION: $( "#observation" ).slider("value"),
+                    USER_PASSWORD: $( "#slider-range-max" ).slider("value")
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function(data) {
+                    sendemail();
+                    // window.location.href = "Client_Login.html";
+                },
+                error: function(err) {
+                    console.log(err);
+
+                }
+            });
+        });
+
+    </script>
 </body> 
 </html>

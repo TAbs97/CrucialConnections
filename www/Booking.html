@@ -148,25 +148,37 @@ document.getElementById("dt").value= date();
     <script>
         $('#book').click(function(kho){
             kho.preventDefault();
-           
-            $.ajax({
-                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-                method:"POST",           
+            $.ajax(options);
+        //     $.ajax({
+        //         url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+        //         method:"POST",           
                 
-                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+        // });
+        });
+
+
+            var options =
+                      {
+                method: "POST",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                
+                data: JSON.stringify({BOOKINGTIME: $('#dt').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
                 success:function(data){
-                  swal()
+                              swal()
+              
+                            },
+                            error:function(err){
+                                console.log(err);
+                            },
+                dataType: dataType
+                  };
 
-                    
-                },
-                error:function(err){
-                    console.log(err);
-                }
-            });
-        });
+if (num === 1) { options.url = url; options.data = data; }
+
     </script>
 </body> 
 </html>

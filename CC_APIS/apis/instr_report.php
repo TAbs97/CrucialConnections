@@ -7,13 +7,12 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->EMAIL;
-$b = $data->CODE_NAME;
-$c = $data->PACKAGE_NAME;
+$a = $data->REPORT;
+$b = $data->INSTRUCTOR_ID;
+$c = $data->CLIENT_ID;
+$d = $data->rating;
 
-
-
- $func->selectPackage($a,$b,$c);
+ $func->instr_report($a,$b,$c,$d);
 
 
 

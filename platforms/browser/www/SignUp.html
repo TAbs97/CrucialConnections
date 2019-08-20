@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet" type=" text/css" href="css/index.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="css/confirm password.css">
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+    <script src="js/parsley.min.js"></script>
+    <link rel="stylesheet" href="css/preloader.css">
+    <script src="js/smtp.js"></script>
+
+</head>
+
+<body>
+
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="loginbox signup">
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <!-- <h2>Sign Up</h2> -->
+
+        <div id="error"></div>
+        <form id="form" onsubmit="return false">
+            <p>Firstname</p>
+
+            <input type="text" name="" id="firstname" placeholder="Enter firstname" required min="" max="">
+
+            <p>Surname</p>
+            <input type="text" name="" id="surname" placeholder="Enter Surname" required min="" max="">
+            <br />
+
+            <p>Email</p>
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email" required min="" max="">
+            <br>
+
+            <p>Password</p>
+            <input type="password" name="" id="password" placeholder="Enter Password" required min="" max="">
+            <br>
+            <span id='message'></span>
+            <p>Confirm password</p>
+            <input type="password" name="" id="confirm_Password" placeholder="Confirm password" required min="" max="">
+            <br>
+            <span id="confirm-message2" class="confirm-message"></span>
+            <br>
+                <!-- <input type="checkbox" name="checkbox" value="check" id="agree"/> <br>  -->
+                <span id="agreed"><a href="https://bit.ly/2Mr2AzT" download="terms and Conditions">i have read and agree to the Terms and Conditions and Privacy Policy by clicking this button</a></span> 
+                <br>
+            <input type="submit" id="registerUser" name="" value="Submit">
+            <br>
+            <a href="Client_Login.html" class="text-center">Already have an account     ?</a>
+
+        </form>
+
+
+    </div>
+
+<!-- validation -->
+    <!-- <script type="text/javascript">
+        function checkPass() {
+            //Store the password field objects into variables ...
+            var password = document.getElementById('password');
+            var confirm = document.getElementById('confirm_Password');
+            //Store the Confirmation Message Object ...
+            var message = document.getElementById('confirm-message2');
+            //Set the colors we will be using ...
+            var good_color = "##5f9ea0";
+            var bad_color = "#ff6666";
+            //Compare the values in the password field 
+            //and the confirmation field
+            if (password.value == confirm.value) {
+                //The passwords match. 
+                //Set the color to the good color and inform
+                //the user that they have entered the correct password 
+                confirm.style.borderColor = good_color;
+                message.style.color = good_color;
+                message.innerHTML = '<img src="/wp-content/uploads/2019/04/tick.png" alt="Passwords Match!">';
+            } else {
+                //The passwords do not match.
+                //Set the color to the bad color and
+                //notify the user.
+                confirm.style.backgroundColor = bad_color;
+                message.style.color = bad_color;
+                message.innerHTML = '<img src="/wp-content/uploads/2019/04/publish_x.png" alt="Passwords Do Not Match!">';
+            }
+        } -->
+
+    </script>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#registerUser').click(function(kho) {
+            kho.preventDefault();
+            $.ajax({
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    CLIENT_NAME: $('#firstname').val(),
+                    CLIENT_SURNAME: $('#surname').val(),
+                    EMAIL: $('#Email').val(),
+                    USER_PASSWORD: $('#password').val()
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function(data) {
+                    sendemail();
+                    window.location.href = "Client_Login.html";
+                },
+                error: function(err) {
+                    console.log(err);
+
+                }
+            });
+        });
+
+    </script>
+    <!-- preloader -->
+    <script>
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function() {
+            overlay.style.display = 'none';
+        })
+
+    </script>
+
+    <!-- email notification   -->
+    <script src="js/smtp.js"></script>
+    <script>
+        function sendemail (){
+            Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "mutshinyanit@gmail.com",
+            Password: "22d02885-2d96-4b83-91b0-8441c4a11c87",
+            To: 'Email.val()',
+            From: "Drivebox",
+            Subject: "Signed up for driving lessons at Bright and peace",
+            Body: "Thank you for joining our driving school,you will be able to login to our system using the email and password you registered with,and also select the code and package you want"
+        }).then(
+            message => alert(message)
+        );
+
+        };
+        
+    </script>
+
+<script>
+    function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    alert('Connection type: ' + states[networkState]);
+}
+
+</script>
+<script>
+    // document.addEventListener(checkConnection());
+    
+</script>
+
+<script type="text/javascript">
+    function JSconfirm(){
+        swal({ 
+        title: "logOut?",   
+        text: "Redirect to the login page?",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes",   
+        cancelButtonText: "No",   
+        closeOnConfirm: false,   
+        closeOnCancel: false }, 
+        function(isConfirm){   
+            if (isConfirm) 
+        {   
+            window.location = "Client_Login.html";   
+            } 
+            else {     
+                window.location = "MainPage.html";   
+                } });
+    }
+    </script>
+
+    <script>
+                var overlay = document.getElementById("overlay");
+                    window.addEventListener('load', function(){
+                     overlay.style.display = 'none';
+                    })
+    </script>
+
+
+</body>
+
+</html>

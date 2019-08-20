@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style></style>
+        <title>Document</title>
+        <!-- <link rel="stylesheet"  type=" text/css" href="css/learn.css"> -->
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/sweetalert.js"> </script>
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+<body>
+
+  <div id="overlay">
+    <div class="spinner"></div> 
+</div>
+
+  <form action="">
+    <div class="loginbox">
+      <!-- <h2>Learning Videos</h2> -->
+        <a href="MainPage.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
+                 
+        <input type="button" value="Road Rules" onclick="window.location.href ='https://www.youtube.com/watch?v=tLcyBo5Bh-0'"><br/>
+ 
+        <input type="button" value="Car Controls" onclick="window.location.href ='https://www.youtube.com/watch?v=hJvMrhpIBK8'"><br/>
+    
+        <input type="button"  value="Warning Signs"onclick="window.location.href ='https://www.youtube.com/watch?v=y_jqjNxHXnU'"><br/>
+    
+        <input type="button"  value="learningPage" onclick="window.location.href='learningPage.html'"><br/>
+
+        <input type="button"  value="Back"  onclick="JSconfirm()"><br/>
+    </div>
+
+  </script>
+
+  <!-- confirmation box -->
+  <script type="text/javascript">
+      function JSconfirm(){
+          swal({ 
+          title: "Redirect",   
+          text: "are you sure you want to return to home page?",   
+          type: "warning",   
+          showCancelButton: true,   
+          confirmButtonColor: "#DD6B55",   
+          confirmButtonText: "Yes",   
+          cancelButtonText: "No",   
+          closeOnConfirm: false,   
+          closeOnCancel: false }, 
+          function(isConfirm){   
+              if (isConfirm) 
+          {   
+              window.location = "MainPage.html";   
+              } 
+              else {     
+                  window.location = "videos.html";   
+                  } });
+      }
+      </script>
+
+<script>
+  var overlay = document.getElementById("overlay");
+      window.addEventListener('load', function(){
+       overlay.style.display = 'none';
+      })
+</script>
+  </form>
+</body>
+</html>

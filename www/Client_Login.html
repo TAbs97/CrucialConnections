@@ -33,7 +33,7 @@
             <p>Email</p>
            <span id=""></span>
 
-            <input id="username"type="Email" name="username" placeholder="Enter username" required=""/>
+            <input id="username"type="Email" name="username" placeholder="Enter Email" required=""/>
             <p>Password</p>
             <span id=""></span>
             <input type="password" id="password" type="text" name="" placeholder="Enter password" required/>
@@ -41,7 +41,7 @@
            <a href="">
            <button  id="Login">Login</button> 
             <br/>
-             <a href="#"> Lost your password ?</a><br>
+             <a href="resert.php"> Lost your password ?</a><br>
              <a href="SignUp.html">Don't have an account </a>
         
              <input id="back" type="button" value="back" onclick="window.location.href='index.html'">
@@ -59,9 +59,10 @@
 <script>
     $('#Login').click(function(kho){
          kho.preventDefault();   
-
+        //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
+        //  https://crucialconnections.000webhostapp.com/Client_Login.php
         $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+            url:"https://crucialconnections.000webhostapp.com/Client_Login.php",
             method:"POST",           
             
             data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
@@ -69,13 +70,16 @@
             dataType:"JSON",
                
             success:function(data){
-                // var id=data.data["CLIENT_ID"];
-                sessionStorage.setItem("id", data.data["CLIENT_ID"]);
+
+                localStorage.setItem("khoza",data.data["EMAIL"] );
+                localStorage.setItem("id",data.data["CLIENT_ID"] );
+                console.log(localStorage.getItem("khoza"));
+                console.log(localStorage.getItem("id"));
                 
 
               console.log(data);
                 if(data.rows> 0 ){
-                    window.location.href="lessonBooking.html";
+                    window.location.href="MainPage.html";
                 }else{
                     console.log("user not found");
                 }
@@ -87,6 +91,9 @@
             }
         });
     });
+    var name = document.getElementById("#username");
+    "<?php echo GLOBALs(name);?>";
+
 </script>
 
 <!-- script for overlay -->
@@ -95,31 +102,9 @@
 window.addEventListener('load', function(){
   overlay.style.display = 'none';
 })
+
+
 </script>
-
- <!-- form validation -->
-<script>  
-        function validateform(){  
-        var nam=document.getElementById("username").value ;  
-        var pass=document.getElementById("password").value ;  
-          
-        if (nam==null || nam==""|| pass==null|| pass=="" ){  
-          document.getElementById.value("Email field cannot be empty");  
-          return false;  
-        }else if(password.length<6){  
-            document.getElementById.value("Password must be at least 6 characters long.");  
-          return false;  
-          }  
-        }  
-
-        var x=document.myform.email.value;  
-        var atposition=x.indexOf("@");  
-        var dotposition=x.lastIndexOf(".");  
-        if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
-         alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
-  return false;  
-  } 
-        </script> 
 
 
 

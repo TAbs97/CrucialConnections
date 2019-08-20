@@ -190,7 +190,7 @@ if ($conn->connect_error) {
         global $conn;
         $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_ID,package_selection.PACKAGE_ID,client_balance.LESSON_BALANCE,
         payment.BALANCE,payment.AMOUNT_PAID FROM payment,package_selection,client,client_balance
-        WHERE client.CLIENT_ID =package_selection.CLIENT_ID and payment.CLIENT_ID=client.CLIENT_ID";
+        WHERE client.CLIENT_ID =package_selection.CLIENT_ID or payment.CLIENT_ID=client.CLIENT_ID";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){
@@ -215,7 +215,7 @@ if ($conn->connect_error) {
             echo json_encode($rows);
     
     }
-///select bookings
+    ///select bookings
     function booking_Display(){
         global $conn;
         $sql = "SELECT * from booking";
@@ -229,7 +229,89 @@ if ($conn->connect_error) {
             echo json_encode($rows);
     
     }
+
+    function selectPackage($email,$code,$packageID){
+        global $conn;
+     $sql ="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sql);
+        if($results->num_rows > 0){
+            echo "Package Already selected";
+        }
+        else
+        {
+        $sql = "INSERT INTO package_selection (EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('$email','$code','$packageID')";
+         if ($conn->query($sql)) {
+            echo "Package Selected successfully";
+        }else{
+        echo "Failed";
+        }
+        // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+    }
 }
+
+
+function instr_report($report,$instr_id,$clientID,$rating){
+    global $conn;
+ $sql ="SELECT * FROM package_selection WHERE rating ='".$rating."'";
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+        echo "lerner Already selected";
+    }
+    else
+    {
+    $sql = "INSERT INTO reports (REPORT,INSTRUCTOR_ID,CLIENT_ID,rating) VALUES('$report','$instr_id','$clientID','$rating')";
+     if ($conn->query($sql)) {
+        echo "rated";
+    }else{
+    echo "Failed";
+    }
+    // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+}
+}
+
+function client_balace($CLIENT_ID,$BOOKING_ID,$LESSON_BALANCE){
+    global $conn;
+ $sql ="SELECT * FROM client_balance WHERE CLIENT_ID ='".$CLIENT_ID."'";
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+        echo "lerner Already selected";
+    }
+    else
+    {
+    echo "Failed";
+    }
+    // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+}
+
+function book_a_lesson($client){
+    global $conn;
+    $sql ="INSERT INTO booking values(booking.BOOKING_ID,booking.CLIENT_ID,booking.BOOKING_DATE,booking.LESSON_DATE,booking.LESSON_TIME where CLIENT_ID='.$client.'";
+    $results = $conn->query($sql);
+    if($results==true){
+        $sql= "UPDATE client_balance SET LESSON_BALANCE= package.NO_OF_LESSON-1 WHERE CLIENT_ID='.$client.'";
+    }
+    else
+    {
+    echo "Failed";
+    }
+
+}
+
+
+    // FUNCTION GLOBALs($user){
+    //     GLOBAL $username;
+    //     $username= $user;
+    //     echo "you login as".$username;
+    // }
+   
+}
+
+
+
+
     
 ?>
  

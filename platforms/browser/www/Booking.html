@@ -8,6 +8,12 @@
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/book.css">
     
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+    <script src="js/parsley.min.js"></script>
+    <link rel="stylesheet" href="css/preloader.css">
+   
+    
 
     <script>
 
@@ -140,26 +146,34 @@ document.getElementById("dt").value= date();
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#book').click(function(kho){
-            kho.preventDefault();
-           
-            $.ajax({
-                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-                method:"POST",           
+        var url="http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php";
+
+
+            var options =
+                      {
+                method: "POST",
+                // url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 
-                data: JSON.stringify({CLIENT_NAME : $('#firstname').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                data: JSON.stringify({BOOKINGTIME: $('#dt').val(),CLIENT_SURNAME :$('#surname').val(),EMAIL : $('#Email').val(),C_PASSWORD : $('#password').val() }),
+                
                 contentType: "application/json; charset=utf-8",
                 dataType:"JSON",
                           
                 success:function(data){
-                  swal()
+                              swal()
+              
+                            },
+                            error:function(err){
+                                console.log(err);
+                            },
+                dataType: dataType
+                  };
 
-                    
-                },
-                error:function(err){
-                    console.log(err);
-                }
-            });
+if (x === 1) { options.url = url; options.data = data; 
+
+$('#book').click(function(kho){
+            kho.preventDefault();
+            $.ajax(options);
         });
     </script>
 </body> 

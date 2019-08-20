@@ -11,7 +11,7 @@
 <body>
     <div class="loginbox signup" >
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
-        <h2>Profile</h2>
+        <!-- <h2>Profile</h2> -->
         <form name="myForm"> 
 
         <label id="name"></label>
@@ -27,16 +27,20 @@
         </form>
     </div>
 
+    <script>
+          var ID=localStorage.getItem(id);
+    </script>
     <!-- fetch client details,package selected,lessons remaining -->
 
     <script src="js/jquery.js"></script>
+    
     
     <script>
         var ClientID = sessionStorage.getItem("id");
 
         $(document).ready(function(){
             $("#clients").click(function(){
-                  $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/api/s/ClientDetails.php",function(data,status){
+                  $.post("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
                         console.log(data);
                         var data=JSON.parse(data);
 
@@ -58,7 +62,7 @@
         $(document).ready(function () {
     setInterval(function () {
         SomeFunction();
-    }, 60000); // 1000 ==> 1 second
+    }, 5000); // 1000 ==> 1 second
 });
 
 function SomeFunction() {

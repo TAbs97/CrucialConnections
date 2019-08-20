@@ -30,17 +30,15 @@
                 
                 <form>
 
-                    <input  type="button" name="username" onclick="window.location.href=''" value="View Profile" >
+                    <input  type="button" name="username" onclick="window.location.href='ClientDetails.html'" value="View Profile" >
                     <br>
-                    <input type="button" id="password" value="Select package" onclick="window.location.href='Code.html'">
+                    <input type="button" id="password" value="Select package" onclick="window.location.href='code_selection.html'">
                     <br>
                     <input  type="button" name="username" onclick="window.location.href='booking.html'" value="Book a Lesson" >
                     <br>
-                    <input  type="button" name="username" value="View bookings" >
+                    <input  type="button" name="username" onclick="window.location.href='bookedlesson.html'" value="View bookings" >
                     <br>
-                    <input type="button" id="password" onclick="window.location.href='videos.html'" value="Video Tutorials">
-                    <br>
-                    <input  type="button" name="username" onclick="window.location.href='LearningPage.html'" value="Start Learning" >
+                    <input type="button" id="password" onclick="window.location.href='videos.html'" value="Start Learning">
                     <br>
                     <input type="button" id="password" onclick="JSconfirm()" value="LogOut">
                     
@@ -66,10 +64,10 @@
                     function(isConfirm){   
                         if (isConfirm) 
                     {   
-                        window.location = "ClientLogin.html";   
+                        window.location = "Client_Login.html";   
                         } 
                         else {     
-                            window.location = "lessonBooking.html";   
+                            window.location = "MainPage.html";   
                             } });
                 }
                 </script>

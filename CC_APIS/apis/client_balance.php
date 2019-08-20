@@ -7,13 +7,12 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$a = $data->EMAIL;
-$b = $data->CODE_NAME;
-$c = $data->PACKAGE_NAME;
+$a = $data->CLIENT_ID;
+$b = $data->BOOKING_ID;
+$c = $data->LESSON_BALANCE;
 
 
-
- $func->selectPackage($a,$b,$c);
+ $func->client_balace($a,$b,$c,$d);
 
 
 

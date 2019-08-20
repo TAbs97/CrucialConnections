@@ -29,44 +29,67 @@
             <br/>
              <a href="#"> Lost your password ?</a><br>
         
-             <input type="button" id="back" value="back" onclick="window.location.href='index.html'">
+             <input type="button" id="Login" value="back" onclick="window.location.href='index.html'">
     </div>
+    
 </form>
-<script src="js/jquery.js"></script>
+<script src="js/parsley.js"></script>
 <script>
-    $('#Login').click(function(kho){
-        kho.preventDefault();
-
-        $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Ins_Login.php",
-            method:"POST",           
-            
-            data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
-            contentType: "application/json; charset=utf-8",
-            dataType:"JSON",
-           
-            success:function(data){
-                console.log(data);
-                if(data.rows>0){
-                    window.location.href="instructorHomePage.html";
-                }else{
-                    console.log("user not found");
-                }
-            },
-            error:function(err){
-                console.log(err);
-            }
-        });
-    });
+    $('#form').parsley();
 </script>
 
-<!-- preloader -->
+
+
+<script src="js/jquery.js"></script>
 <script>
-        var overlay = document.getElementById("overlay");
-            window.addEventListener('load', function(){
-             overlay.style.display = 'none';
-            })
-    </script>
+$('#Login').click(function(kho){
+ kho.preventDefault();   
+//  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
+//  https://crucialconnections.000webhostapp.com/Client_Login.php
+$.ajax({
+    url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Ins_Login.php",
+    method:"POST",           
+    
+    data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
+    contentType: "application/json; charset=utf-8",
+    dataType:"JSON",
+       
+    success:function(data){
+
+        localStorage.setItem("kho",data.data["EMAIL"] );
+        localStorage.setItem("id",data.data["INSTUCTOR_ID"] );
+        console.log(localStorage.getItem("khoza"));
+        console.log(localStorage.getItem("id"));
+        
+
+      console.log(data);
+        if(data.rows> 0 ){
+            window.location.href="instructorHomePage.html";
+        }else{
+            console.log("user not found");
+        }
+    },
+    error:function(err){
+
+        console.log(err);
+        
+    }
+});
+});
+var name = document.getElementById("#username");
+"<?php echo GLOBALs(name);?>";
+
+</script>
+
+<!-- script for overlay -->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('load', function(){
+overlay.style.display = 'none';
+})
+
+
+</script>
     
 </body> 
 </html>

@@ -250,6 +250,27 @@ if ($conn->connect_error) {
     }
 }
 
+
+function instr_report($report,$instr_id,$clientID,$rating){
+    global $conn;
+ $sql ="SELECT * FROM package_selection WHERE rating ='".$rating."'";
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+        echo "lerner Already selected";
+    }
+    else
+    {
+    $sql = "INSERT INTO reports (REPORT,INSTRUCTOR_ID,CLIENT_ID,rating) VALUES('$report','$instr_id','$clientID','$rating')";
+     if ($conn->query($sql)) {
+        echo "rated";
+    }else{
+    echo "Failed";
+    }
+    // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+}
+}
+
     // FUNCTION GLOBALs($user){
     //     GLOBAL $username;
     //     $username= $user;

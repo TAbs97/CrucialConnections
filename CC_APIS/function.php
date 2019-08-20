@@ -271,6 +271,22 @@ function instr_report($report,$instr_id,$clientID,$rating){
 }
 }
 
+function client_balace($CLIENT_ID,$BOOKING_ID,$LESSON_BALANCE){
+    global $conn;
+ $sql ="SELECT * FROM client_balance WHERE CLIENT_ID ='".$CLIENT_ID."'";
+    $results = $conn->query($sql);
+    if($results->num_rows > 0){
+        echo "lerner Already selected";
+    }
+    else
+    {
+    echo "Failed";
+    }
+    // echo $clientId.'-'.$codeID.'-'.$packageID;
+
+}
+
+
     // FUNCTION GLOBALs($user){
     //     GLOBAL $username;
     //     $username= $user;

@@ -128,8 +128,8 @@
         $('#book').click(function(){
             $.ajax({
                 // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
-
-                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
+                
+                url:"http://crucialconnections.000webhostapp.com/selectPackageandCode.php",
                 method:"POST",   
                 data: '{ "EMAIL" : '+localStorage.khoza+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}',
                 contentType: "application/json; charset=utf-8",

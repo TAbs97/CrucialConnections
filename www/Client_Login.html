@@ -8,9 +8,6 @@
     <title>Document</title>
     <link rel="stylesheet"  type=" text/css" href="css/index.css">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/parsley.js"></script>
-    <script src="js/parsley.min.js"></script>
     <link rel="stylesheet" href="css/preloader.css">
     <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
 </head>
@@ -20,11 +17,11 @@
         </div>
 
     <!-- form validation -->
+        
 
-        <script src="js/jquery.js"></script>
-        <script src="js/parsley.js"></script>
+       
 
-    <form id="validate_form" name="myform">
+    <form id="Loginform" name="myform">
     <div class="loginbox">
 
             <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
@@ -33,12 +30,11 @@
             <p>Email</p>
            <span id=""></span>
 
-            <input id="username"type="Email" name="username" placeholder="Enter Email" required=""/>
+            <input id="username"type="Email" name="Email" placeholder="Enter Email" onkeyup="isEmpty(this.value,'#username');isEmail(this.value,'#username')" />
             <p>Password</p>
             <span id=""></span>
-            <input type="password" id="password" type="text" name="" placeholder="Enter password" required/>
+            <input type="password" id="password" type="text" name="password" placeholder="Enter password"/>
             <br>
-           <a href="">
            <button  id="Login">Login</button> 
             <br/>
              <a href="resert.php"> Lost your password ?</a><br>
@@ -47,13 +43,6 @@
              <input id="back" type="button" value="back" onclick="window.location.href='index.html'">
     </div>
 </form>
-
-        <script src="js/parsley.js"></script>
-        <script>
-            $('#form').parsley();
-        </script>
-
-
 
 <script src="js/jquery.js"></script>
 <script>
@@ -106,9 +95,10 @@ window.addEventListener('load', function(){
 
 
 </script>
-
-
-
-
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
+ <!-- custom script  -->
+ 
+   
 </body> 
 </html>

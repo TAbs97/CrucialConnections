@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style></style>
     <title>Document</title>
-    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+    <link rel="stylesheet" type=" text/css" href="css/index.css">
     <style>
-         label{
-             margin-bottom: 5px;
-             padding: 25px
-         }
-         label {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-        .details{
-             border: 5px;
-             border-radius: 4px;
-             color: white;
+        label {
+            margin: 20px !important;
+            padding: 0px !important;
+            padding-left: 0px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 21px;
         }
     </style>
 </head>
+
 <body>
-    <div class="loginbox" >
+    <div class="loginbox">
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <!-- <h2>Profile</h2> -->
-        <form name="myForm"> 
-            <div class="details"> 
+        <form name="myForm">
+            <div class="details">
                 <label for="">name</label><span id="name"></span> <br>
                 <label for="">surname</label><span id="surname"></span><br>
                 <label for="">email</label><span id="email"></span><br>
@@ -37,29 +33,29 @@
                 <label for="">lesson balance</label><span id="lessonbalance"></span><br>
                 <label for="">balance</label><span id="balance"></span><br>
                 <label for="">amount paid</label><span id="amountpaid"></span>
-            
             </div>
-                            
-          
+
+
         </form>
     </div>
-
+    <script type="javascript"></script>
     <script>
-          var ID=localStorage.getItem(id);
+        var ID = localStorage.getItem("id");
     </script>
     <!-- fetch client details,package selected,lessons remaining -->
 
     <script src="js/jquery.js"></script>
-    
-    
-    <script>
-        var ClientID = sessionStorage.getItem("id");
 
-        $(document).ready(function(){
-            $("#clients").click(function(){
-                  $.post("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",function(data,status){
+
+    <script>
+        var ClientID = localStorage.getItem("id");
+
+        $(document).ready(function () {
+            $("#clients").click(function () {
+                $.post("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",
+                    function (data, status) {
                         console.log(data);
-                        var data=JSON.parse(data);
+                        var data = JSON.parse(data);
 
                         document.getElementById("name").innerHTML = data.data["CLIENT_NAME"];
                         document.getElementById("surname").innerHTML = data.data["CLIENT_SURNAME"];
@@ -69,22 +65,23 @@
                         document.getElementById("lessonbalance").innerHTML = data.data["LESSON_BALANCE"];
                         document.getElementById("balance").innerHTML = data.data["BALANCE"];
                         document.getElementById("amountpaid").innerHTML = data.data["AMOUNT_PAID"];
-                            
-                  });
+
+                    });
             });
 
-        });  
+        });
 
 
         $(document).ready(function () {
-    setInterval(function () {
-        SomeFunction();
-    }, 5000); // 1000 ==> 1 second
-});
+            setInterval(function () {
+                SomeFunction();
+            }, 5000); // 1000 ==> 1 second
+        });
 
-function SomeFunction() {
-    $(".msg_block").click();
-}   
+        function SomeFunction() {
+            $(".msg_block").click();
+        }
     </script>
-</body> 
+</body>
+
 </html>

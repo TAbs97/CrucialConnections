@@ -18,7 +18,7 @@
 
 
 </head>
-<body>
+<body onload="redirect()">
 
         <div id="overlay">
                 <div class="spinner"></div> 
@@ -36,7 +36,7 @@
                     <br>
                     <input  type="button" name="username" onclick="window.location.href='Booking.html'" value="Book a Lesson" >
                     <br>
-                    <input  type="button" name="username" onclick="window.location.href='bookedlesson.html'" value="View bookings" >
+                    <input  type="button" name="username" onclick="window.location.href=''" value="View bookings" >
                     <br>
                     <input type="button" id="password" onclick="window.location.href='videos.html'" value="Start Learning">
                     <br>
@@ -64,11 +64,13 @@
                     function(isConfirm){   
                         if (isConfirm) 
                     {   
-                        window.location = "Client_Login.html";   
+                            
+                        window.location = "Client_Login.html";
+                        localStorage.clear();   
                         } 
                         else {     
                             window.location = "MainPage.html";   
-                            localStorage.clear();
+                            
                             } });
                 }
                 </script>
@@ -80,5 +82,20 @@
                                 })
                 </script>
 
+<script type="javascript"></script>
+<script>
+
+//  redirect function
+function redirect() {
+    var found=true;
+           if( isEmpty(localStorage.username) ){
+               console.log(localStorage.username);
+               window.location.href="index.html";
+       }   
+}
+
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
 </body> 
 </html>

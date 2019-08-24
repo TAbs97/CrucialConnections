@@ -11,14 +11,13 @@
     <link rel="stylesheet" href="css/preloader.css">
     <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
 </head>
-<body>
+<body onload="redirect()">
         <div id="overlay">
                 <div class="spinner"></div>         
         </div>
 
     <!-- form validation -->
-        
-
+     
        
 
     <form id="Loginform" name="myform">
@@ -44,14 +43,16 @@
     </div>
 </form>
 
+
 <script src="js/jquery.js"></script>
 <script>
+
     $('#Login').click(function(kho){
          kho.preventDefault();   
         //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
         //  https://crucialconnections.000webhostapp.com/Client_Login.php
         $.ajax({
-            url:"https://crucialconnections.000webhostapp.com/Client_Login.php",
+            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
             method:"POST",           
             
             data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
@@ -60,18 +61,20 @@
                
             success:function(data){
 
-                localStorage.setItem("khoza",data.data["EMAIL"] );
+                localStorage.setItem("username",data.data["EMAIL"] );
                 localStorage.setItem("id",data.data["CLIENT_ID"] );
+                localStorage.setItem("role","client");
+
                 console.log(localStorage.getItem("khoza"));
                 console.log(localStorage.getItem("id"));
+                
                 
 
               console.log(data);
                 if(data.rows> 0 ){
                     window.location.href="MainPage.html";
                 }else{
-                    console.log("user not found");
-                    
+                    console.log("user not found");   
                 }
             },
             error:function(err){
@@ -83,22 +86,34 @@
     });
     var name = document.getElementById("#username");
     "<?php echo GLOBALs(name);?>";
-
 </script>
 
 <!-- script for overlay -->
-<script>
-    var overlay = document.getElementById("overlay");
-window.addEventListener('load', function(){
-  overlay.style.display = 'none';
-})
 
-
-</script>
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
  <!-- custom script  -->
+
+ <script type="javascript"></script>
+ <script>
+
+//  redirect function
+ function redirect() {
+     var found=true;
+            if( !isEmpty(localStorage.username) && localStorage.role=="client"){
+                window.location.href="MainPage.html";
+        }   
+ }
  
+ </script>
    
+
+      
+   <script>
+        var overlay = document.getElementById("overlay");
+    window.addEventListener('load', function(){
+      overlay.style.display = 'none';
+    })
+    </script>
 </body> 
 </html>

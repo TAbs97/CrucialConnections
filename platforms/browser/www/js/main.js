@@ -45,17 +45,21 @@ function isEmpty(a, b) {
             "border": "3px solid red",
             "transition": "500ms"
         });
+        
+        return found;
+    } else {
+        $(b).css({
+            "border": "3px solid green",
+            "transition": "500ms"
+        });
+
         setTimeout(function () {
             $(b).css({
                 "border": "1px solid #ced4da;",
                 "transition": "500ms"
             });
         }, 2000);
-    } else {
-        $(b).css({
-            "border": "3px solid green",
-            "transition": "500ms"
-        });
+        return found;
     }
 }
 
@@ -86,7 +90,6 @@ function isEmail(a, b) {
         }
     }
 
-
     if (
         count == 2 &&                       //check if both charactors are in the string (@ .)
         !(a.indexOf("@.") > -1) &&          //check if both charactors are in this (@.) order
@@ -114,12 +117,13 @@ function isEmail(a, b) {
                 "transition": "500ms"
             });
         }, 2000);
-
+return found;
     } else {
         $(b).css({
             "border": "3px solid red",
             "transition": "500ms"
         });
+        return found;
     }
 }
 

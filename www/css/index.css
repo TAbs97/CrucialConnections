@@ -11,6 +11,9 @@ body{
 font-size: 20px;
 text-align: center;
 }
+a{
+    text-decoration: none !important;
+}
 
 .loginbox{
     width: 300px;
@@ -43,6 +46,30 @@ text-align: center;
     widows: 100px;
     height: 100px;
 }
+.card{
+    margin-top: 15px;
+    height: 150px;
+    background-color:#D3D3D3;
+}
+/* .leaner icon */
+.leaner{
+    position:absolute;
+    margin-top: 20px !important;
+    left:calc(50% - 50px );
+    /* border-radius: 50px; */
+    widows: 120px;
+
+}
+/* .Instructor icon */
+.Instructor{
+    position:absolute;
+
+    left:calc(50% - 50px );
+    /* border-radius: 50px; */
+    widows: 100px;
+    height: 80px;
+}
+
 h1{
     margin:0;
     padding: 0 0 20px;

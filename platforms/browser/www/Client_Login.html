@@ -36,51 +36,9 @@
                 onkeyup="isEmpty(this.value,'#username');isEmail(this.value,'#username')" />
             <p>Password</p>
             <span id=""></span>
-            <input type="password" id="password" type="text" name="password" placeholder="Enter password" />
+            <input type="password" id="password" type="text" name="password" placeholder="Enter password"
+                onkeyup="isPassword(this.value,'#password')" />
             <br>
-<<<<<<< Updated upstream
-           <button  id="Login">Login</button> 
-            <br/>
-             <a href="resert.php"> Lost your password ?</a><br>
-             <a href="SignUp.html">Don't have an account </a>
-        
-             <input id="back" type="button" value="back" onclick="window.location.href='index.html'">
-    </div>
-</form>
-
-
-<script src="js/jquery.js"></script>
-<script>
-
-    $('#Login').click(function(kho){
-         kho.preventDefault();   
-        //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
-        //  https://crucialconnections.000webhostapp.com/Client_Login.php
-        $.ajax({
-            url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
-            method:"POST",           
-            
-            data: JSON.stringify({EMAIL : $('#username').val(),USER_PASSWORD : $('#password').val() }),
-            contentType: "application/json; charset=utf-8",
-            dataType:"JSON",
-               
-            success:function(data){
-
-                localStorage.setItem("username",data.data["EMAIL"] );
-                localStorage.setItem("id",data.data["CLIENT_ID"] );
-                localStorage.setItem("role","client");
-
-                console.log(localStorage.getItem("khoza"));
-                console.log(localStorage.getItem("id"));
-                
-                
-
-              console.log(data);
-                if(data.rows> 0 ){
-                    window.location.href="MainPage.html";
-                }else{
-                    console.log("user not found");   
-=======
             <button id="Login">Login</button>
             <br />
             <a href="resert.php"> Lost your password ?</a><br>
@@ -124,16 +82,17 @@
 
                     console.log(data);
                     if (data.rows > 0) {
+                        window.alert("Logged in successfully");
                         window.location.href = "MainPage.html";
                     } else {
-                        console.log("user not found");
+                        window.alert("Wrong Email or password");
+                        // console.log("user not found");
                     }
                 },
                 error: function (err) {
 
                     console.log(err);
 
->>>>>>> Stashed changes
                 }
             });
         });

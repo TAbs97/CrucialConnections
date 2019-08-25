@@ -135,3 +135,9 @@ return found;
     }
 }
 
+function isPassword(a) {
+    if (a.length>4 && a.length<9) {
+        return true;
+    }
+    return false;
+}

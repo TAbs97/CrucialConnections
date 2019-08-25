@@ -18,10 +18,10 @@ if($login){
     echo json_encode(array("data"=>$login->fetch_assoc(),"rows" => $login->num_rows));
     //echo true;
 }
-else{
-    echo json_encode(array("data"=>"empty"));
-   // echo false;
-}
+// else{
+//     echo json_encode(array("data"=>"empty"));
+//    // echo false;
+// }
 // echo "EMAIL : ".$a."\n USER_PASSWORD : ".$b;
 
 ?>

@@ -9,16 +9,19 @@
     <title>Document</title>
     <link rel="stylesheet" type=" text/css" href="css/index.css">
 
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="css/confirm password.css">
-
+    <link rel="stylesheet" href="css/validate.css">
+    <link rel="stylesheet" href="css/preloader.css">
 
     <script src="js/jquery.js"></script>
-    <script src="js/parsley.js"></script>
-    <script src="js/parsley.min.js"></script>
-    <link rel="stylesheet" href="css/preloader.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    
+    <script src="js/additional-methods.js"></script>
+    
     <script src="js/smtp.js"></script>
+
+    <script src="js/validate.js"> </script>
+    
 
 </head>
 
@@ -32,77 +35,49 @@
         <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
         <!-- <h2>Sign Up</h2> -->
 
-        <div id="error"></div>
-        <form id="form" onsubmit="return false">
+        
+        <form id="SignUp" onsubmit="return false" action="">
             <p>Firstname</p>
 
-            <input type="text" name="" id="firstname" placeholder="Enter firstname" required min="" max="">
+            <input type="text" name="firstname" id="firstname" name="firstname"  placeholder="Enter firstname" >
 
             <p>Surname</p>
-            <input type="text" name="" id="surname" placeholder="Enter Surname" required min="" max="">
+            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname" >
             <br />
 
             <p>Email</p>
-            <input type="Email" name="Email" id="Email" placeholder="Enter Email" required min="" max="">
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email" >
             <br>
 
             <p>Password</p>
-            <input type="password" name="" id="password" placeholder="Enter Password" required min="" max="">
+            <input type="password" name="password" id="password" placeholder="Enter Password" >
             <br>
             <span id='message'></span>
             <p>Confirm password</p>
-            <input type="password" name="" id="confirm_Password" placeholder="Confirm password" required min="" max="">
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" >
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
+
                 <!-- <input type="checkbox" name="checkbox" value="check" id="agree"/> <br>  -->
-                <span id="agreed"><a href="https://bit.ly/2Mr2AzT" download="terms and Conditions">i have read and agree to the Terms and Conditions and Privacy Policy by clicking this button</a></span> 
+                <!-- <span id="agreed"><a href="https://bit.ly/2Mr2AzT" download="terms and Conditions">i have read and agree to the Terms and Conditions and Privacy Policy by clicking this button</a></span>  -->
                 <br>
-            <input type="submit" id="registerUser" name="" value="Submit">
+            <input type="submit" id="registerUser" name="" value="Submit" onsubmit="checkpassword()">
             <br>
             <a href="Client_Login.html" class="text-center">Already have an account     ?</a>
 
         </form>
 
-
     </div>
 
-<!-- validation -->
-    <!-- <script type="text/javascript">
-        function checkPass() {
-            //Store the password field objects into variables ...
-            var password = document.getElementById('password');
-            var confirm = document.getElementById('confirm_Password');
-            //Store the Confirmation Message Object ...
-            var message = document.getElementById('confirm-message2');
-            //Set the colors we will be using ...
-            var good_color = "##5f9ea0";
-            var bad_color = "#ff6666";
-            //Compare the values in the password field 
-            //and the confirmation field
-            if (password.value == confirm.value) {
-                //The passwords match. 
-                //Set the color to the good color and inform
-                //the user that they have entered the correct password 
-                confirm.style.borderColor = good_color;
-                message.style.color = good_color;
-                message.innerHTML = '<img src="/wp-content/uploads/2019/04/tick.png" alt="Passwords Match!">';
-            } else {
-                //The passwords do not match.
-                //Set the color to the bad color and
-                //notify the user.
-                confirm.style.backgroundColor = bad_color;
-                message.style.color = bad_color;
-                message.innerHTML = '<img src="/wp-content/uploads/2019/04/publish_x.png" alt="Passwords Do Not Match!">';
-            }
-        } -->
 
-    </script>
+
+</script>
 
     <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function(kho) {
-            kho.preventDefault();
+        $('#registerUser').click(function() {
+            // kho.preventDefault();
             $.ajax({
                 // url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 url:"http://crucialconnections.000webhostapp.com/C_registerUser.php",
@@ -158,27 +133,12 @@
         
     </script>
 
+    <!-- form validation -->
+<!-- <script src="js/jquery.min.js"></script> -->
+<script src="js/gen_validatorv4.js"></script>
+<script src="js/jquery.validate.min.js"> </script>
 <script>
-    function checkConnection() {
-    var networkState = navigator.connection.type;
 
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    alert('Connection type: ' + states[networkState]);
-}
-
-</script>
-<script>
-    // document.addEventListener(checkConnection());
-    
 </script>
 
 <script type="text/javascript">
@@ -196,10 +156,10 @@
         function(isConfirm){   
             if (isConfirm) 
         {   
-            window.location = "Client_Login.html";   
+            // window.location = "Client_Login.html";   
             } 
             else {     
-                window.location = "MainPage.html";   
+                // window.location = "MainPage.html";   
                 } });
     }
     </script>

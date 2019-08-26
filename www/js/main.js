@@ -46,16 +46,16 @@ function isEmpty(a, b) {
         $(b).css({
             "border": "2px solid red",
             "transition": "500ms"
-            
+
         });
-    // console.log(1);
+        console.log(1);
         return found;
     } else {
         $(b).css({
             "border": "2px solid green",
             "transition": "500ms"
         });
-// console.log(2);
+        console.log(2);
         setTimeout(function () {
             $(b).css({
                 "border": "2px solid #ced4da;",
@@ -66,12 +66,12 @@ function isEmpty(a, b) {
     }
 }
 
-function isNumeric(a) {
-    if ((parseInt(a)).toString() == "NaN") {
-        return true;
-    }
-    return false;
-}
+// function isNumeric(a) {
+//     if ((parseInt(a)).toString() == "NaN") {
+//         return true;
+//     }
+//     return false;
+// }
 
 
 
@@ -109,18 +109,19 @@ function isAlphabet(a) {
 
 
 function isAlphaNumeric(a) {
-
-    if(a==regex){
-        found;
+    var letters = /[A-Za-z]/;
+    if (a.match(letters)) {
+        return true
     }
-    return true;
-    
-
+    else {
+        alert("letters only");
+        return false;
+    }
 }
 
 function isEmail(a, b) {
     // var arr = ("@^.").split("^");
-    var arr = ["@","."];
+    var arr = ["@", "."];
     var countAt = 0;
     var countDot = 0;
     var found = false;
@@ -137,17 +138,17 @@ function isEmail(a, b) {
     }
 
     if (
-        (countAt == 1 )&&                       //check if both charactors are in the string (@ .)
-        (countDot == 1 )&&                       //check if both charactors are in the string (@ .)
+        (countAt == 1) &&                       //check if both charactors are in the string (@ .)
+        (countDot == 1) &&                       //check if both charactors are in the string (@ .)
         !(a.indexOf("@.") > -1) &&          //check if both charactors are in this (@.) order
         !(a.indexOf(".@") > -1) &&          //check if both charactors are in this (.@) order
         !(a.indexOf(".") == 0) &&            //check if fullstop is in the beninging 
         !(a.indexOf("@") == 0) &&             //check if @ sign is in the beninging
-        !(a.indexOf(".") == a.length-1) &&   //check if fullstop is in the end 
-        !(a.indexOf("@") == a.length-1)       //check if @ sign is in the end
-        ) {
+        !(a.indexOf(".") == a.length - 1) &&   //check if fullstop is in the end 
+        !(a.indexOf("@") == a.length - 1)       //check if @ sign is in the end
+    ) {
         found = true;
-    }else{
+    } else {
     }
 
 
@@ -157,14 +158,14 @@ function isEmail(a, b) {
             "border": "3px solid green",
             "transition": "500ms"
         });
-console.log(3);
+        console.log(3);
         setTimeout(function () {
             $(b).css({
                 "border": "1px solid #ced4da;",
                 "transition": "500ms"
             });
         }, 2000);
-return found;
+        return found;
     } else {
         $(b).css({
             "border": "3px solid red",
@@ -175,3 +176,17 @@ return found;
     }
 }
 
+function isPassword(a) {
+    var f = a.length;
+    // window.alert(f);
+    if (f > 0 && f < 4) {
+        alert("too short");
+    }
+    else if (f > 8) {
+        alert("too long");
+    }
+    else if (f <= 0) {
+        alert("enter password");
+    }
+
+}

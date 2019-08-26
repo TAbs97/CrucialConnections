@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+
 <?php
 include('CC_APIS/function.php');
 if(isset($_POST["email"]) && (!empty($_POST["email"]))){
@@ -33,7 +37,7 @@ VALUES ('".$email."', '".$key."', '".$expDate."');");
 $output='<p>Dear user,</p>';
 $output.='<p>Please click on the following link to reset your password.</p>';
 $output.='<p>-------------------------------------------------------------</p>';
-$output.='<p><a href=""http://localhost:8081/github/CrucialConnections/forgot.php"?
+$output.='<p><a href=""http://localhost:8081/github/CrucialConnections/resert.php"?
 key='.$key.'&email='.$email.'&action=reset" target="_blank">
 https://www.allphptricks.com/forgot-password/reset-password.php
 ?key='.$key.'&email='.$email.'&action=reset</a></p>'; 
@@ -86,4 +90,5 @@ echo "<div class='error'>
 <p>&nbsp;</p>
 <?php } ?>
 
-
+</body>
+</html>

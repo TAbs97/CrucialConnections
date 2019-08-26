@@ -37,7 +37,7 @@
             <p>Password</p>
             <span id=""></span>
             <input type="password" id="password" type="text" name="password" placeholder="Enter password"
-                onkeyup="isPassword(this.value,'#password')" />
+            onclick="isPassword(document.getElementById('password').value)"/>
             <br>
             <button id="Login">Login</button>
             <br />
@@ -92,7 +92,7 @@
                 error: function (err) {
 
                     console.log(err);
-
+                    window.alert("invalid password or Email");
                 }
             });
         });

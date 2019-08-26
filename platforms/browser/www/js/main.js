@@ -6,6 +6,7 @@ var host = "http://10.200.78.79:3000";
 function sendData() {
     var email = document.getElementById('email').value,
         password = document.getElementById('password').value;
+        var regex="[A-Za-z]";
 
     if (isEmpty(a)) {
         console.log("email empty");
@@ -43,21 +44,21 @@ function isEmpty(a, b) {
 
     if (found) {
         $(b).css({
-            "border": "3px solid red",
+            "border": "2px solid red",
             "transition": "500ms"
             
         });
-    console.log(1);
+    // console.log(1);
         return found;
     } else {
         $(b).css({
-            "border": "3px solid green",
+            "border": "2px solid green",
             "transition": "500ms"
         });
-console.log(2);
+// console.log(2);
         setTimeout(function () {
             $(b).css({
-                "border": "3px solid #ced4da;",
+                "border": "2px solid #ced4da;",
                 "transition": "500ms"
             });
         }, 2000);
@@ -72,9 +73,48 @@ function isNumeric(a) {
     return false;
 }
 
+
+
+function isAlphabet(a) {
+    
+    var found=true;
+    var letters = /^[a-z]/gi;
+    if(!(a).match(letters)){
+        found=true;
+        console.log(" not letter");
+    }
+    else{
+        console.log("leter");
+    }
+    
+    if(found){
+        $(a).css({
+            "border-radius":"5px",
+            "border": "2px solid red",
+            "transition": "500ms"
+            
+        });
+        return found;
+    }
+    else{
+        $(a).css({
+            "border": "2px solid green",
+            "transition": "500ms"
+        });
+
+    }
+
+    return false;
+}
+
+
 function isAlphaNumeric(a) {
 
+    if(a==regex){
+        found;
+    }
     return true;
+    
 
 }
 

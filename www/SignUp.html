@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="css/preloader.css">
 
     <script src="js/jquery.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
+    <!-- <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script> -->
     
     <script src="js/additional-methods.js"></script>
     
     <script src="js/smtp.js"></script>
-
-    <script src="js/validate.js"> </script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/validate.js"> </script> -->
     
 
 </head>
@@ -39,22 +39,21 @@
         <form id="SignUp" onsubmit="return false" action="">
             <p>Firstname</p>
 
-            <input type="text" name="firstname" id="firstname" name="firstname"  placeholder="Enter firstname" >
+            <input type="text" name="firstname" id="firstname" name="firstname"  placeholder="Enter firstname" onkeyup="isEmpty(this.value,'#firstname'); isAlphabet(this.value,'#firstname')" >
 
             <p>Surname</p>
-            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname" >
+            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname" onkeyup="isEmpty(this.value,'#surname');isAlphabet(this.value,'#surname')">
             <br />
 
             <p>Email</p>
-            <input type="Email" name="Email" id="Email" placeholder="Enter Email" >
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email" onkeyup="isEmpty(this.value,'#Email');isEmail(this.value,'#Email');" >
             <br>
 
             <p>Password</p>
-            <input type="password" name="password" id="password" placeholder="Enter Password" >
+            <input type="password" name="password" id="password" placeholder="Enter Password"  onkeyup="isEmpty(this.value,'#password');">
             <br>
-            <span id='message'></span>
             <p>Confirm password</p>
-            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" >
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" onkeyup="isEmpty(this.value,'#c_Password');">
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
@@ -72,7 +71,7 @@
 
 
 
-</script>
+</>
 
     <script src="js/jquery.js"></script>
     <script>
@@ -80,7 +79,7 @@
             // kho.preventDefault();
             $.ajax({
                 // url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-                url:"http://crucialconnections.000webhostapp.com/C_registerUser.php",
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
                 method: "POST",
 
                 data: JSON.stringify({
@@ -134,9 +133,9 @@
     </script>
 
     <!-- form validation -->
-<!-- <script src="js/jquery.min.js"></script> -->
+<!-- <script src="js/jquery.min.js"></script>
 <script src="js/gen_validatorv4.js"></script>
-<script src="js/jquery.validate.min.js"> </script>
+<script src="js/jquery.validate.min.js"> </script> -->
 <script>
 
 </script>

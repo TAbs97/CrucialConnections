@@ -131,14 +131,14 @@
                 
                 url:"http://crucialconnections.000webhostapp.com/selectPackageandCode.php",
                 method:"POST",   
-                data: '{ "EMAIL" : '+localStorage.khoza+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}',
+                data: '{ "EMAIL" : '+localStorage.username+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}',
                 contentType: "application/json; charset=utf-8",
                 //  dataType:"JSON",
                 success:function(data){
-                    window.location.href="MainPage.html";
+                    // window.location.href="MainPage.html";
                 },
                 error:function(err){
-                    console.log('{ "EMAIL" : '+localStorage.id+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}');
+                    console.log('{ "EMAIL" : '+localStorage.username+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}');
                     console.log(err);
                 }
             });

@@ -232,17 +232,20 @@ if ($conn->connect_error) {
 
     function selectPackage($email,$code,$packageID){
         global $conn;
-     $sql ="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
-        $results = $conn->query($sql);
+     $sq ="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sq);
         if($results->num_rows > 0){
             echo "Package Already selected";
         }
         else
         {
-        $sql = "INSERT INTO package_selection (EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('$email','$code','$packageID')";
+            // VALUES('',$email,$code,$packageID)"
+        $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID."')";
+
          if ($conn->query($sql)) {
             echo "Package Selected successfully";
         }else{
+            // echo $code;
         echo "Failed";
         }
         // echo $clientId.'-'.$codeID.'-'.$packageID;

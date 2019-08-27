@@ -198,12 +198,41 @@ function isPassword(a,b) {
 
 }
 
-function validate(evt) {
-    var theEvent = evt || window.event;
-    var key = theEvent.keyCode || theEvent.which;
-    key = String.fromCharCode( key );
-    var regex = /[0-9]|\./;
-    if( !regex.test(key) ) {
-      theEvent.returnValue = false;
-      if(theEvent.preventDefault) theEvent.preventDefault();
-}}
+function cornPass() {
+    var b ="";
+    found = false;
+        var passwprd = document.getElementById('password');
+        var c_password = document.getElementById('c_password');
+        if (passwprd == c_password) {
+            found = true;
+        }
+        else {}
+        if (found) {
+            $(b).css({
+                "border": "3px solid green",
+                "transition": "500ms"
+            });
+            console.log(3);
+            setTimeout(function () {
+                $(b).css({
+                    "border": "1px solid #ced4da;",
+                    "transition": "500ms"
+                });
+            }, 2000);
+            return found;
+        } else {
+            $(b).css({
+                "border": "3px solid red",
+                "transition": "500ms"
+            });
+            console.log(4);
+            return found;
+        }
+
+
+}
+
+
+
+
+

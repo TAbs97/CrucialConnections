@@ -29,8 +29,8 @@
 <body>
     <!-- Button trigger modal -->
 
-    <!-- Modal addClient-->
-    <div class="modal fade" id="AddClientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal addVehicle-->
+    <div class="modal fade" id="AddVehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="UpdateClient">Save Updated Details</button>
+                        <button type="submit" class="btn btn-primary" id="UpdateVehicle">Save Updated Details</button>
 
                     </div>
                 </form>
@@ -110,10 +110,10 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddClientmodal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddVehiclemodal">
                         Add
                     </button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" id="clients">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="Vehicles">
                         Show Vehicle Information
                     </button>
                 </div>
@@ -140,21 +140,22 @@
         </div>
     </div>
     
-    <!-- add client to clients -->
+    <!-- add Vehicle to Vehicles -->
     <script src="js/jquery.js"></script>
     <script>
-        $('#SaveClient').click(function(kho) {
+        $('#SaveVehicle').click(function(kho) {
             kho.preventDefault();
 
             //alert("username : "+$username+"\nPassword : "+$password);
 
             $.ajax({
-                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/addVehicle.php",
                 method: "POST",
 
                 data: JSON.stringify({
-                    MODEL: $('#Model').val(),
+                    model: $('#Model').val(),
                     REG_NO:$('#RegNo').val(),
+                    codeId:$('#codeID').val()
                    
                 }),
                 contentType: "application/json; charset=utf-8",
@@ -179,18 +180,18 @@
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            $("#clients").click(function() {
-                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+            $("#vehicles").click(function() {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectVehicles.php", function(data, status) {
                     console.log(data);
                     var data = JSON.parse(data);
 
                     data.forEach(function(dt) {
-                        $("#ClientsData").append("<tr>" +
-                            "<td>" + dt.VEHICLE_ID + "</td>" +
-                            "<td>" + dt.MODEL + "</td>" +
+                        $("#VehiclesData").append("<tr>" +
+                            "<td>" + dt.codeId + "</td>" +
+                            "<td>" + dt.model + "</td>" +
                             "<td>" + dt.REG_NO + "</td>" +
                            
-                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>" +
+                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditVehiclemodal'/> </td>" +
                             "</tr>");
 
                     });
@@ -200,18 +201,18 @@
 
         });
     </script>
-    <!-- fetch data to textfields to update client data -->
+    <!-- fetch data to textfields to update Vehicle data -->
     <script>
         $(document).ready(function() {
             $("#fetchdata").click(function() {
-                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectVehicles.php", function(data, status) {
                     console.log(data);
                     var data = JSON.parse(data);
 
                     success: (function(data) {
-                        document.getElementById("v_model").innerHTML.value = data.data["MODEL"];
+                        document.getElementById("v_model").innerHTML.value = data.data["model"];
                         document.getElementById("v_regNo").innerHTML.value = data.data["REG_NO"];
-                        document.getElementById("v_id").innerHTML.value = data.data["VEHICLE_ID"];
+                        document.getElementById("v_id").innerHTML.value = data.data["CodeId"];
 
                     });
 

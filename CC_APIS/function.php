@@ -232,8 +232,8 @@ if ($conn->connect_error) {
 
     function selectPackage($email,$code,$packageID){
         global $conn;
-     $sq ="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
-        $results = $conn->query($sq);
+     $sql="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
+        $results = $conn->query($sql);
         if($results->num_rows > 0){
             echo "Package Already selected";
         }
@@ -246,7 +246,7 @@ if ($conn->connect_error) {
             echo "Package Selected successfully";
         }else{
             // echo $code;
-        echo "Failed";
+        echo "Failed to select package";
         }
         // echo $clientId.'-'.$codeID.'-'.$packageID;
 

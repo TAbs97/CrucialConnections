@@ -42,7 +42,7 @@
             <p>Password</p>
             <span id=""></span>
             <input type="password" id="password" type="text" name="password" placeholder="Enter password"
-            onclick="isPassword(document.getElementById('password').value)"/>
+            onkeyup="isPassword(this.value,'#password')"/>
             <br>
             <button id="Login">Login</button>
             <br />

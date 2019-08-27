@@ -54,11 +54,11 @@
 
             <p>Password</p>
             <input type="password" name="password" id="password" placeholder="Enter Password"
-            onclick="isPassword(document.getElementById('password').value)"/>
+            onkeyup="isPassword(this.value,'#password')"/>
             <br>
             <p>Confirm password</p>
             <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" 
-            onclick="isPassword(document.getElementById('password').value)"/>
+            onkeyup="isPassword(this.value,'#password')"/>
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
@@ -66,7 +66,7 @@
                 <!-- <input type="checkbox" name="checkbox" value="check" id="agree"/> <br>  -->
                 <!-- <span id="agreed"><a href="https://bit.ly/2Mr2AzT" download="terms and Conditions">i have read and agree to the Terms and Conditions and Privacy Policy by clicking this button</a></span>  -->
                 <br>
-            <input type="submit" id="registerUser" value="Submit">
+            <input type="button" id="registerUser" value="Submit">
             <br>
             <a href="Client_Login.html" class="text-center"><b>Already have an account?</b></a>
 
@@ -83,9 +83,10 @@
     <script>
         $('#registerUser').click(function() {
             // kho.preventDefault();
+            console.log(" ");
             $.ajax({
-                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-                //url:"http://crucialconnections.000webhostapp.com/C_registerUser.php",
+                 //url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                url:"http://crucialconnections.000webhostapp.com/C_registerUser.php",
                 method: "POST",
 
                 data: JSON.stringify({
@@ -97,17 +98,20 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
-                success: function(data) {
-                    sendemail();
+                success: function (data) {
                     console.log(data);
                     if (data.rows > 0) {
-                    window.alert("successfully registered");
-                    window.location.href = "Client_Login.html";
+                        window.alert("successfully Registered");
+                        window.location.href = "Client_Login.html";
+                    } else {
+                        window.alert("Input The correct information and try again");
+                        // console.log("user not found");
                     }
                 },
-                error: function(err) {
+                error: function (err) {
+
                     console.log(err);
-                    window.alert("failed to Register please check ur details and try again");
+                    window.alert("invalid password or Email");
                 }
             });
         });

@@ -57,13 +57,13 @@
 
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" id="LastName" placeholder="LastName" required
+                            <input type="text" class="form-control" id="LastName" placeholder="LastName"  onkeyup="isAlphaNumeric(this.value,'#LastName')"
                                 maxlength="20">
                         </div>
 
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName" required
+                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName"  onkeyup="isAlphaNumeric(this.value,'#FirstName')"
                                 maxlength="20">
                         </div>
 
@@ -71,13 +71,13 @@
                         <div class="form-group">
                             <label 8>Email address</label>
                             <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp"
-                                placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                placeholder="Enter email" onkeyup="isEmpty(this.value,'#EmailAddress');isEmail(this.value,'#EmailAddress')">
 
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                            <input type="password" class="form-control" id="password" placeholder="Password" 
+                            onkeyup="isPassword(this.value,'#password')">
                         </div>
 
                     </div>
@@ -111,25 +111,27 @@
 
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" id="I_LastName" placeholder="LastName" required />
+                            <input type="text" class="form-control" id="I_LastName" placeholder="LastName" 
+                            onkeyup="isAlphaNumeric(this.value,'#I_LastName')" />
                         </div>
 
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" id="I_FirstName" placeholder="FirstName" required />
+                            <input type="text" class="form-control" id="I_FirstName" placeholder="FirstName" 
+                            onkeyup="isAlphaNumeric(this.value,'#I_FirstName')" />
                         </div>
 
 
                         <div class="form-group">
                             <label 8>Email address</label>
                             <input type="email" class="form-control" id="I_EmailAddress" aria-describedby="emailHelp"
-                                placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                                placeholder="Enter email" onkeyup="isEmpty(this.value,'#I_EmailAddress');isEmail(this.value,'#I_EmailAddress')" />
 
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="I_password" placeholder="Password" required
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                            <input type="password" class="form-control" id="I_password" placeholder="Password"
+                            onkeyup="isPassword(this.value,'#I_password')" />
                         </div>
 
                     </div>
@@ -182,6 +184,8 @@
 
         </div>
     </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- add Instructor to Instructors -->
     <script src="js/jquery.js"></script>
@@ -220,6 +224,8 @@
         });
     </script>
     <!-- fetch from data to table  -->
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
 
     <script src="js/jquery.js"></script>
     <script>
@@ -246,6 +252,9 @@
         });
     </script>
     <!-- fetch data to textfields to update Instructor data -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
     <script>
         $(document).ready(function () {
             $("#fetchdata").click(function () {

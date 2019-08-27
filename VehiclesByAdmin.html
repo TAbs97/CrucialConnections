@@ -187,7 +187,7 @@
 
                     data.forEach(function(dt) {
                         $("#VehiclesData").append("<tr>" +
-                            "<td>" + dt.CodeID + "</td>" +
+                            "<td>" + dt.codeId + "</td>" +
                             "<td>" + dt.model + "</td>" +
                             "<td>" + dt.REG_NO + "</td>" +
                            
@@ -212,7 +212,7 @@
                     success: (function(data) {
                         document.getElementById("v_model").innerHTML.value = data.data["model"];
                         document.getElementById("v_regNo").innerHTML.value = data.data["REG_NO"];
-                        document.getElementById("v_id").innerHTML.value = data.data["CodeID"];
+                        document.getElementById("v_id").innerHTML.value = data.data["CodeId"];
 
                     });
 

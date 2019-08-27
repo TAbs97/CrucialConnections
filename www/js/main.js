@@ -5,7 +5,7 @@ var host = "http://10.200.78.79:3000";
 
 function sendData() {
     var email = document.getElementById('email').value,
-        password = document.getElementById('password').value;
+       password = document.getElementById('password').value;
 
     if (isEmpty(a)) {
         console.log("email empty");
@@ -72,15 +72,35 @@ function isEmpty(a, b) {
 //     return false;
 // }
 
-function isAlphaNumeric(a) {
+function isAlphaNumeric(a,b) {
     var letters = /[A-Za-z]/;
+    var found = false;
     if (a.match(letters)) {
-        return true
+        found=true;
     }
-    else {
-        alert("letters only");
-        return false;
+    else{}
+    if (found) {
+        $(b).css({
+            "border": "3px solid green",
+            "transition": "500ms"
+        });
+        console.log(3);
+        setTimeout(function () {
+            $(b).css({
+                "border": "1px solid #ced4da;",
+                "transition": "500ms"
+            });
+        }, 2000);
+        return found;
+    } else {
+        $(b).css({
+            "border": "3px solid red",
+            "transition": "500ms"
+        });
+        console.log(4);
+        return found;
     }
+
 }
 
 function isEmail(a, b) {
@@ -140,17 +160,40 @@ function isEmail(a, b) {
     }
 }
 
-function isPassword(a) {
+function isPassword(a,b) {
     var f = a.length;
+    var found = false;
     // window.alert(f);
-    if (f > 0 && f < 4) {
-        alert("too short");
+    if (
+        (f > 4) && 
+        (f < 9)
+    ){
+        found = true;
+    }else{
+
     }
-    else if (f > 8) {
-        alert("too long");
+    if (found) {
+        $(b).css({
+            "border": "3px solid green",
+            "transition": "500ms"
+        });
+        console.log(3);
+        setTimeout(function () {
+            $(b).css({
+                "border": "1px solid #ced4da;",
+                "transition": "500ms"
+            });
+        }, 2000);
+        return found;
+    } else {
+        $(b).css({
+            "border": "3px solid red",
+            "transition": "500ms"
+        });
+        console.log(4);
+        return found;
     }
-    else if (f <= 0) {
-        alert("enter password");
-    }
+
+
 
 }

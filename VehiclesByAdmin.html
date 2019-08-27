@@ -154,7 +154,7 @@
 
                 data: JSON.stringify({
                     MODEL: $('#Model').val(),
-                    REG_NO: $('#RegNo').val(),
+                    REG_NO:$('#RegNo').val(),
                    
                 }),
                 contentType: "application/json; charset=utf-8",
@@ -186,10 +186,10 @@
 
                     data.forEach(function(dt) {
                         $("#ClientsData").append("<tr>" +
-                            "<td>" + dt.CLIENT_ID + "</td>" +
-                            "<td>" + dt.CLIENT_NAME + "</td>" +
-                            "<td>" + dt.CLIENT_SURNAME + "</td>" +
-                            "<td>" + dt.EMAIL + "</td>" +
+                            "<td>" + dt.VEHICLE_ID + "</td>" +
+                            "<td>" + dt.MODEL + "</td>" +
+                            "<td>" + dt.REG_NO + "</td>" +
+                           
                             "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>" +
                             "</tr>");
 
@@ -209,10 +209,9 @@
                     var data = JSON.parse(data);
 
                     success: (function(data) {
-                        document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
-                        document.getElementById("c_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
-                        document.getElementById("c_Emailaddress").innerHTML.value = data.data["EMAIL"];
-                        document.getElementById("c_password").innerHTML.value = data.data["CLIENT_ID"];
+                        document.getElementById("v_model").innerHTML.value = data.data["MODEL"];
+                        document.getElementById("v_regNo").innerHTML.value = data.data["REG_NO"];
+                        document.getElementById("v_id").innerHTML.value = data.data["VEHICLE_ID"];
 
                     });
 

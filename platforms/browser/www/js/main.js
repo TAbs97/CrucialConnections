@@ -5,12 +5,8 @@ var host = "http://10.200.78.79:3000";
 
 function sendData() {
     var email = document.getElementById('email').value,
-<<<<<<< HEAD
         password = document.getElementById('password').value;
         var regex="[A-Za-z]";
-=======
-       password = document.getElementById('password').value;
->>>>>>> 89b1b16ef061f95c713300bc2f9901aace7efcf9
 
     if (isEmpty(a)) {
         console.log("email empty");
@@ -77,46 +73,8 @@ function isEmpty(a, b) {
 //     return false;
 // }
 
-<<<<<<< HEAD
 
-
-function isAlphabet(a) {
-    
-    var found=true;
-    var letters = /^[a-z]/gi;
-    if(!(a).match(letters)){
-        found=true;
-        console.log(" not letter");
-    }
-    else{
-        console.log("leter");
-    }
-    
-    if(found){
-        $(a).css({
-            "border-radius":"5px",
-            "border": "2px solid red",
-            "transition": "500ms"
-            
-        });
-        return found;
-    }
-    else{
-        $(a).css({
-            "border": "2px solid green",
-            "transition": "500ms"
-        });
-
-    }
-
-    return false;
-}
-
-
-function isAlphaNumeric(a) {
-=======
 function isAlphaNumeric(a,b) {
->>>>>>> 89b1b16ef061f95c713300bc2f9901aace7efcf9
     var letters = /[A-Za-z]/;
     var found = false;
     if (a.match(letters)) {
@@ -238,6 +196,14 @@ function isPassword(a,b) {
         return found;
     }
 
-
-
 }
+
+function validate(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+}}

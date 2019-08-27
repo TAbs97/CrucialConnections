@@ -40,7 +40,7 @@
             <p>Firstname</p>
 
             <input type="text" name="firstname" id="firstname" name="firstname"  placeholder="Enter firstname"
-            onkeyup="isAlphaNumeric(this.value,'#firstname')" />
+            onkeyup="isAlphaNumeric(this.value,'#firstname'),validate(this.value,'#firstname')" />
 
             <p>Surname</p>
             <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname"
@@ -77,7 +77,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 
-</>
 
     <script src="js/jquery.js"></script>
     <script>

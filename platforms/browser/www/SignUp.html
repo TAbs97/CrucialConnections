@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet" type=" text/css" href="css/index.css">
+
+    <link rel="stylesheet" href="css/validate.css">
+    <link rel="stylesheet" href="css/preloader.css">
+
+    <script src="js/jquery.js"></script>
+    <!-- <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script> -->
+    
+    <script src="js/additional-methods.js"></script>
+    
+    <script src="js/smtp.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/validate.js"> </script> -->
+    
+
+</head>
+
+<body>
+
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="loginbox signup">
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <!-- <h2>Sign Up</h2> -->
+
+        
+        <form id="SignUp" onsubmit="return false" action="">
+            <p>Firstname</p>
+
+            <input type="text" name="firstname" id="firstname" name="firstname"  placeholder="Enter firstname"
+            onkeyup="isAlphaNumeric(this.value,'#firstname'),validate(this.value,'#firstname')" />
+
+            <p>Surname</p>
+            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname"
+            onkeyup="isAlphaNumeric(this.value,'#surname')" />
+            <br />
+
+            <p>Email</p>
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email"
+            onkeyup="isEmpty(this.value,'#Email');isEmail(this.value,'#Email')" />
+            <br>
+
+            <p>Password</p>
+            <input type="password" name="password" id="password" placeholder="Enter Password"
+            onkeyup="isPassword(this.value,'#password')"/>
+            <br>
+            <p>Confirm password</p>
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" 
+            onkeyup="isPassword(this.value,'#password')"/>
+            <br>
+            <span id="confirm-message2" class="confirm-message"></span>
+            <br>
+
+                <!-- <input type="checkbox" name="checkbox" value="check" id="agree"/> <br>  -->
+                <!-- <span id="agreed"><a href="https://bit.ly/2Mr2AzT" download="terms and Conditions">i have read and agree to the Terms and Conditions and Privacy Policy by clicking this button</a></span>  -->
+                <br>
+            <input type="button" id="registerUser" value="Submit">
+            <br>
+            <a href="Client_Login.html" class="text-center"><b>Already have an account?</b></a>
+
+        </form>
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#registerUser').click(function() {
+            // kho.preventDefault();
+            console.log(" ");
+            $.ajax({
+                 //url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                url:"http://crucialconnections.000webhostapp.com/C_registerUser.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    CLIENT_NAME: $('#firstname').val(),
+                    CLIENT_SURNAME: $('#surname').val(),
+                    EMAIL: $('#Email').val(),
+                    USER_PASSWORD: $('#password').val()
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function (data) {
+                    console.log(data);
+                    if (data.rows > 0) {
+                        window.alert("successfully Registered");
+                        window.location.href = "Client_Login.html";
+                    } else {
+                        window.alert("Input The correct information and try again");
+                        // console.log("user not found");
+                    }
+                },
+                error: function (err) {
+
+                    console.log(err);
+                    window.alert("invalid password or Email");
+                }
+            });
+        });
+
+    </script>
+    <!-- preloader -->
+    <script>
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function() {
+            overlay.style.display = 'none';
+        })
+
+    </script>
+
+    <!-- email notification   -->
+    <script src="js/smtp.js"></script>
+    <script>
+        function sendemail (){
+            Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "mutshinyanit@gmail.com",
+            Password: "22d02885-2d96-4b83-91b0-8441c4a11c87",
+            To: 'Email.val()',
+            From: "Drivebox",
+            Subject: "Signed up for driving lessons at Bright and peace",
+            Body: "Thank you for joining our driving school,you will be able to login to our system using the email and password you registered with,and also select the code and package you want"
+        }).then(
+            message => alert(message)
+        );
+
+        };
+        
+    </script>
+
+    <!-- form validation -->
+<!-- <script src="js/jquery.min.js"></script>
+<script src="js/gen_validatorv4.js"></script>
+<script src="js/jquery.validate.min.js"> </script> -->
+<script>
+
+</script>
+
+<script type="text/javascript">
+    function JSconfirm(){
+        swal({ 
+        title: "logOut?",   
+        text: "Redirect to the login page?",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes",   
+        cancelButtonText: "No",   
+        closeOnConfirm: false,   
+        closeOnCancel: false }, 
+        function(isConfirm){   
+            if (isConfirm) 
+        {   
+            // window.location = "Client_Login.html";   
+            } 
+            else {     
+                // window.location = "MainPage.html";   
+                } });
+    }
+    </script>
+
+    <script>
+                var overlay = document.getElementById("overlay");
+                    window.addEventListener('load', function(){
+                     overlay.style.display = 'none';
+                    })
+    </script>
+
+
+</body>
+
+</html>

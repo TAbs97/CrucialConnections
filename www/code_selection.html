@@ -116,11 +116,10 @@
                     PACKAGE_NAME: $('#lesson1').val()
                     // USER_PASSWORD: $('#password').val()
                 }),
-                // data: '{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $('#Code').val() +
-                //     ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}',
                 contentType: "application/json; charset=utf-8",
                  dataType:"JSON",
                 success: function (data) {
+                    swal("package selected sucessfully", "success")
                     // window.location.href="MainPage.html";
                 },
                 error: function (err) {

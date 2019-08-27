@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> DriveBox</title>
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/hStyle.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" integrity="sha256-Z8TW+REiUm9zSQMGZH4bfZi52VJgMqETCbPFlGRB1P8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+    <!-- Button trigger modal -->
+
+    <!-- Modal addClient-->
+    <div class="modal fade" id="AddClientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Vehicle </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Model</label>
+                            <input type="text" class="form-control" id="Model" placeholder="FirstName" required maxlength="20">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label 8>Registration Number</label>
+                            <input type="email" class="form-control" id="RegNo" aria-describedby="emailHelp" placeholder="Reg Number" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        </div>
+                      
+
+                   
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="SaveVehicle">Save Vehicle Details</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ################################################################################################################            -->
+
+    <!-- edit data modal       -->
+    <!-- Modal -->
+    <div class="modal fade" id="EditVehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Vehicle Details </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body" id="fetchedData">
+
+
+                        <div class="form-group">
+                            <label>Model</label>
+                            <input type="text" class="form-control" id="V_Model" placeholder="FirstName" required />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label 8>Registration Number</label>
+                            <input type="email" class="form-control" id="V_RegNo"  placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="UpdateClient">Save Updated Details</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="Container">
+        <div class="jumbotron">
+            <div class="card">
+                <h2> Vehicles</h2>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddClientmodal">
+                        Add
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="clients">
+                        Show Vehicle Information
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Model</th>
+                                <th scope="col">Registration Number</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody id="VehicleData">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+    <!-- add client to clients -->
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#SaveClient').click(function(kho) {
+            kho.preventDefault();
+
+            //alert("username : "+$username+"\nPassword : "+$password);
+
+            $.ajax({
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    MODEL: $('#Model').val(),
+                    REG_NO:$('#RegNo').val(),
+                   
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function(data) {
+                    swal({
+                        title: "Adding Vehicle",
+                        text: "Vehicle Added succesfully",
+                        icon: "success",
+                        button: "Ok",
+                    });
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+    <!-- fetch from data to table  -->
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#clients").click(function() {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+                    console.log(data);
+                    var data = JSON.parse(data);
+
+                    data.forEach(function(dt) {
+                        $("#ClientsData").append("<tr>" +
+                            "<td>" + dt.VEHICLE_ID + "</td>" +
+                            "<td>" + dt.MODEL + "</td>" +
+                            "<td>" + dt.REG_NO + "</td>" +
+                           
+                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>" +
+                            "</tr>");
+
+                    });
+
+                });
+            });
+
+        });
+    </script>
+    <!-- fetch data to textfields to update client data -->
+    <script>
+        $(document).ready(function() {
+            $("#fetchdata").click(function() {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+                    console.log(data);
+                    var data = JSON.parse(data);
+
+                    success: (function(data) {
+                        document.getElementById("v_model").innerHTML.value = data.data["MODEL"];
+                        document.getElementById("v_regNo").innerHTML.value = data.data["REG_NO"];
+                        document.getElementById("v_id").innerHTML.value = data.data["VEHICLE_ID"];
+
+                    });
+
+                });
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,120 +1,99 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style></style>
     <title>Document</title>
-    <link rel="stylesheet"  type=" text/css" href="css/book.css">
+    <link rel="stylesheet" type=" text/css" href="css/book.css">
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/code.css">
     <script>
-    function getLessons(x){
-        
-        if( x === '8'){
-            document.getElementById("lesson2").style.visibility ="hidden";
-            document.getElementById("lesson1").style.visibility ="visible";
-            document.getElementById("lesson3").style.visibility ="hidden";
-          
-	      }
-	    if(x === "10"){
-            document.getElementById("lesson2").style.visibility ="visible";
-            document.getElementById("lesson1").style.visibility ="hidden";
-            document.getElementById("lesson3").style.visibility ="hidden";
-	          }
-            if(x=== "14"){
-                document.getElementById("lesson2").style.visibility ="hidden";
-            document.getElementById("lesson1").style.visibility ="hidden";
-            document.getElementById("lesson3").style.visibility ="visible";
-	          }
+    //     function getLessons(x) {
 
-      }
-      </script>
+    //         if (x === '8') {
+    //             document.getElementById("lesson2").style.visibility = "hidden";
+    //             document.getElementById("lesson1").style.visibility = "visible";
+    //             document.getElementById("lesson3").style.visibility = "hidden";
+
+    //         }
+    //         if (x === "10") {
+    //             document.getElementById("lesson2").style.visibility = "visible";
+    //             document.getElementById("lesson1").style.visibility = "hidden";
+    //             document.getElementById("lesson3").style.visibility = "hidden";
+    //         }
+    //         if (x === "14") {
+    //             document.getElementById("lesson2").style.visibility = "hidden";
+    //             document.getElementById("lesson1").style.visibility = "hidden";
+    //             document.getElementById("lesson3").style.visibility = "visible";
+    //         }
+
+    //     }
+    // </script>
 </head>
+
 <body>
 
-    
-        <div id="overlay">
-                <div class="spinner"></div> 
-        </div>
-    <div class="Booking" >
-        <a href="lessonBooking.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
-      
-        <h1>Select Packadge</h1>
-        <form> 
-            <p>Code Type</p>
-            <div class="select-wrap">
-                    <div class="new-select-arrow"></div>
-                        <select class="select" required id="Code" onchange="getLessons(this.options[this.selectedIndex].value)">
-                                <option value="">Select Code</option>
-                                <option id="8" value="8">8</option>
-                                <option id="10" value="10">10</option>
-                                <option id="14" value="14">14</option>
-                              </select>                     
-                </div>
-              <br>
-              <p>Select Package</p>
-  <table>
-    <tr>
-       <td>
-           
-            <div class="select-wrap">
-                    <div class="new-select-arrow"></div>
-                    
-          <select class="select" required id="lesson1" style="visibility:hidden;"> 
-                <option value="">Select package</option>
-                <option id="INDIVIDUAL_LESSON" value="1">INDIVIDUAL LESSON R150</option>
-                <option id="FULL_PACKAGE" value="2">FULL PACKAGE R2499.99</option>
-                <option id="HALF_COURSE" value="3">HALF COURSE R1150.00</option>  
-                <option id="BRUSH_UP" value="4">BRUSH UP R799.99</option>
-                <option id="SUPPER_BRUSH_UP" value="5">SUPPER BRUSH UP R399.99</option>                       
-              </select>
-                </div>
-      </td>
-    </tr>
-    <tr>
-       <td>
 
-        
-            <div class="select-wrap">
-                    <div class="new-select-arrow"></div>
-                    <select class="select" required id="lesson2" style="visibility:hidden;"> 
-                            <option value="">Select package</option>
-                            <option id="INDIVIDUAL LESSON" value="6">INDIVIDUAL LESSON R250</option>
-                            <option id="FULL PACKAGE" value="7">FULL PACKAGE R3799.99</option>
-                            <option id="HALF COURSE" value="8">HALF COURSE R2499.99</option>  
-                            <option id="BRUSH UP" value="9">BRUSH UP R1799.99</option>
-                            <option id="SUPPER BRUSH UP" value="10">SUPPER BRUSH UP R1199.99</option>                       
-                          </select>
-                </div>
-      
-       </td>
-    </tr>
-    <tr>
-       <td>
-           <div class="select-wrap">
-               <div class="new-select-arrow"></div>
-               <select class="select" required id="lesson3" style="visibility:hidden;"> 
-                    <option value="">Select package</option>
-                    <option id="INDIVIDUAL LESSON" value="11">INDIVIDUAL LESSON R400</option>
-                    <option id="FULL PACKAGE" value="12">FULL PACKAGE R4799.99</option>
-                    <option id="HALF COURSE" value="13">HALF COURSE R3199.99</option>  
-                    <option id="BRUSH UP" value="14">BRUSH UP R2499.99</option>
-                    <option id="SUPPER BRUSH UP" value="15">SUPPER BRUSH UP 1999.99</option>                       
-                  </select>
-           </div>
-        
-       </td>
-    </tr>
-  </table>
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="Booking">
+        <a href="lessonBooking.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
+
+        <h1>Select Packadge</h1>
+        <form>
+            <p>Code Type</p>
+            <div class="wrapper">
+                <div class="new-select-arrow"></div>
+                <select class="select" required id="Code">
+                    <option value="">Select Code</option>
+                    <option id="8" value="8">8</option>
+                    <option id="10" value="10">10</option>
+                    <option id="14" value="14">14</option>
+                </select>
+            </div>
             <br>
-           
-<hr>
-            <input type="button" id="book" value="Select">           <br/>
-           
+            <p>Select Package</p>
+
+
+
+            <div class="wrapper">
+                <div class="new-select-arrow"></div>
+
+                <select class="select" required id="lesson1">
+                    <optgroup label="Code 8 packages">
+                        <option id="INDIVIDUAL_LESSON" value="1">INDIVIDUAL LESSON R150</option>
+                        <option id="FULL_PACKAGE" value="2">FULL PACKAGE R2499.99</option>
+                        <option id="HALF_COURSE" value="3">HALF COURSE R1150.00</option>
+                        <option id="BRUSH_UP" value="4">BRUSH UP R799.99</option>
+                        <option id="SUPPER_BRUSH_UP" value="5">SUPPER BRUSH UP R399.99</option>
+                    </optgroup>
+                    <optgroup label="Code 10 packages">
+
+                        <option id="INDIVIDUAL LESSON" value="6">INDIVIDUAL LESSON R250</option>
+                        <option id="FULL PACKAGE" value="7">FULL PACKAGE R3799.99</option>
+                        <option id="HALF COURSE" value="8">HALF COURSE R2499.99</option>
+                        <option id="BRUSH UP" value="9">BRUSH UP R1799.99</option>
+                        <option id="SUPPER BRUSH UP" value="10">SUPPER BRUSH UP R1199.99</option>
+                    </optgroup>
+
+                    <optgroup label="code 14 packages">
+                        <option id="INDIVIDUAL LESSON" value="11">INDIVIDUAL LESSON R400</option>
+                        <option id="FULL PACKAGE" value="12">FULL PACKAGE R4799.99</option>
+                        <option id="HALF COURSE" value="13">HALF COURSE R3199.99</option>
+                        <option id="BRUSH UP" value="14">BRUSH UP R2499.99</option>
+                        <option id="SUPPER BRUSH UP" value="15">SUPPER BRUSH UP 1999.99</option>
+                    </optgroup>
+                </select>
+            </div>
+            <br>
+
+            <hr>
+            <input type="button" id="book" value="Select"> <br />
+
 
         </form>
     </div>
@@ -123,34 +102,37 @@
     <script>
         var ID = localStorage.getItem("id");
         console.log(ID);
-        
-// console.log(customersDataString);
-        $('#book').click(function(){
+
+        // console.log(customersDataString);
+        $('#book').click(function () {
             $.ajax({
                 // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
-                
-                url:"http://crucialconnections.000webhostapp.com/selectPackageandCode.php",
-                method:"POST",   
-                data: '{ "EMAIL" : '+localStorage.khoza+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}',
+                // http://crucialconnections.000webhostapp.com/selectPackageandCode.php
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+                method: "POST",
+                data: '{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $('#Code').val() +
+                    ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}',
                 contentType: "application/json; charset=utf-8",
-                //  dataType:"JSON",
-                success:function(data){
-                    window.location.href="MainPage.html";
+                 dataType:"JSON",
+                success: function (data) {
+                    // window.location.href="MainPage.html";
                 },
-                error:function(err){
-                    console.log('{ "EMAIL" : '+localStorage.id+',"CODE_NAME" : '+$('#Code').val()+',"PACKAGE_NAME" :'+$('#lesson1').val()+'}');
+                error: function (err) {
+                    console.log('{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $(
+                        '#Code').val() + ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}');
                     console.log(err);
                 }
             });
         });
     </script>
 
-<script>
-    var overlay = document.getElementById("overlay");
-        window.addEventListener('load', function(){
-         overlay.style.display = 'none';
+    <script>
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function () {
+            overlay.style.display = 'none';
         })
-</script>
+    </script>
 
-</body> 
+</body>
+
 </html>

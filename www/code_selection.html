@@ -108,10 +108,16 @@
             $.ajax({
                 // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
                 // http://crucialconnections.000webhostapp.com/selectPackageandCode.php
-                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/selectPackageandCode.php",
                 method: "POST",
-                data: '{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $('#Code').val() +
-                    ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}',
+                data: JSON.stringify({
+                    EMAIL: localStorage.username,
+                    CODE_NAME: $('#Code').val(),
+                    PACKAGE_NAME: $('#lesson1').val()
+                    // USER_PASSWORD: $('#password').val()
+                }),
+                // data: '{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $('#Code').val() +
+                //     ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}',
                 contentType: "application/json; charset=utf-8",
                  dataType:"JSON",
                 success: function (data) {

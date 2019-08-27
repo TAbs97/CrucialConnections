@@ -37,7 +37,7 @@ VALUES ('".$email."', '".$key."', '".$expDate."');");
 $output='<p>Dear user,</p>';
 $output.='<p>Please click on the following link to reset your password.</p>';
 $output.='<p>-------------------------------------------------------------</p>';
-$output.='<p><a href=""http://localhost:8081/github/CrucialConnections/resert.php"?
+$output.='<p><a href=""http://localhost:8081/github/CrucialConnections/forgottenpassword.php"?
 key='.$key.'&email='.$email.'&action=reset" target="_blank">
 https://www.allphptricks.com/forgot-password/reset-password.php
 ?key='.$key.'&email='.$email.'&action=reset</a></p>'; 

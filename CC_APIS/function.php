@@ -242,7 +242,23 @@ if ($conn->connect_error) {
             }
             echo json_encode($rows);
     
-    }
+        }
+
+        // selectVehicle
+     function Vehicle_Display(){
+        global $conn;
+        $sql = "SELECT * from vehicle";
+        $query=mysqli_query($conn,$sql);
+         
+            while($results=mysqli_fetch_assoc($query)){
+                $rows[]=$results;
+                
+                //echo(",");
+            }
+            echo json_encode($rows);
+    
+        }
+
 
     function selectPackage($email,$code,$packageID){
         global $conn;

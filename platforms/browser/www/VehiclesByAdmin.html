@@ -29,12 +29,12 @@
 <body>
     <!-- Button trigger modal -->
 
-    <!-- Modal addClient-->
-    <div class="modal fade" id="AddClientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal addVehicle-->
+    <div class="modal fade" id="AddVehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add client </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Vehicle </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -42,37 +42,28 @@
                 <form>
                     <div class="modal-body">
 
-
                         <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" id="LastName" placeholder="LastName" maxlength="20" 
-                            onkeyup="isAlphaNumeric(this.value,'#LastName')">
-                        </div>
-
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName" maxlength="20"
-                             onkeyup="isAlphaNumeric(this.value,'#FirstName')">
+                            <label>Vehiicle Name</label>
+                            <input type="text" class="form-control" id="VehiicleName" placeholder="FirstName" required maxlength="20">
                         </div>
 
 
                         <div class="form-group">
-                            <label 8>Email address</label>
-                            <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" 
-                            onkeyup="isEmpty(this.value,'#EmailAddress');isEmail(this.value,'#EmailAddress')">
-
+                            <label >Model</label>
+                            <input type="email" class="form-control" id="Model" aria-describedby="emailHelp" placeholder="Reg Number" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" 
-                            onkeyup="isPassword(this.value,'#password')">
+                            <label >Code ID</label>
+                            <input type="email" class="form-control" id="CodeID" aria-describedby="emailHelp" placeholder="Reg Number" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         </div>
+                      
+                       
 
-                    </div>
-                    <div class="modal-footer">
+                   
+                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="SaveClient">Save Client Details</button>
-
+                        <button type="submit" class="btn btn-primary" id="SaveVehicle">Save Vehicle Details</button>
+                      </div>
                     </div>
                 </form>
             </div>
@@ -82,11 +73,11 @@
 
     <!-- edit data modal       -->
     <!-- Modal -->
-    <div class="modal fade" id="EditClientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="EditVehiclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update client Details </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Update Vehicle Details </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -96,34 +87,24 @@
 
 
                         <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" id="c_LastName" placeholder="LastName" 
-                            onkeyup="isAlphaNumeric(this.value,'#c_LastName')"/>
+                            <label>Vehicle Name</label>
+                            <input type="text" class="form-control" id="v_name" placeholder="FirstName" required />
+                        </div>
+                       
+
+                        <div class="form-group">
+                            <label 8>Model</label>
+                            <input type="email" class="form-control" id="v_model"  placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                         </div>
 
                         <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" id="c_FirstName" placeholder="FirstName" 
-                            onkeyup="isAlphaNumeric(this.value,'#c_FirstName')"/>
+                            <label>Code ID</label>
+                            <input type="text" class="form-control" id="v_codeID" placeholder="FirstName" required />
                         </div>
 
-
-                        <div class="form-group">
-                            <label 8>Email address</label>
-                            <input type="email" class="form-control" id="c_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" 
-                            onkeyup="isEmpty(this.value,'#c_EmailAddress');isEmail(this.value,'#c_EmailAddress')" />
-
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" id="c_password" placeholder="Password" 
-                            onkeyup="isPassword(this.value,'#c_password')" />
-                        </div>
-
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="UpdateClient">Save Updated Details</button>
+                        <button type="submit" class="btn btn-primary" id="UpdateVehicle">Save Updated Details</button>
 
                     </div>
                 </form>
@@ -134,15 +115,15 @@
     <div class="Container">
         <div class="jumbotron">
             <div class="card">
-                <h2> Clients</h2>
+                <h2> Vehicles</h2>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddClientmodal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddVehiclemodal">
                         Add
                     </button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" id="clients">
-                        show Clients
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="Vehicles">
+                        Show Vehicle Information
                     </button>
                 </div>
             </div>
@@ -152,14 +133,12 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">FirstName</th>
-                                <th scope="col">LastName</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-
+                                <th scope="col">Vehicle name</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">Code ID</th>
                             </tr>
                         </thead>
-                        <tbody id="ClientsData">
+                        <tbody id="VehicleData">
 
                         </tbody>
                     </table>
@@ -170,34 +149,32 @@
         </div>
     </div>
     
-    <!-- add client to clients -->
-
-    <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
+    <!-- add Vehicle to Vehicles -->
     <script src="js/jquery.js"></script>
     <script>
-        $('#SaveClient').click(function(kho) {
+        $('#SaveVehicle').click(function(kho) {
             kho.preventDefault();
 
             //alert("username : "+$username+"\nPassword : "+$password);
 
             $.ajax({
-                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/addVehicle.php",
                 method: "POST",
 
                 data: JSON.stringify({
-                    CLIENT_NAME: $('#FirstName').val(),
-                    CLIENT_SURNAME: $('#LastName').val(),
-                    EMAIL: $('#EmailAddress').val(),
-                    USER_PASSWORD: $('#password').val()
+                    VEHICLE_NAME: $('#VehiicleName').val(),
+                    MODEL:$('#model').val(),
+                    CODE_ID:$('#codeID').val(),
+                    
+                    
                 }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
                 success: function(data) {
                     swal({
-                        title: "Adding client",
-                        text: "Client Added succesfully",
+                        title: "Adding Vehicle",
+                        text: "Vehicle Added succesfully",
                         icon: "success",
                         button: "Ok",
                     });
@@ -209,25 +186,25 @@
         });
     </script>
     <!-- fetch from data to table  -->
-    <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
 
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            $("#clients").click(function() {
-                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+            $("#vehicles").click(function() {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectVehicles.php", function(data, status) {
                     console.log(data);
                     var data = JSON.parse(data);
 
                     data.forEach(function(dt) {
-                        $("#ClientsData").append("<tr>" +
-                            "<td>" + dt.CLIENT_ID + "</td>" +
-                            "<td>" + dt.CLIENT_NAME + "</td>" +
-                            "<td>" + dt.CLIENT_SURNAME + "</td>" +
-                            "<td>" + dt.EMAIL + "</td>" +
-                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditClientmodal'/> </td>" +
+                        $("#VehiclesData").append("<tr>" +
+                            "<td>" + dt.VEHICLE_ID + "</td>" +
+                            "<td>" + dt.VEHICLE_NAME + "</td>" +
+                            "<td>" + dt.MODEL + "</td>" +
+                            "<td>" + dt.CODE_ID + "</td>" +
+                           
+                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditVehiclemodal'/> </td>" +
                             "</tr>");
+                         
 
                     });
 
@@ -236,25 +213,21 @@
 
         });
     </script>
-    <!-- fetch data to textfields to update client data -->
-    <!--"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php"-->
-    <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
+    <!-- fetch data to textfields to update Vehicle data -->
     <script>
         $(document).ready(function() {
             $("#fetchdata").click(function() {
-                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectClients.php", function(data, status) {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectVehicles.php", function(data, status) {
                     console.log(data);
                     var data = JSON.parse(data);
 
                     success: (function(data) {
-                        document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
-                        document.getElementById("c_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
-                        document.getElementById("c_Emailaddress").innerHTML.value = data.data["EMAIL"];
-                        document.getElementById("c_password").innerHTML.value = data.data["CLIENT_ID"];
-
+                        document.getElementById("v_name").innerHTML.value = data.data["VEHICLE_NAME"];
+                        document.getElementById("v_model").innerHTML.value = data.data["MODEL"];
+                        document.getElementById("v_codeID").innerHTML.value = data.data["CODE_ID"];
+                        document.getElementById("v_codeID").innerHTML.value = data.data["CODE_ID"];
                     });
-
+                   
                 });
             });
 

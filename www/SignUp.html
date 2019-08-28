@@ -20,9 +20,7 @@
 
     <script src="js/smtp.js"></script>
     <script src="js/main.js"></script>
-    
-
-
+    <!-- <script src="js/validate.js"> </script> -->
 </head>
 
 <body>
@@ -36,11 +34,11 @@
         <!-- <h2>Sign Up</h2> -->
 
 
-        <form id="SignUp" onsubmit="return false" action="">
+        <form id="SignUp" onsubmit="return checkForm(this);">
             <p>Firstname</p>
 
             <input type="text" name="firstname" id="firstname" name="firstname" placeholder="Enter firstname"
-                onkeyup="isAlphaNumeric(this.value,'#firstname'),validate(this.value,'#firstname')" />
+                onkeyup="isAlphaNumeric(this.value,'#firstname')" />
 
             <p>Surname</p>
             <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname"
@@ -57,8 +55,8 @@
                 onkeyup="isPassword(this.value,'#password')" />
             <br>
             <p>Confirm password</p>
-            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password"
-                onkeyup="isPassword(this.value,'#password')" />
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password"  
+                onkeyup="isPassword(this.value,'#c_Password')" />
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
@@ -85,7 +83,7 @@
             console.log(" ");
             $.ajax({
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php",
-                // url: "http://crucialconnections.000webhostapp.com/C_registerUser.php",
+                //url: "http://crucialconnections.000webhostapp.com/C_registerUser.php",
                 method: "POST",
 
                 data: JSON.stringify({
@@ -151,28 +149,29 @@
 
     </script>
 
-    <!-- <script type="text/javascript">
-    function JSconfirm(){
-        swal({ 
-        title: "logOut?",   
-        text: "Redirect to the login page?",   
-        type: "warning",   
-        showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
-        confirmButtonText: "Yes",   
-        cancelButtonText: "No",   
-        closeOnConfirm: false,   
-        closeOnCancel: false }, 
-        function(isConfirm){   
-            if (isConfirm) 
-        {   
-            // window.location = "Client_Login.html";   
-            } 
-            else {     
-                // window.location = "MainPage.html";   
-                } });
-    }
-    </script> -->
+    <script type="text/javascript">
+        function JSconfirm() {
+            swal({
+                title: "logOut?",
+                text: "Redirect to the login page?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        // window.location = "Client_Login.html";   
+                    }
+                    else {
+                        // window.location = "MainPage.html";   
+                    }
+                });
+        }
+    </script>
 
     <script>
         var overlay = document.getElementById("overlay");

@@ -54,7 +54,7 @@
             <p>Code Type</p>
             <div class="wrapper">
                 <div class="new-select-arrow"></div>
-                <select class="select" required id="Code">
+                <select class="select" required id="Code" name="selectCode">
                     <option value="">Select Code</option>
                     <option id="8" value="8">8</option>
                     <option id="10" value="10">10</option>
@@ -69,7 +69,7 @@
             <div class="wrapper">
                 <div class="new-select-arrow"></div>
 
-                <select class="select" required id="lesson1">
+                <select class="select" required id="lesson1" name="lesson">
                     <optgroup label="Code 8 packages">
                         <option id="INDIVIDUAL_LESSON" value="1">INDIVIDUAL LESSON R150</option>
                         <option id="FULL_PACKAGE" value="2">FULL PACKAGE R2499.99</option>
@@ -103,7 +103,7 @@
 
         </form>
     </div>
-
+    <script src="js/codeValidation.js"></script>
     <script src="js/jquery.js"></script>
     <script>
         var ID = localStorage.getItem("id");

@@ -186,11 +186,11 @@ if ($conn->connect_error) {
     
     }
 
-    function clientDetails(){
+    function clientDetails($email,$id){
         global $conn;
-        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_ID,package_selection.PACKAGE_ID,client_balance.LESSON_BALANCE,
-        payment.BALANCE,payment.AMOUNT_PAID FROM payment,package_selection,client,client_balance
-        WHERE client.CLIENT_ID =package_selection.CLIENT_ID or payment.CLIENT_ID=client.CLIENT_ID";
+        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
+        FROM client,package_selection 
+        WHERE client.Email='".$email."'=package_selection.Email='".$email."' and client.CLIENT_ID='".$id."' limit 1";
         $query=mysqli_query($conn,$sql);
          
             while($results=mysqli_fetch_assoc($query)){

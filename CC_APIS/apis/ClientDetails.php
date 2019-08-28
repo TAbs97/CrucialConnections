@@ -9,18 +9,18 @@ $func = new Functions();
 //  $b = @($_POST["C_PASSWORD"]);
 
 $data = json_decode(file_get_contents('php://input'));
-// $a = $data->EMAIL;
-// $b = $data->A_PASSWORD;
+$a= $data->EMAIL;
+$b = $data->CLIENT_ID;
 
- $details= $func->clientDetails();
+ $details= $func->clientDetails($a,$b);
 
-if($details){
+if($details>0){
     echo json_encode(array("data"=>$details->fetch_assoc(),"rows" => $details->num_rows));
 }
-// else{
-//     echo json_encode(array("data"=>"empty"));
+ else{
+     echo json_encode(array("data"=>"empty"));
 
-// }
+}
 //echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
 
 ?>

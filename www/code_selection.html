@@ -10,6 +10,12 @@
     <link rel="stylesheet" type=" text/css" href="css/book.css">
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/code.css">
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    
     <script>
     //     function getLessons(x) {
 
@@ -43,7 +49,7 @@
     <div class="Booking">
         <a href="lessonBooking.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
 
-        <h1>Select Packadge</h1>
+        <h2>Select Packadge</h2>
         <form>
             <p>Code Type</p>
             <div class="wrapper">
@@ -123,6 +129,7 @@
                     // window.location.href="MainPage.html";
                 },
                 error: function (err) {
+                    swal("package selection","package already selected", "warning")
                     console.log('{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $(
                         '#Code').val() + ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}');
                     console.log(err);

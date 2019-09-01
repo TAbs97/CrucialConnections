@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet"  type=" text/css" href="css/index.css">
+</head>
+<body>
+    <div class="loginbox signup" >
+        <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+        <h1>Lesson Assesment</h1>
+        <form name="myForm"> 
+            <!-- <p>Breaking</p> -->
+
+            <script src="js/jquery.js"></script>
+            <script src="js/parsley.js"></script>
+            <br>
+            <br>
+            <br>
+
+            <textarea rows="4" cols="29" id="message">
+              </textarea>
+
+            <br>
+
+            
+            <input type="submit" id="Login"  onclick="getdata()" name="" value="Submit">           <br/>
+   
+
+        </form>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        var ID = localStorage.getItem("id");
+        console.log(ID);
+        
+// console.log(customersDataString);
+        $('#book').click(function(){
+            $.ajax({
+                // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+
+                url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_report.php",
+                method:"POST",   
+                data: '{ "CLIENT_ID" : '+localStorage.khoza+',"REPORT" : '+$('#message').val()+'}',
+                contentType: "application/json; charset=utf-8",
+                //  dataType:"JSON",
+                success:function(data){
+                    window.location.href="MainPage.html";
+                },
+                error:function(err){
+                    console.log('{ "CLIENT_ID" : '+localStorage.id+',"REPORT" : '+$('#message').val()+'}');
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+
+<script>
+    var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function(){
+         overlay.style.display = 'none';
+        })
+</script>
+
+</body> 
+</html>

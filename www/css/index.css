@@ -7,6 +7,10 @@ body{
     background: url(../img/logo.jpg);
     
 }
+#wrapper{
+    margin:0 auto;
+
+}
 #kho{
 font-size: 20px;
 text-align: center;
@@ -210,3 +214,4 @@ h1{
     margin-right: 50%;
 
   }
+ 

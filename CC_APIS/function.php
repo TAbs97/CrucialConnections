@@ -188,7 +188,8 @@ if ($conn->connect_error) {
 
     function clientDetails($email,$id){
         global $conn;
-        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
+        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,
+        package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
         FROM client,package_selection 
         WHERE client.Email='".$email."'=package_selection.Email='".$email."' and client.CLIENT_ID='".$id."' limit 1";
         $query=mysqli_query($conn,$sql);

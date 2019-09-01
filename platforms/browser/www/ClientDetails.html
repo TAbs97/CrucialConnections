@@ -34,6 +34,7 @@
         <!-- <h2>Profile</h2> -->
         <form name="myForm">
             <div class="details">
+                
                 <label for="">name</label><label id="name"></label > <br>
                 <label for="">surname</label><label id="surname"></label ><br>
                 <label for="">email</label><label id="email"></label ><br>
@@ -72,17 +73,17 @@
                 contentType: "application/json; charset=utf-8",
                  dataType:"JSON",
                 success: function (data) {
-                    var data = JSON.parse(data);
+                    console.log(data[0]);
+                    data = data[0];
 
-                    $('#name').val(data.data["CLIENT_NAME"]);
-                    $('#surname').val(data.data["CLIENT_SURNAME"]);
-                    $('#email').val(data.data["EMAIL"]);
-                    $('#code').val(data.data["CODE_ID"]);
-                    $('#package').val(data.data["PACKAGE_ID"]);
-                    $('#lessonbalance').val(data.data["LESSON_BALANCE"]);
-                    $('#balance').val(data.data["BALANCE"]);
-                    $('#amountpaid').val(data.data["AMOUNT_PAID"]);
-console.log(data.data["CLIENT_SURNAME"]);
+                    $("#name").html(data['CLIENT_NAME']);
+                    $('#surname').html(data["CLIENT_SURNAME"]),
+                    $('#email').html(data["EMAIL"]),
+                    $('#code').html(data["CODE_NAME"]),
+                    $('#package').html(data["PACKAGE_NAME"]),
+                    $('#lessonbalance').html(data["LESSON_BALANCE"]),
+                    $('#balance').html(data["BALANCE"]),
+                    $('#amountpaid').html(data["AMOUNT_PAID"])
 
                 },
                 error: function (err) {

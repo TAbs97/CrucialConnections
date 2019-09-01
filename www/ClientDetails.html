@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/preloader.css">
     <style>
         label {
-            margin: 20px !important;
+            margin: 4px !important;
             padding: 0px !important;
             padding-left: 0px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,13 +34,13 @@
         <!-- <h2>Profile</h2> -->
         <form name="myForm">
             <div class="details">
-                <label for="">name</label><label  id="name"></label > <br>
-                <label for="">surname</label><label  id="surname"></label ><br>
-                <label for="">email</label><label  id="email"></label ><br>
-                <label for="">code</label><label  id="code"></label ><br>
-                <label for="">package</label><label  id="package"></label ><br>
+                <label for="">name</label><label id="name"></label > <br>
+                <label for="">surname</label><label id="surname"></label ><br>
+                <label for="">email</label><label id="email"></label ><br>
+                <label for="">code</label><label id="code"></label ><br>
+                <label for="">package</label><label id="package"></label ><br>
                 <label for="">lesson balance</label><label  id="lessonbalance"></label ><br>
-                <label for="">balance</label><label  id="balance"></label ><br>
+                <label for="">balance</label><label id="balance"></label ><br>
                 <label for="">amount paid</label><label  id="amountpaid"></label >
             </div>
 
@@ -67,11 +67,11 @@
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",
                 data: JSON.stringify({
                     EMAIL: localStorage.username,
-                    CLIENT_ID:localStorage.id
+                    CLIENT_ID:localStorage.id,
                 }),
                 contentType: "application/json; charset=utf-8",
                  dataType:"JSON",
-                success: function (response) {
+                success: function (data) {
                     var data = JSON.parse(data);
 
                     $('#name').val(data.data["CLIENT_NAME"]);
@@ -82,7 +82,7 @@
                     $('#lessonbalance').val(data.data["LESSON_BALANCE"]);
                     $('#balance').val(data.data["BALANCE"]);
                     $('#amountpaid').val(data.data["AMOUNT_PAID"]);
-
+console.log(data.data["CLIENT_SURNAME"]);
 
                 },
                 error: function (err) {

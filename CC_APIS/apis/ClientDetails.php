@@ -5,12 +5,9 @@ require("../function.php");
 
 $func = new Functions();
 
-//  $a = @($_POST["EMAIL"]);
-//  $b = @($_POST["C_PASSWORD"]);
-
 $data = json_decode(file_get_contents('php://input'));
 $a= $data->EMAIL;
-$b=$data->CLIENT_ID;
+$b= $data->CLIENT_ID;
 
 $details= $func->clientDetails($a,$b);
 

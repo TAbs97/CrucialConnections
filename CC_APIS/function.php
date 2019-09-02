@@ -2,6 +2,8 @@
 
 // header('Content-Type: application/json');
 
+date_default_timezone_set('Africa/Johannesburg');
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,8 +17,13 @@ if ($conn->connect_error) {
     die("Connection failed: " .$conn->connect_error);
 
 } 
-
  class Functions {
+
+    // function __construct(Type $var = null)
+    // {
+    //     echo "initiating stage 1";
+        
+    // }
 
     //get clients
     function C_getUsers(){
@@ -188,7 +195,8 @@ if ($conn->connect_error) {
 
     function clientDetails($email,$id){
         global $conn;
-        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
+        $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,
+        package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
         FROM client,package_selection 
         WHERE client.Email='".$email."'=package_selection.Email='".$email."' and client.CLIENT_ID='".$id."' limit 1";
         $query=mysqli_query($conn,$sql);
@@ -319,18 +327,43 @@ function client_balace($CLIENT_ID,$BOOKING_ID,$LESSON_BALANCE){
 
 }
 
-function book_a_lesson($client){
+function book_a_lesson($clientId,$packageId,$numDays,$date1,$time1,$date2,$time2,$date3,$time3){
     global $conn;
-    $sql ="INSERT INTO booking values(booking.BOOKING_ID,booking.CLIENT_ID,booking.BOOKING_DATE,booking.LESSON_DATE,booking.LESSON_TIME where CLIENT_ID='.$client.'";
-    $results = $conn->query($sql);
-    if($results==true){
-        $sql= "UPDATE client_balance SET LESSON_BALANCE= package.NO_OF_LESSON-1 WHERE CLIENT_ID='.$client.'";
-    }
-    else
-    {
-    echo "Failed";
-    }
+    $datetime = date("d/m/Y h:i:s:a");
+    $datetime = '';
+    $sql="INSERT INTO `booking` (`BOOKING_ID`, `PACKAGE_ID`, `CLIENT_ID`, `VEHICLE_ID`, `INSTRUCTOR_ID`, `BOOKING_DATE`, `NO_OF_DAYS`) VALUES (NULL, $packageId, $clientId, '', '', CURRENT_TIMESTAMP, $numDays);";
+      $results = $conn->query($sql);
 
+    $BOOKING_ID = $conn->insert_id;
+      
+    if($numDays == 1){
+        $sql="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+         VALUES ('',$BOOKING_ID,$date1,$time1)";
+          $results = $conn->query($sql);
+    }
+    if($numDays == 2){
+        $sql="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+        VALUES ('',$BOOKING_ID,$date1,$time1)";
+         $results = $conn->query($sql);
+
+         $sql2="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+         VALUES ('',$BOOKING_ID,$date2,$time2)";
+          $results = $conn->query($sql2);
+    }
+    if($numDays == 3){
+        $sql="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+        VALUES ('',$BOOKING_ID,$date1,$time1)";
+         $results = $conn->query($sql);
+         
+         $sql2="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+         VALUES ('',$BOOKING_ID,$date2,$time2)";
+          $results = $conn->query($sql2);
+
+          $sql3="INSERT INTO `lessons`(`LESSON_ID`, `BOOKING_ID`, `LESSON_DATE`, `LESSON_TIME`)
+          VALUES ('',$BOOKING_ID,$date3,$time3)";
+           $results = $conn->query($sql3);
+    }
+    
 }
 
 function C_report($ClientId,$report){

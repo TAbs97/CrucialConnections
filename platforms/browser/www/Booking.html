@@ -8,19 +8,111 @@
     <style></style>
     <title>Document</title>
     <link rel="stylesheet" type=" text/css" href="css/book.css">
-
-    <script src=""></script>
-
-    <script src="js/jquery.js"></script>
     <link rel="stylesheet" href="css/preloader.css">
+    <script>
 
+        function getDate(x){
+                if( x === '1'){
+                        document.getElementById("date1").style.visibility = "visible";
+                    document.getElementById("date2").style.visibility = "hidden";
+                    document.getElementById("date3").style.visibility = "hidden";
+                    document.getElementById("time1").style.visibility = "visible";
+                    document.getElementById("time2").style.visibility = "hidden";
+                    document.getElementById("time3").style.visibility = "hidden";
+                  }
+                  else if(x === "2"){
+                          document.getElementById("date1").style.visibility = "visible";
+                      document.getElementById("date2").style.visibility = "visible";
+                      document.getElementById("date3").style.visibility = "hidden";
+                      document.getElementById("time1").style.visibility = "visible";
+                      document.getElementById("time2").style.visibility = "visible";
+                      document.getElementById("time3").style.visibility = "hidden";
+                      }
+                    else if(x=== "3"){
+                      document.getElementById("date1").style.visibility = "visible";
+                      document.getElementById("date2").style.visibility = "visible";
+                      document.getElementById("date3").style.visibility = "visible";
+                      document.getElementById("time1").style.visibility = "visible";
+                      document.getElementById("time2").style.visibility = "visible";
+                      document.getElementById("time3").style.visibility = "visible";
+                      }
+        
+              }
+              
+            </script>
+            <script>
 
+            </script>
+
+</head>
+
+<body>
 
     <div class="Booking">
             <a href="lessonBooking.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
         <form action="action">
 
-            <input id="datetimepicker" type="text">
+                 
+                <br>
+                <br>
+                <p>Days</p>
+                <select class="select" required id="day" onchange="getDate(this.options[this.selectedIndex].value)"> 
+                    <option value="">Select Days</option>
+                    <option id="1 day" value="1">1 day</option>
+                    <option id="2 days" value="2">2 days</option>
+                    <option id="3 days" value="3">3 days</option>                        
+                  </select>
+                
+                  <p>Dates in a Week</p>
+                  <input type="date" name="date" id="date1" style="visibility:hidden;" ><br> 
+                  <input type="date" name="date" id="date2" style="visibility:hidden;" ><br>
+                  <input type="date" name="date" id="date3" style="visibility:hidden;" > 
+                  <br>
+                
+                  <p>Select Time</p>
+                  <table>
+                    <tr>
+                       <td>
+                  <select class="select" required id="time1" style="visibility:hidden;"> 
+                      <option value="">Select Time</option>
+                      <option id="07:00" value="07:00">07:00</option>
+                      <option id="10:00" value="10:00">10:00</option>
+                      <option id="11:00" value="11:00">11:00</option>  
+                      <option id="13:00" value="13:00">13:00</option>
+                      <option id="15:00" value="15:00">15:00</option>                       
+                    </select>
+                      </td>
+                    </tr>
+                    <tr>
+                       <td>
+                  <select class="select" required id="time2" style="visibility:hidden;"> 
+                      <option value="">Select Time</option>
+                      <option id="07:00" value="07:00">07:00</option>
+                      <option id="10:00" value="10:00">10:00</option>
+                      <option id="11:00" value="11:00">11:00</option>  
+                      <option id="13:00" value="13:00">13:00</option>
+                      <option id="15:00" value="15:00">15:00</option>                       
+                    </select>
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                  <select class="select" required id="time3" style="visibility:hidden;"> 
+                      <option value="">Select Time</option>
+                      <option id="07:00" value="07:00">07:00</option>
+                      <option id="10:00" value="10:00">10:00</option>
+                      <option id="11:00" value="11:00">11:00</option>  
+                      <option id="13:00" value="13:00">13:00</option>
+                      <option id="15:00" value="15:00">15:00</option>                       
+                    </select>
+                       </td>
+                    </tr>
+                  </table>
+                <br>
+                
+                <input type="submit" id="book" type="submit" name="" value="Book"> 
+                <br/>
+            <!-- <input id="datetimepicker" type="text">
 <br>
             <script type="text/javascript">
                 $(document).ready(function () {
@@ -37,36 +129,57 @@
             </script>
 
             <br>
-            <input type="button" value="book a lesson">
+            <input type="button" value="book a lesson">  -->
         </form>
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
-        var url = "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/C_RegisterUser.php";
+            var ID = localStorage.getItem("id");
+            console.log(ID);
+    
+            // console.log(customersDataString);
+            $('#book').click(function () {
+                var khoza=$('#date1').datepicker('getDate');
+                alert("kho"+khoza);
+            return;
+                $.ajax({
+                    // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
+                    // http://crucialconnections.000webhostapp.com/selectPackageandCode.php
+                    url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/addBooking.php",
+                    method: "POST",
+                    data: JSON.stringify({
+                        CLIENT_ID: localStorage.ID,
+                        PACKAGE_ID: localStorage.P_ID,
+                        NUM_OF_DAYS: $('#day').val(),
+                        date1: $('#date1').datepicker('getDate'),
+                        date2: $('#date2').datepicker('getDate'),
+                        date3: $('#date3').datepicker('getDate'),
 
-
-
-
-        $('#book').click(function (kho) {
-            kho.preventDefault();
-
-            $.ajax({
-                type: "method",
-                url: "url",
-                data: "data",
-                dataType: "dataType",
-                success: function (response) {
-
-                }
+                        time1: $('#time1').val(),
+                        time2: $('#time2').val(),
+                        time3: $('#time3').val()
+                        // USER_PASSWORD: $('#password').val()
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                     dataType:"JSON",
+                    success: function (data) {
+                        swal("package selected sucessfully", "success")
+                        // window.location.href="MainPage.html";
+                    },
+                    error: function (err) {
+                        
+                        console.log(err);
+                    }
+                });
             });
-
-
-        });
-    </script>
+        </script>
+        <script>
+                var overlay = document.getElementById("overlay");
+                window.addEventListener('load', function () {
+                    overlay.style.display = 'none';
+                })
+            </script>
+    
     </body>
-
-    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css" />
-    <script src="js/jquery.datetimepicker.js"></script>
-
 </html>

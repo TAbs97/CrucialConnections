@@ -17,9 +17,6 @@ if ($conn->connect_error) {
     die("Connection failed: " .$conn->connect_error);
 
 } 
-$fun = new Functions();
-$fun->book_a_lesson(4, 3, 3);
-
  class Functions {
 
     // function __construct(Type $var = null)

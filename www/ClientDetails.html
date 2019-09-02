@@ -63,8 +63,8 @@
         $(document).ready(function () {
             $.ajax({
                 type: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "dataType",
+                // contentType: "application/json; charset=utf-8",
+                // dataType: "dataType",
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",
                 data: JSON.stringify({
                     EMAIL: localStorage.username,
@@ -89,7 +89,7 @@
                 error: function (err) {
 
                     console.log(err);
-                    window.alert("invalid password or Email");
+                    // window.alert("invalid password or Email");
                 }
             });
 

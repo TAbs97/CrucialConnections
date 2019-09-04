@@ -34,7 +34,7 @@
         <!-- <h2>Sign Up</h2> -->
 
 
-        <form id="SignUp" onsubmit="return checkForm(this);">
+        <form>
             <p>Firstname</p>
 
             <input type="text" name="firstname" id="firstname" name="firstname" placeholder="Enter firstname"
@@ -75,10 +75,8 @@
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 
-
-    <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function () {
+        $('#registerUser').click(function() {
             // kho.preventDefault();
             console.log(" ");
             $.ajax({
@@ -95,21 +93,21 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
-                success: function (data) {
+                success: function(data){
                     console.log(data);
-                    if (data.rows > 0) {
-                        swal("Succesfully registered", "Thank you signing up ", "success")
-                        window.location.href = "Client_Login.html";
-                    } else {
-                        swal("Already Registered", "you have already singed up ", "warning")
-                        //window.alert("Input The correct information and try again");
-                        // console.log("user not found");
-                    }
+                    // if (data.rows > 0) {
+                       swal("Succesfully registered", "Thank you signing up ", "success");
+                         window.location.href = "Client_Login.html";
+                    // } else {
+                    //     swal("Already Registered", "you have already singed up ", "warning");
+                    //     //window.alert("Input The correct information and try again");
+                    //     // console.log("user not found");
+                    // }
                 },
                 error: function (err) {
 
                     console.log(err);
-                    window.alert("invalid password or Email");
+                   // window.alert("invalid password or Email");
                 }
             });
         });

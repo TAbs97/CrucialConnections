@@ -20,6 +20,7 @@
 
     <script src="js/smtp.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <!-- <script src="js/validate.js"> </script> -->
 </head>
 
@@ -55,7 +56,7 @@
                 onkeyup="isPassword(this.value,'#password')" />
             <br>
             <p>Confirm password</p>
-            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password"  
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password"
                 onkeyup="isPassword(this.value,'#c_Password')" />
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
@@ -96,20 +97,14 @@
                 dataType: "JSON",
 
                 success: function (data) {
-                    console.log(data);
-                    if (data.rows > 0) {
-                        swal("Succesfully registered", "Thank you signing up ", "success")
-                        window.location.href = "Client_Login.html";
-                    } else {
-                        swal("Already Registered", "you have already singed up ", "warning")
-                        //window.alert("Input The correct information and try again");
-                        // console.log("user not found");
-                    }
+
+                    swal("Succesfully registered", "Thank you signing up ", "success")
+                    window.location.href = "Client_Login.html";
                 },
                 error: function (err) {
 
                     console.log(err);
-                    window.alert("invalid password or Email");
+                    swal("Warning", "Fields cannot be left empty", "warning")
                 }
             });
         });
@@ -152,21 +147,20 @@
     <script type="text/javascript">
         function JSconfirm() {
             swal({
-                title: "logOut?",
-                text: "Redirect to the login page?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes",
-                cancelButtonText: "No",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
+                    title: "logOut?",
+                    text: "Redirect to the login page?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
                 function (isConfirm) {
                     if (isConfirm) {
                         // window.location = "Client_Login.html";   
-                    }
-                    else {
+                    } else {
                         // window.location = "MainPage.html";   
                     }
                 });

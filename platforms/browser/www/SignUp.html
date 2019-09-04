@@ -20,6 +20,7 @@
 
     <script src="js/smtp.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <!-- <script src="js/validate.js"> </script> -->
 </head>
 
@@ -96,20 +97,20 @@
                 dataType: "JSON",
 
                 success: function (data) {
-                    console.log(data);
-                    if (data.rows > 0) {
+                    // console.log(data);
+                    // if (data.d == true) {
                         swal("Succesfully registered", "Thank you signing up ", "success")
                         window.location.href = "Client_Login.html";
-                    } else {
-                        swal("Already Registered", "you have already singed up ", "warning")
-                        //window.alert("Input The correct information and try again");
-                        // console.log("user not found");
-                    }
+                    // } else {
+                    //     swal("Already Registered", "you have already singed up ", "warning")
+                    //     //window.alert("Input The correct information and try again");
+                    //     // console.log("user not found");
+                    // }
                 },
                 error: function (err) {
 
                     console.log(err);
-                    window.alert("invalid password or Email");
+                    swal("Warning", "Fields cannot be left empty", "warning")
                 }
             });
         });

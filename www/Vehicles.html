@@ -26,7 +26,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add client </h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add Vehicle </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -36,30 +36,21 @@
               
 
                   <div class="form-group">
-                      <label>Last Name</label>               
-                      <input type="text" class="form-control" id="LastName" placeholder="LastName" required>
+                      <label>VEHICLE NAME</label>               
+                      <input type="text" class="form-control" id="VEHICLE_NAME" placeholder="LastName" required
+                      onkeyup="isAlphaNumeric(this.value,'#VEHICLE_NAME')">
                     </div>
   
                   <div class="form-group">
-                      <label>First Name</label>
-                      <input type="text" class="form-control" id="FirstName" placeholder="FirstName" required>
+                      <label>MODEL</label>
+                      <input type="text" class="form-control" id="MODEL" placeholder="FirstName" required
+                      onkeyup="isAlphaNumeric(this.value,'#MODEL')">
                     </div>
-  
-                    
-                  <div class="form-group">
-                    <label 8>Email address</label>
-                    <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" required>
-                    
-                  </div>
-                  <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
-                  </div>
               
             </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary" id="SaveClient">Save Client Details</button>
+                  <button type="submit" class="btn btn-primary" id="SaveClient">Save Vehicle Details</button>
           </form>
             </div>
           </div>
@@ -73,7 +64,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update client Details  </h5>
+              <h5 class="modal-title" id="exampleModalLabel">Update Vehicle Details  </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -83,25 +74,16 @@
               
 
                   <div class="form-group">
-                      <label>Model</label>               
-                      <input type="text" class="form-control" id="c_LastName" placeholder="LastName" required/>
+                      <label>VEHICLE NAME</label>               
+                      <input type="text" class="form-control" id="VEHICLE_NAME" placeholder="LastName" required 
+                      onkeyup="isAlphaNumeric(this.value,'#VEHICLE_NAME')"/>
                     </div>
   
                   <div class="form-group">
                       <label>First Name</label>
-                      <input type="text" class="form-control" id="c_FirstName" placeholder="FirstName" required/>
+                      <input type="text" class="form-control" id="MODEL" placeholder="FirstName" required
+                      onkeyup="isAlphaNumeric(this.value,'#MODEL')"/>
                     </div>
-  
-                    
-                  <div class="form-group">
-                    <label 8>Email address</label>
-                    <input type="email" class="form-control" id="c_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email"required/>
-                    
-                  </div>
-                  <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="c_password" placeholder="Password"required/>
-                  </div>
               
             </div>
               <div class="modal-footer">
@@ -116,7 +98,7 @@
     <div class="Container">
         <div class="jumbotron">
             <div class="card">
-                <h2> Clients</h2>
+                <h2> Vehicles</h2>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -124,7 +106,7 @@
                                 Add
                         </button>
                         <button type="button" class="btn btn-primary" data-toggle="modal"  id="clients">
-                          show Clients
+                          show Vehicles
                   </button>
                 </div>
             </div> 
@@ -134,9 +116,9 @@
                         <thead>
                           <tr>
                               <th scope="col">ID</th>
-                              <th scope="col">FirstName</th>
-                              <th scope="col">LastName</th>
-                              <th scope="col">Email</th>
+                              <th scope="col">Vehicle Name</th>
+                              <th scope="col">Model</th>
+                              <th scope="col">Code</th>
                               <th scope="col">Action</th>
                           
                           </tr>
@@ -152,6 +134,7 @@
         </div>
     </div>
 <!-- add client to clients -->
+<script src="js/main.js"></script>
     <script src="js/jquery.js"></script>
     <script>
         $('#SaveClient').click(function(kho){

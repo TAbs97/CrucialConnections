@@ -36,7 +36,7 @@
         <!-- <h2>Sign Up</h2> -->
 
 
-        <form id="SignUp" onsubmit="return checkForm(this);">
+        <form>
             <p>Firstname</p>
 
             <input type="text" name="firstname" id="firstname" name="firstname" placeholder="Enter firstname"
@@ -77,10 +77,8 @@
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 
-
-    <script src="js/jquery.js"></script>
     <script>
-        $('#registerUser').click(function () {
+        $('#registerUser').click(function() {
             // kho.preventDefault();
             console.log(" ");
             $.ajax({
@@ -103,9 +101,18 @@
                     window.location.href = "Client_Login.html";
                 },
                 error: function (err) {
+
                     // console.log(err);
                     swal("Warning", "User already registered ", "warning")
                     window.location.href = "Client_Login.html";
+
+
+                    console.log(err);
+
+                   // window.alert("invalid password or Email");
+
+                    swal("Warning", "Fields cannot be left empty", "warning")
+
                 }
             });
         });

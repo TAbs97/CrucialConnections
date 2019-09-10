@@ -94,33 +94,16 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
-<<<<<<< HEAD
-                success: function(data){
-                    console.log(data);
-                    // if (data.rows > 0) {
-                       swal("Succesfully registered", "Thank you signing up ", "success");
-                         window.location.href = "Client_Login.html";
-                    // } else {
-                    //     swal("Already Registered", "you have already singed up ", "warning");
-                    //     //window.alert("Input The correct information and try again");
-                    //     // console.log("user not found");
-                    // }
-=======
                 success: function (data) {
 
                     swal("Succesfully registered", "Thank you signing up ", "success")
                     window.location.href = "Client_Login.html";
->>>>>>> 71e5a3849dc47703452f2ff3eff67c7514eaa106
                 },
-                error: function (err) {
+                // error: function (err) {
 
-                    console.log(err);
-<<<<<<< HEAD
-                   // window.alert("invalid password or Email");
-=======
-                    swal("Warning", "Fields cannot be left empty", "warning")
->>>>>>> 71e5a3849dc47703452f2ff3eff67c7514eaa106
-                }
+                //     console.log(err);
+                //     swal("Warning", "Fields cannot be left empty", "warning")
+                // }
             });
         });
     </script>

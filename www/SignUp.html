@@ -38,25 +38,25 @@
         <form>
             <p>Firstname</p>
 
-            <input type="text" name="firstname" id="firstname" name="firstname" placeholder="Enter firstname"
+            <input type="text" name="firstname" id="firstname" name="firstname" placeholder="Enter firstname" required="" required
                 onkeyup="isAlphaNumeric(this.value,'#firstname')" />
 
             <p>Surname</p>
-            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname"
+            <input type="text" name="surname" id="surname" name="surname" placeholder="Enter Surname" required="" required
                 onkeyup="isAlphaNumeric(this.value,'#surname')" />
             <br />
 
             <p>Email</p>
-            <input type="Email" name="Email" id="Email" placeholder="Enter Email"
+            <input type="Email" name="Email" id="Email" placeholder="Enter Email" required="" required
                 onkeyup="isEmpty(this.value,'#Email');isEmail(this.value,'#Email')" />
             <br>
 
             <p>Password</p>
-            <input type="password" name="password" id="password" placeholder="Enter Password"
+            <input type="password" name="password" id="password" placeholder="Enter Password" required="" required
                 onkeyup="isPassword(this.value,'#password')" />
             <br>
             <p>Confirm password</p>
-            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password"
+            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" required="" required
                 onkeyup="isPassword(this.value,'#c_Password')" />
             <br>
             <span id="confirm-message2" class="confirm-message"></span>
@@ -94,33 +94,16 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "JSON",
 
-<<<<<<< HEAD
-                success: function(data){
-                    console.log(data);
-                    // if (data.rows > 0) {
-                       swal("Succesfully registered", "Thank you signing up ", "success");
-                         window.location.href = "Client_Login.html";
-                    // } else {
-                    //     swal("Already Registered", "you have already singed up ", "warning");
-                    //     //window.alert("Input The correct information and try again");
-                    //     // console.log("user not found");
-                    // }
-=======
                 success: function (data) {
 
                     swal("Succesfully registered", "Thank you signing up ", "success")
                     window.location.href = "Client_Login.html";
->>>>>>> 71e5a3849dc47703452f2ff3eff67c7514eaa106
                 },
-                error: function (err) {
+                // error: function (err) {
 
-                    console.log(err);
-<<<<<<< HEAD
-                   // window.alert("invalid password or Email");
-=======
-                    swal("Warning", "Fields cannot be left empty", "warning")
->>>>>>> 71e5a3849dc47703452f2ff3eff67c7514eaa106
-                }
+                //     console.log(err);
+                //     swal("Warning", "Fields cannot be left empty", "warning")
+                // }
             });
         });
     </script>

@@ -64,16 +64,16 @@
                   </select>
                 
                   <p>Dates in a Week</p>
-                  <input type="text" name="date" id="date1" style="visibility:hidden;" ><br> 
-                  <input type="text" name="date" id="date2" style="visibility:hidden;" ><br>
-                  <input type="text" name="date" id="date3" style="visibility:hidden;" > 
+                  <input type="date" name="date1" id="date1" style="visibility:hidden;" ><br> 
+                  <input type="date" name="date2" id="date2" style="visibility:hidden;" ><br>
+                  <input type="date" name="date3" id="date3" style="visibility:hidden;" > 
                   <br>
                 
                   <p>Select Time</p>
                   <table>
                     <tr>
                        <td>
-                  <select class="select" required id="time1" style="visibility:hidden;"> 
+                  <select class="select" required name="time1" id="time1" style="visibility:hidden;"> 
                       <option value="">Select Time</option>
                       <option id="07:00" value="07:00">07:00</option>
                       <option id="10:00" value="10:00">10:00</option>
@@ -85,7 +85,7 @@
                     </tr>
                     <tr>
                        <td>
-                  <select class="select" required id="time2" style="visibility:hidden;"> 
+                  <select class="select" required name="time2" id="time2" style="visibility:hidden;"> 
                       <option value="">Select Time</option>
                       <option id="07:00" value="07:00">07:00</option>
                       <option id="10:00" value="10:00">10:00</option>
@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                        <td>
-                  <select class="select" required id="time3" style="visibility:hidden;"> 
+                  <select class="select" required name="time3" id="time3" style="visibility:hidden;"> 
                       <option value="">Select Time</option>
                       <option id="07:00" value="07:00">07:00</option>
                       <option id="10:00" value="10:00">10:00</option>
@@ -140,8 +140,7 @@
     
             // console.log(customersDataString);
             $('#book').click(function () {
-                var khoza=$('#date1').datepicker('getDate');
-                alert("kho"+khoza);
+                
             return;
                 $.ajax({
                     // url:"http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
@@ -174,12 +173,12 @@
                 });
             });
         </script>
-        <script>
+        <!-- <script>
                 var overlay = document.getElementById("overlay");
                 window.addEventListener('load', function () {
                     overlay.style.display = 'none';
                 })
-            </script>
+            </script> -->
     
     </body>
 </html>

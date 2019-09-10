@@ -47,7 +47,7 @@
             <br>
             <button id="Login">Login</button>
             <br />
-            <a href="forgottenpassword.html"> Lost your password ?</a><br>
+            <a href="forgot.php"> Lost your password ?</a><br>
             <a href="SignUp.html">Don't have an account </a>
 
             <input id="back" type="button" value="back" onclick="window.location.href='index.html'">
@@ -66,7 +66,8 @@
 
             console.log(" ");
             $.ajax({
-                url: "http://crucialconnections.000webhostapp.com/Client_Login.php",
+               // url: "http://crucialconnections.000webhostapp.com/Client_Login.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php",
                 method: "POST",
 
                 data: JSON.stringify({

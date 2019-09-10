@@ -268,7 +268,7 @@ if ($conn->connect_error) {
         }
 
 
-    function selectPackage($email,$code,$packageID){
+    function selectPackage($email,$code,$packageID1,$packageID2,$packageID3){
         global $conn;
      $sql="SELECT * FROM package_selection WHERE EMAIL ='".$email."'";
         $results = $conn->query($sql);
@@ -277,8 +277,23 @@ if ($conn->connect_error) {
         }
         else
         {
+         if($code==1)
+         {
+            $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID1."')";
+ 
+         }
+         if($code==2)
+         {
+            $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID2."')";
+ 
+         }
+         if($code==3)
+         {
+            $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID3."')";
+ 
+         }
             // VALUES('',$email,$code,$packageID)"
-        $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID."')";
+        // $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID."')";
 
          if ($conn->query($sql)) {
             echo "Package Selected successfully";

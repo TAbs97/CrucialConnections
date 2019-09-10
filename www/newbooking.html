@@ -92,9 +92,9 @@ document.getElementById("dt").value= date();
   <br>
 
   <p>Dates in a Week</p>
-  <input type="date" name="date" id="date1" style="visibility:hidden;" required/> 
-  <input type="date" name="date" id="date2" style="visibility:hidden;" required/> 
-  <input type="date" name="date" id="date3" style="visibility:hidden;" required/> 
+  <input type="date" name="date" id="date1" min="" style="visibility:hidden;" required/> 
+  <input type="date" name="date" id="date2" min="" style="visibility:hidden;" required/> 
+  <input type="date" name="date" id="date3" min="" style="visibility:hidden;" required/> 
   <br>
 
 
@@ -169,12 +169,19 @@ document.getElementById("dt").value= date();
                 dataType: dataType
                   };
 
-if (x === 1) { options.url = url; options.data = data; 
+if (x === 1) {options.url = url; options.data = data;} 
 
 $('#book').click(function(kho){
             kho.preventDefault();
             $.ajax(options);
         });
+    </script>
+}
+    <script>
+      document.getElementById("date1").min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
+      document.getElementById("date2").min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
+      document.getElementById("date3").min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
+
     </script>
 </body> 
 </html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> DriveBox</title>
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/hStyle.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+        integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+        integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"
+        integrity="sha256-Z8TW+REiUm9zSQMGZH4bfZi52VJgMqETCbPFlGRB1P8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+    <!-- Button trigger modal -->
+
+    <!-- Modal addClient-->
+    <div class="modal fade" id="AddInstructormodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Instructor </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+
+
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" id="LastName" placeholder="LastName"  onkeyup="isAlphaNumeric(this.value,'#LastName')"
+                                maxlength="20">
+                        </div>
+
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName"  onkeyup="isAlphaNumeric(this.value,'#FirstName')"
+                                maxlength="20">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label 8>Email address</label>
+                            <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp"
+                                placeholder="Enter email" onkeyup="isEmpty(this.value,'#EmailAddress');isEmail(this.value,'#EmailAddress')">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" 
+                            onkeyup="isPassword(this.value,'#password')">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="SaveInstructor">Save Instructor
+                            Details</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ################################################################################################################            -->
+
+    <!-- edit data modal       -->
+    <!-- Modal -->
+    <div class="modal fade" id="EditInstructormodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Instructor Details </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body" id="fetchedData">
+
+
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" id="I_LastName" placeholder="LastName" 
+                            onkeyup="isAlphaNumeric(this.value,'#I_LastName')" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" id="I_FirstName" placeholder="FirstName" 
+                            onkeyup="isAlphaNumeric(this.value,'#I_FirstName')" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label 8>Email address</label>
+                            <input type="email" class="form-control" id="I_EmailAddress" aria-describedby="emailHelp"
+                                placeholder="Enter email" onkeyup="isEmpty(this.value,'#I_EmailAddress');isEmail(this.value,'#I_EmailAddress')" />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="I_password" placeholder="Password"
+                            onkeyup="isPassword(this.value,'#I_password')" />
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="UpdateInstructor">Save Updated
+                            Details</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="Container">
+        <div class="jumbotron">
+            <div class="card">
+                <h2> Instructor</h2>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddInstructormodal">
+                        Add
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="Instructor">
+                        show Instructor
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">FirstName</th>
+                                <th scope="col">LastName</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="InstructorsData">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- add Instructor to Instructors -->
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#SaveInstructor').click(function (kho) {
+            kho.preventDefault();
+
+
+            //alert("username : "+$username+"\nPassword : "+$password);
+
+            $.ajax({
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Ins_RegisterUser.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    INSTRUTOR_NAME: $('#FirstName').val(),
+                    INSTRUTOR_SURNAME: $('#LastName').val(),
+                    EMAIL: $('#EmailAddress').val(),
+                    USER_PASSWORD: $('#password').val()
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function (data) {
+                    swal({
+                        title: "Adding Instructor",
+                        text: "Instructor Added succesfully",
+                        icon: "success",
+                        button: "Ok",
+                    });
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+    <!-- fetch from data to table  -->
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Instructor").click(function () {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectInstructor.php", function (data, status) {
+                    console.log(data);
+                    var data = JSON.parse(data);
+
+                    data.forEach(function (dt) {
+                        $("#InstructorsData").append("<tr>" +
+                            "<td>" + dt.INSTUCTOR_ID + "</td>" +
+                            "<td>" + dt.INSTUCTOR_NAME + "</td>" +
+                            "<td>" + dt.INSTUCTOR_SURNAME + "</td>" +
+                            "<td>" + dt.EMAIL + "</td>" +
+                            "<td><input type='button' value='EDIT' class='btn btn-warning' id='fetchdata' data-toggle='modal' data-target='#EditInstructormodal'/> </td>" +
+                            "</tr>");
+
+                    });
+
+                });
+            });
+
+        });
+    </script>
+    <!-- fetch data to textfields to update Instructor data -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#fetchdata").click(function () {
+                $.get("http://localhost:8081/github/CrucialConnections/CC_APIS/apis/SelectInstructor.php", function (data, status) {
+                    console.log(data);
+                    var data = JSON.parse(data);
+
+                    success: (function (data) {
+                        document.getElementById("I_firstname").innerHTML.value = data.data["INSTUCTOR_NAME"];
+                        document.getElementById("I_surname").innerHTML.value = data.data["INSTUCTOR_SURNAME"];
+                        document.getElementById("I_Emailaddress").innerHTML.value = data.data["EMAIL"];
+                        document.getElementById("I_password").innerHTML.value = data.data["INSTUCTOR_ID"];
+
+                    });
+
+                });
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>

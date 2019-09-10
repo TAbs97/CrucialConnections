@@ -9,19 +9,18 @@ $func = new Functions();
 //  $b = @($_POST["C_PASSWORD"]);
 
 $data = json_decode(file_get_contents('php://input'));
-$a = $data->EMAIL;
-$b = $data->USER_PASSWORD;
+// $a = $data->EMAIL;
+// $b = $data->A_PASSWORD;
 
- $login = $func->login($a,$b);
+ $Vehicle= $func->Vehicle_Display();
 
-if($login){
-    echo json_encode(array("data"=>$login->fetch_assoc(),"rows" => $login->num_rows));
-    //echo true;
+if($Vehicle){
+    echo json_encode(array("data"=>$Vehicle->fetch_assoc(),"rows" => $Vehicle->num_rows));
 }
 // else{
 //     echo json_encode(array("data"=>"empty"));
-//    // echo false;
+
 // }
-// echo "EMAIL : ".$a."\n USER_PASSWORD : ".$b;
+//echo "EMAIL : ".$a."\n C_PASSWORD : ".$b;
 
 ?>

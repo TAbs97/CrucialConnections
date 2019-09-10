@@ -12,7 +12,7 @@ $b = $data->BOOKING_ID;
 $c = $data->LESSON_BALANCE;
 
 
- $func->client_balace($a,$b,$c,$d);
+ $func->client_balace($a,$b,$c);
 
 
 

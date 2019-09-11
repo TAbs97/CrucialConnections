@@ -56,10 +56,6 @@
             <input type="password" name="password" id="password" placeholder="Enter Password" required="" required
                 onkeyup="isPassword(this.value,'#password')" />
             <br>
-            <p>Confirm password</p>
-            <input type="password" name="c_password" id="c_Password" placeholder="Confirm password" required="" required
-                onkeyup="isPassword(this.value,'#c_Password')" />
-            <br>
             <span id="confirm-message2" class="confirm-message"></span>
             <br>
 
@@ -96,7 +92,7 @@
                 dataType: "JSON",
 
                 success: function (data) {
-
+                    console.log(data);
                     swal("Succesfully registered", "Thank you signing up ", "success")
                     window.location.href = "Client_Login.html";
                 },
@@ -104,14 +100,15 @@
 
                     // console.log(err);
                     swal("Warning", "User already registered ", "warning")
-                    window.location.href = "Client_Login.html";
+                    // window.location.href = "Client_Login.html";
 
 
                     console.log(err);
 
                    // window.alert("invalid password or Email");
 
-                    swal("Warning", "Fields cannot be left empty", "warning")
+                   swal("Succesfully registered", "Thank you signing up ", "success")
+                   window.location.href = "Client_Login.html";
 
                 }
             });

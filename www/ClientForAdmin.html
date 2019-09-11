@@ -252,12 +252,21 @@
                     var data = JSON.parse(data);
 
                     success: (function(data) {
+<<<<<<< HEAD
                         // $(c_firstname).html(data.data["CLIENT_NAME"]);
                          document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
                         document.getElementById("c_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
                         document.getElementById("c_Emailaddress").innerHTML.value = data.data["EMAIL"];
                         document.getElementById("c_password").innerHTML.value = data.data["CLIENT_ID"];
+=======
+>>>>>>> a5cd39af196f9456fdcbb0556f943282edc855e6
 
+                     $("#c_firstname").html(data.data["CLIENT_NAME"]);
+                    $('#c_surname').html(data.data["CLIENT_SURNAME"]),
+                    $('#c_surname').html(data.data["EMAIL"]),
+                    $('#c_surname').html(data.data["CLIENT_ID"])
+                   
+                   
                     });
 
                 });

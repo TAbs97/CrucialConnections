@@ -11,9 +11,6 @@ $a = $data->EMAIL;
 $b = $data->CODE_NAME;
 $c = $data->$PACKAGE_NAME;
 
-
-
-
  $func->selectPackage($a,$b,$c);
 
 

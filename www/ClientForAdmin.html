@@ -119,7 +119,7 @@
                             <input type="password" class="form-control" id="c_password" placeholder="Password" 
                             onkeyup="isPassword(this.value,'#c_password')" />
                         </div>
-
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -138,6 +138,10 @@
             </div>
             <div class="card">
                 <div class="card-body">
+                       
+                        <button type="button" class="btn btn-primary" data-toggle="modal"  onclick="window.location.href='AdminHome.html'"">
+                               back
+                            </button>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddClientmodal">
                         Add
                     </button>
@@ -248,7 +252,8 @@
                     var data = JSON.parse(data);
 
                     success: (function(data) {
-                        document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
+                        // $(c_firstname).html(data.data["CLIENT_NAME"]);
+                         document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
                         document.getElementById("c_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
                         document.getElementById("c_Emailaddress").innerHTML.value = data.data["EMAIL"];
                         document.getElementById("c_password").innerHTML.value = data.data["CLIENT_ID"];
@@ -259,7 +264,46 @@
             });
 
         });
+
     </script>
+      <!-- update client -->
+
+      <script src="js/jquery.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/jquery.js"></script>
+      <script>
+          $('#UpdateClient').click(function(kho) {
+              kho.preventDefault();
+  
+  
+              $.ajax({
+                  url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/updateClient.php",
+                  method: "POST",
+  
+                  data: JSON.stringify({
+                      CLIENT_NAME: $('#c_FirstName').val(),
+                      CLIENT_SURNAME: $('#c_FirstName').val(),
+                      EMAIL: $('#c_EmailAddress').val(),
+                      USER_PASSWORD: $('#c_password').val()
+                  }),
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "JSON",
+  
+                  success: function(data) {
+                      swal({
+                          title: "update client",
+                          text: "Client updated succesfully",
+                          icon: "success",
+                          button: "Ok",
+                      });
+                  },
+                  error: function(err) {
+                      console.log(err);
+                  }
+              });
+          });
+      </script>
+    
 
 
 </body>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style></style>
+    <title>Document</title>
+    <link rel="stylesheet" type=" text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/preloader.css">
+</head>
+
+<body>
+
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/parsley.js"></script>
+
+    <form method>
+        <div class="loginbox">
+            <img src="img/DriveBox.png" alt="login icon" class="avatar" width="100">
+            <h1>Login</h1>
+
+            <p>Email</p>
+            <input id="username" type="Email" name="username" placeholder="Enter username" onkeyup="isEmpty(this.value,'#username');isEmail(this.value,'#username')" >
+            <p>Password</p>
+            <input type="password" id="password" type="text" name="" placeholder="Enter password">
+            <br>
+
+            <button id="Login">Login</button>
+            <br />
+            <a href="#"> Lost your password ?</a><br>
+
+        </div>
+
+    </form>
+    
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $('#Login').click(function (kho) {
+            kho.preventDefault();
+            //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
+            //  https://crucialconnections.000webhostapp.com/Client_Login.php
+            $.ajax({
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/A_Login.php",
+                method: "POST",
+
+                data: JSON.stringify({
+                    EMAIL: $('#username').val(),
+                    USER_PASSWORD: $('#password').val()
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+
+                success: function (data) {
+
+                    localStorage.setItem("kho", data.data["EMAIL"]);
+                    localStorage.setItem("id", data.data["INSTUCTOR_ID"]);
+                    localStorage.setItem("role", "instructor");
+                    console.log(localStorage.getItem("khoza"));
+                    console.log(localStorage.getItem("id"));
+
+
+                    console.log(data);
+                    if (data.rows > 0) {
+                        
+                        window.location.href = "AdminHomePage.html";
+                    } else {
+                        console.log("user not found");
+                    }
+                },
+                error: function (err) {
+
+                    console.log(err);
+
+                }
+            });
+        });
+        var name = document.getElementById("#username");
+        "<?php echo GLOBALs(name);?>";
+    </script>
+
+    <!-- script for overlay -->
+    <script>
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function () {
+            overlay.style.display = 'none';
+        })
+    </script>
+
+    <script type="javascript"></script>
+    <script>
+        //  redirect function
+        function redirect() {
+            var found = true;
+            if (!isEmpty(localStorage.username) && localStorage.role == "instructor") {
+                window.location.href = "instructorHomePage.html";
+            }
+        }
+    </script>
+
+
+
+    <script>
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function () {
+            overlay.style.display = 'none';
+        })
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

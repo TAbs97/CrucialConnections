@@ -100,7 +100,8 @@
                 error: function (err) {
 
                     console.log(err);
-                    window.alert("invalid password or Email");
+                    swal("Login", "invalid Email or password entered", "warning")
+                    // window.alert("invalid password or Email");
                 }
             });
         });

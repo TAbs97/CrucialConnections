@@ -1,0 +1,502 @@
+<html>
+
+<head>
+     <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> DriveBox</title>
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/hStyle.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+        integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+        integrity="sha256-zuyRv+YsWwh1XR5tsrZ7VCfGqUmmPmqBjIvJgQWoSDo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"
+        integrity="sha256-Z8TW+REiUm9zSQMGZH4bfZi52VJgMqETCbPFlGRB1P8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+        integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+
+
+</head>
+<body style="background-color:powderblue;  font-family: Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;  ">
+  <div class="section"></div>
+  <main>
+    <center>
+      
+      <div class="section"></div>
+
+      
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 30px 35px 10px 35px; border: 1px solid #EEE;border-radius: 20px">
+            <h5 >Foltee Password Recovery Questions</h5>
+            <span class="helper-text" id="Helpera4" style="color: red"></span>
+
+            <div class='row'>
+              <div class='col s6'>
+              </div>
+            </div>
+
+             <!-- <div class="input-field col s12">
+                    <select id="q1" required >
+                      <option disabled selected value="0">Select Question </option>
+                      <option >What is your favorite movie</option>
+                      <option >In what city were you born</option>
+                      <option >What is your favorite color</option>
+                      <option>Custom</option>
+                    </select>
+                    <label>Question 1</label>
+                    <span class="helper-text" id="Helperq1" style="color: red"></span>
+                  </div> -->
+
+                  
+                  <!-- <script type="text/javascript">
+                    function showfield(name){
+                      if(name=='4')document.getElementById('div1').innerHTML='<div class="row"><div class="input-field col s12"><input class="validate" placeholder="" type="text" id="c1" data-length="25" maxlength="35" /><span class="helper-text" id="Helperc1" style="color: red"></span></div></div>';
+                      else document.getElementById('div1').innerHTML='';
+
+                      if(c1.length=0){
+
+                      }else{
+
+                      }
+                    }
+                    </script> -->
+                    <datalist id="questions">
+                      
+                      <option >What is your favorite movie</option>
+                      <option >In what city were you born</option>
+                      <option >What is your favorite color</option>
+                      <option>What is the name of your first pet</option>
+                      <option>What is your Career Field</option>
+                      <option>what is your favourite module</option>
+                      <option>what city or town did your parents meet</option>
+                      <option>What is your childhood name</option>
+                      <option>what is the name of your hometown</option>
+                    </datalist>
+
+                    <div class="input-field col s12">
+                    <input type="text" id="q1" placeholder="" name="product" list="questions" maxlength="35"/>
+                    
+                    <label>Question 1</label>
+                    <span class="helper-text" id="Helperq1" style="color: red"></span>
+                  </div>
+                   
+                    <div id="div1"></div>
+
+
+                  <div class='row'>
+                        <div class='input-field col s12'>
+                        
+                          <input class='validate' placeholder="" type='text' id='a1' data-length="25" maxlength="25" />
+                          <label for='a1'>Answer</label>
+                          <span class="helper-text" id="Helpera1" style="color: red"></span>
+                        </div>
+                        
+                      </div>
+
+                      <div class="input-field col s12">
+                        <input type="text" id="q2" placeholder="" name="product" list="questions" maxlength="35"/>
+                        
+                        <label>Question 2</label>
+                        <span class="helper-text" id="Helperq2" style="color: red"></span>
+                      </div>
+
+                         
+            <!-- <div class="input-field col s12">
+                    <select id= "q2">
+                      <option value="0" disabled selected>Select Question </option>
+                      <option>What is the name of your first pet</option>
+                      <option>What is your Career Field</option>
+                      <option>what is your favourite module</option>
+                    </select>
+                    <label>Question 2</label>
+                    <span class="helper-text" id="Helperq2" style="color: red"></span>
+                  </div> -->
+
+                  <div class='row'>
+                        <div class='input-field col s12'>
+                        
+                          <input class='validate' placeholder="" type='text' id='a2' data-length="25" maxlength="25"/>
+                          <label for='a2'>Answer</label>
+                          <span class="helper-text" id="Helpera2" style="color: red"></span>
+                        </div>
+                        
+                      </div>
+
+                      <div class="input-field col s12">
+                        <input type="text" id="q3" placeholder="Select Question" name="product" list="questions" maxlength="35"/>
+                        
+                        <label>Question 3</label>
+                        <span class="helper-text" id="Helperq3" style="color: red"></span>
+                      </div>
+
+
+                          
+                  <div class='row'>
+                        <div class='input-field col s12'>
+                        
+                          <input  class='validate' type='text' placeholder="" id='a3' data-length="25" maxlength="25"/>
+                          <label for='a3'>Answer</label>
+                          <span class="helper-text" id="Helpera3" style="color: red"></span>
+                          
+                        </div>
+                        
+                      </div>
+                      <div class='row' >
+                            <button style="border-radius: 20px;" type='submit' id='btn_Recovery' class=' col s12 btn-large waves-effect ' ><strong>submit</strong></button>
+                          </div>
+              
+            </div>
+
+            
+
+            
+          
+            
+         
+        </div>
+      </div>
+     
+    
+    </center>
+    <!--Terms modal-->
+    <div id="terms" class="modal modal-fixed-footer">
+      <div class="modal-content">
+         <h3>Terms and Conditions</h3>
+         <p>
+          <label>
+            <input type="checkbox" class="filled-in" id= "checkbox"/>
+            <span>I accept and agree to the <a href="http://sabeloh13-001-site3.dtempurl.com/">Terms of use</a></span>
+          </label>
+        </p>
+     
+    </div>
+    <div class="modal-footer">
+        
+      <button id="accept" class=' col s12 btn-small waves-effect' disabled >Agree and Continue</button>
+     
+    </div>
+  </main>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+<script>
+
+   /*Modals Materialize*/
+   
+   $(document).ready(function(){
+    $('select').formSelect();
+    
+   
+ 
+    //$('#createAccmodal').modal('open'); 
+  });
+
+  $('input#a1, a1').characterCounter();
+  $('input#a2, a2').characterCounter();
+  $('input#a3, a3').characterCounter();
+     
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+   
+  
+  /*Materialize combobox*/
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+
+  $('#btn_Recovery').click(function(e){
+  
+        var studentNo = sessionStorage.getItem('studentNo');
+
+        
+        var q1 = document.getElementById( "q1" ).value.trim();
+        var q2 = document.getElementById( "q2" ).value.trim();
+        var q3 = document.getElementById( "q3" ).value.trim();
+
+     
+
+        var a1 = document.getElementById( "a1" ).value.trim();
+        var a2 = document.getElementById( "a2" ).value.trim();
+        var a3 = document.getElementById( "a3" ).value.trim();
+
+        var Firstcheck = false;
+        var SecondCheck = false;
+        var ThirdCheck = true;
+        var fourthCheck = true;
+        var fifthCheck = true;
+        var checkq1 = true;
+        var checkq2 = true;
+        var checkq3 = true;
+        
+        
+       
+
+        a1 = a1.replace(/\s/g, '');
+        a2 = a2.replace(/\s/g, '');
+        a3 = a3.replace(/\s/g, '');
+        
+        Firstcheck = checkCombobox(q1,q2,q3);
+
+        // if(Firstcheck=true){
+        //   checkq1 = checkCharq1(q1);
+        // }
+        
+        SecondCheck = checkLength(a1,a2,a3);
+
+        if(Firstcheck == true){
+          checkq1 = checkCharq1(q1);
+          
+        }
+
+        if(Firstcheck == true){
+          checkq2 = checkCharq2(q2);
+        }
+
+        if(Firstcheck== true){
+          checkq2 = checkCharq3(q3);
+        }
+
+        if(a1.length>0){
+          ThirdCheck =  checkChar1(a1);
+        }
+        
+        if(a2.length>0){
+          fourthCheck=  checkChar2(a2);
+        }
+
+        if(a3.length>0){
+          fifthCheck = checkChar3(a3);
+        }
+      
+        if(Firstcheck && SecondCheck && ThirdCheck && fourthCheck && fifthCheck && checkq1 && checkq2 && checkq3){
+
+          $('#terms').modal('open'); 
+        }
+});
+
+
+
+
+$('#accept').click(function(e){
+        
+        var q1 = document.getElementById( "q1" ).value;
+        var q2 = document.getElementById( "q2" ).value;
+        var q3 = document.getElementById( "q3" ).value;
+
+        var a1 = document.getElementById( "a1" ).value;
+        var a2 = document.getElementById( "a2" ).value;
+        var a3 = document.getElementById( "a3" ).value;
+
+        a1 = a1.replace(/\s/g, '');
+        a2 = a2.replace(/\s/g, '');
+        a3 = a3.replace(/\s/g, '');
+
+  $.post( "http://sabeloh13-001-site1.dtempurl.com/api/values/addRegistration?username="+sessionStorage.getItem('studentNo')+"&password="+sessionStorage.getItem("Pass2")+"", function( data ) { 
+            $.post( "http://sabeloh13-001-site1.dtempurl.com/api/values/addRecoveryAnswers?a1="+a1+"&a2="+a2+"&a3="+a3+"&userID="+sessionStorage.getItem('studentNo')+"", function( dt ) {
+              $.post( "http://sabeloh13-001-site1.dtempurl.com/api/values/addRecoveryQuestions?q1="+q1+"&q2="+q2+"&q3="+q3+"&userID="+sessionStorage.getItem('studentNo')+"", function( s ) {
+                window.location.href="HomePage.html";
+               });
+            });
+          });
+});
+
+var checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', e => {
+
+    if(e.target.checked){
+     document.getElementById("accept").disabled=false;
+    }
+    else{
+      document.getElementById("accept").disabled=true;
+    }
+
+});
+
+      
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function checkCombobox(q1,q2,q3){
+
+var combo = false;
+
+if(document.getElementById("q1").value == 4){
+  //alert("adad")
+}else{
+  if(q1==0){
+        document.getElementById("Helperq1").innerHTML="required";
+        combo =false;
+      }else{
+        document.getElementById("Helperq1").innerHTML="";
+        combo = true;
+      }
+}
+  
+
+      if(q2==0){
+        
+        document.getElementById("Helperq2").innerHTML="required";
+        combo = false;
+      }else{
+       document.getElementById("Helperq2").innerHTML="";
+       combo = true;
+      }
+
+      if(q3==0){
+        document.getElementById("Helperq3").innerHTML="required";
+        combo = false;
+      }else{
+        document.getElementById("Helperq3").innerHTML="";
+        combo = true;
+      }
+
+      return combo;
+}
+
+function checkLength(a1,a2,a3){
+var cLength = false;
+
+  if(a1.length==0){
+      document.getElementById("Helpera1").innerHTML="required";
+      document.getElementById("a1").value = "";
+      cLength = false;
+    }else{
+      cLength = true;
+      document.getElementById("Helpera1").innerHTML="";
+    }
+
+    if(a2.length==0){
+      cLength = false;
+      document.getElementById("Helpera2").innerHTML="required";
+      document.getElementById("a2").value = "";
+    }else{
+      cLength = true;
+      document.getElementById("Helpera2").innerHTML="";
+    }
+
+    if(a3.length==0){
+      cLength = false;
+      document.getElementById("Helpera3").innerHTML="required";
+      document.getElementById("a3").value = "";
+    }else{
+      cLength = true;
+      document.getElementById("Helpera3").innerHTML="";
+    }
+
+    return cLength;
+
+}
+
+function checkCharq1(q1){
+  var char1 = true;
+  if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(q1)){
+        document.getElementById("Helperq1").innerHTML="special characters are not allowed";
+        char1 = false;
+      }else{
+        document.getElementById("Helperq1").innerHTML="";
+        char1 = true;
+      }
+
+      return char1;
+}
+
+function checkCharq2(q2){
+  var char1 = true;
+  if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(q2)){
+        document.getElementById("Helperq2").innerHTML="special characters are not allowed";
+        char1 = false;
+      }else{
+        document.getElementById("Helperq2").innerHTML="";
+        char1 = true;
+      }
+
+      return char1;
+}
+
+function checkCharq3(q3){
+  var char1 = true;
+  if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(q3)){
+        document.getElementById("Helperq3").innerHTML="special characters are not allowed";
+        char1 = false;
+      }else{
+        document.getElementById("Helperq3").innerHTML="";
+        char1 = true;
+      }
+
+      return char1;
+}
+
+
+
+function checkChar1(a1){
+  var char1 = true;
+  if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(a1)){
+        document.getElementById("Helpera1").innerHTML="special characters are not allowed";
+        char1 = false;
+      }else{
+        document.getElementById("Helpera1").innerHTML="";
+        char1 = true;
+      }
+
+      return char1;
+}
+
+function checkChar2(a2){
+  var char2 = true;
+  if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(a2)){
+        document.getElementById("Helpera2").innerHTML="special characters are not allowed";
+        char2 = false;
+      }else{
+        document.getElementById("Helpera2").innerHTML="";
+        char2 = true;
+      }
+
+      return char2;  
+}
+
+function checkChar3(a3){
+  var char3 = true;
+     if((/[-!$%^&*()_+|~=`{}[:;<>?,.'@#\]]/).test(a3) ){
+        document.getElementById("Helpera3").innerHTML="special characters are not allowed";
+        char3 = false;
+      }else{
+        document.getElementById("Helpera3").innerHTML="";
+        char3 = true;
+      }
+
+      return char3;
+}
+
+
+ 
+</script>
+</html>

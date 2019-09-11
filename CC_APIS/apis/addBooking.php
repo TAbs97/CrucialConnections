@@ -10,12 +10,9 @@ $func = new Functions();
 
 $data = json_decode(file_get_contents('php://input'));
 
-$clientId = $data->CLIENT_ID;
-$packageId = $data->PACKAGE_ID;
-$numDays = $data->NUM_OF_DAYS;
-// $date1 = $data->date1;
-echo "$numDays";
-die();
+$clientId = $data->clientId;
+$packageId = $data->packageId;
+$numDays = $data->numDays;
 $time1 = $data->time1;
 $date2 = $data->date2;
 $time2 = $data->time2;

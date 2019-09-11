@@ -35,14 +35,21 @@
         <form name="myForm">
             <div class="details">
                 
-                <label for="">name</label><label id="name"></label > <br>
-                <label for="">surname</label><label id="surname"></label ><br>
-                <label for="">email</label><label id="email"></label ><br>
-                <label for="">code</label><label id="code"></label ><br>
-                <label for="">package</label><label id="package"></label ><br>
-                <label for="">lesson balance</label><label  id="lessonbalance"></label ><br>
-                <label for="">balance</label><label id="balance"></label ><br>
-                <label for="">amount paid</label><label  id="amountpaid"></label >
+                <label for="">name:</label> 
+                <label id="name"></label > <br>
+                <label for="">surname:</label> 
+                <label id="surname"></label ><br>
+                <label for="">email:</label>
+                <label id="email"></label ><br>
+                <label for="">code:</label>
+                <label id="code"></label ><br>
+                <label for="">package:</label>
+                <label id="package"></label ><br>
+                <label for="">lesson balance:</label>
+                <label  id="lessonbalance"></label ><br>
+                <label for="">balance:</label>
+                <br><label id="balance"></label ><br>
+                <label for="">amount paid:</label><label  id="amountpaid"></label >
             </div>
 
 
@@ -66,6 +73,7 @@
                 // contentType: "application/json; charset=utf-8",
                 // dataType: "dataType",
                 url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/ClientDetails.php",
+
                 data: JSON.stringify({
                     EMAIL: localStorage.username,
                     CLIENT_ID:localStorage.id,
@@ -75,7 +83,7 @@
                 success: function (data) {
                     console.log(data[0]);
                     data = data[0];
-
+                    localStorage.setItem("PS_ID",data['PS_ID']);
                     $("#name").html(data['CLIENT_NAME']);
                     $('#surname').html(data["CLIENT_SURNAME"]),
                     $('#email').html(data["EMAIL"]),

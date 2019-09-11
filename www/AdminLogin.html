@@ -46,7 +46,7 @@
             //  http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Client_Login.php
             //  https://crucialconnections.000webhostapp.com/Client_Login.php
             $.ajax({
-                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/Ins_Login.php",
+                url: "http://localhost:8081/github/CrucialConnections/CC_APIS/apis/A_Login.php",
                 method: "POST",
 
                 data: JSON.stringify({
@@ -67,10 +67,9 @@
 
                     console.log(data);
                     if (data.rows > 0) {
-                        window.alert("Successfully logged in");
-                        window.location.href = "instructorHomePage.html";
+                        
+                        window.location.href = "AdminHomePage.html";
                     } else {
-                        window.alert("Wrong Email or password");
                         console.log("user not found");
                     }
                 },

@@ -196,7 +196,7 @@ if ($conn->connect_error) {
     function clientDetails($email,$id){
         global $conn;
         $sql = "SELECT client.CLIENT_NAME,client.CLIENT_SURNAME,client.EMAIL,
-        package_selection.CODE_NAME,package_selection.PACKAGE_NAME 
+        package_selection.CODE_NAME,package_selection.PACKAGE_NAME,package_selection.PS_ID
         FROM client,package_selection 
         WHERE client.Email='".$email."'=package_selection.Email='".$email."' and client.CLIENT_ID='".$id."' limit 1";
         $query=mysqli_query($conn,$sql);
@@ -277,7 +277,6 @@ if ($conn->connect_error) {
         }
         else
         {
-            // VALUES('',$email,$code,$packageID)"
         $sql = "INSERT INTO package_selection(EMAIL,CODE_NAME,PACKAGE_NAME) VALUES('".$email."','".$code."','".$packageID."')";
 
          if ($conn->query($sql)) {

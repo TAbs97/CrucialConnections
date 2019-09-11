@@ -15,29 +15,30 @@
 
     <script src="js/sweetalert.min.js"></script>
     <script src="js/sweetalert.js"></script>
-    
+
     <script>
-    //     function getLessons(x) {
+        //     function getLessons(x) {
 
-    //         if (x === '8') {
-    //             document.getElementById("lesson2").style.visibility = "hidden";
-    //             document.getElementById("lesson1").style.visibility = "visible";
-    //             document.getElementById("lesson3").style.visibility = "hidden";
+        //         if (x === '8') {
+        //             document.getElementById("lesson2").style.visibility = "hidden";
+        //             document.getElementById("lesson1").style.visibility = "visible";
+        //             document.getElementById("lesson3").style.visibility = "hidden";
 
-    //         }
-    //         if (x === "10") {
-    //             document.getElementById("lesson2").style.visibility = "visible";
-    //             document.getElementById("lesson1").style.visibility = "hidden";
-    //             document.getElementById("lesson3").style.visibility = "hidden";
-    //         }
-    //         if (x === "14") {
-    //             document.getElementById("lesson2").style.visibility = "hidden";
-    //             document.getElementById("lesson1").style.visibility = "hidden";
-    //             document.getElementById("lesson3").style.visibility = "visible";
-    //         }
+        //         }
+        //         if (x === "10") {
+        //             document.getElementById("lesson2").style.visibility = "visible";
+        //             document.getElementById("lesson1").style.visibility = "hidden";
+        //             document.getElementById("lesson3").style.visibility = "hidden";
+        //         }
+        //         if (x === "14") {
+        //             document.getElementById("lesson2").style.visibility = "hidden";
+        //             document.getElementById("lesson1").style.visibility = "hidden";
+        //             document.getElementById("lesson3").style.visibility = "visible";
+        //         }
 
-    //     }
-    // </script>
+        //     }
+        // 
+    </script>
 </head>
 
 <body>
@@ -47,9 +48,9 @@
         <div class="spinner"></div>
     </div>
     <div class="Booking">
-        <a href="lessonBooking.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
+        <a href="MainPage.html"><img src="img/DriveBox.png" alt="login icon" class="avatar" width="100"></a>
 
-        <h2>Select Packadge</h2>
+        <h2>Select Package</h2>
         <form>
             <p>Code Type</p>
             <div class="wrapper">
@@ -98,13 +99,12 @@
             <br>
 
             <hr>
-            <input type="button" id="book" value="Select"> <br />
+            <input type="button" id="book" value="Select" onclick="return correctVal() ; "> <br />
 
 
         </form>
     </div>
     <script src="js/jquery.js"></script>
-    <script src="js/codeValidation.js"></script>
    
     <script>
         var ID = localStorage.getItem("id");
@@ -124,13 +124,14 @@
                     // USER_PASSWORD: $('#password').val()
                 }),
                 contentType: "application/json; charset=utf-8",
-                 dataType:"JSON",
+                dataType: "JSON",
+
                 success: function (data) {
-                    swal("package selected sucessfully", "success")
-                    window.location.href="MainPage.html";
+                    swal("package selection","package selected sucessfully", "success")
+                    window.location.href = "MainPage.html";
                 },
                 error: function (err) {
-                    swal("package selection","package already selected", "warning")
+                    swal("package selection", "package already selected", "warning")
                     console.log('{ "EMAIL" : ' + localStorage.username + ',"CODE_NAME" : ' + $(
                         '#Code').val() + ',"PACKAGE_NAME" :' + $('#lesson1').val() + '}');
                     console.log(err);
@@ -138,6 +139,8 @@
             });
         });
     </script>
+      
+
 
     <script>
         var overlay = document.getElementById("overlay");
@@ -145,7 +148,21 @@
             overlay.style.display = 'none';
         })
     </script>
-
+    <!-- optgrop codeValidation -->
+    <script>
+        function correctVal() {
+            if (selectCode.sel.selectedindex == 0 && lesson.sel.selectedindex > 4) {
+                alert("please select the right package for code you selected");
+                return false;
+            } else if (selectCode.sel.selectedindex == 1 && (lesson.sel.selectedindex < 5) &&( lesson.sel.selectedindex > 9)) {
+                alert("please select the right package for the package you selected");
+            }
+            else{
+                alert("please select the right package for the package you selected");
+            }
+            return true
+        }
+    </script>
 </body>
 
 </html>

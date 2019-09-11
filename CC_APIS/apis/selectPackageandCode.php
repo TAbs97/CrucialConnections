@@ -9,9 +9,7 @@ $data = json_decode(file_get_contents('php://input'));
 
 $a = $data->EMAIL;
 $b = $data->CODE_NAME;
-$c = $data->PACKAGE_NAME;
-
-
+$c = $data->$PACKAGE_NAME;
 
  $func->selectPackage($a,$b,$c);
 

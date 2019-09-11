@@ -61,9 +61,9 @@
                   </select>
                 
                   <p>Dates in a Week</p>
-                  <input type="date" id="date1" style="visibility:hidden;" ><br> 
-                  <input type="date" id="date2" style="visibility:hidden;" ><br>
-                  <input type="date" id="date3" style="visibility:hidden;" > 
+                  <input type="date" id="date1"  name="date1"style="visibility:hidden;" ><br> 
+                  <input type="date" id="date2"  name="date2" style="visibility:hidden;" ><br>
+                  <input type="date" id="date3"  name="date3" style="visibility:hidden;" > 
                   <br>
                 
                   <p>Select Time</p>
@@ -213,5 +213,16 @@
         });
     </script>
 
+<script>
+        // date1
+     var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("date1")[0].setAttribute('min', today);
+// date2
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("date2")[0].setAttribute('min', today);
+// date3
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("date3")[0].setAttribute('min', today);
+    </script>
     </body>
 </html>

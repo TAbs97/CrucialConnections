@@ -67,8 +67,10 @@
 
                     console.log(data);
                     if (data.rows > 0) {
+                        window.alert("Successfully logged in");
                         window.location.href = "instructorHomePage.html";
                     } else {
+                        window.alert("Wrong Email or password");
                         console.log("user not found");
                     }
                 },

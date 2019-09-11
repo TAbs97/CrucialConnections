@@ -97,33 +97,33 @@
 
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" id="c_LastName" placeholder="LastName" 
-                            onkeyup="isAlphaNumeric(this.value,'#c_LastName')"/>
+                            <input type="text" class="form-control" id="a_LastName" placeholder="LastName" 
+                            onkeyup="isAlphaNumeric(this.value,'#a_LastName')"/>
                         </div>
 
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" id="c_FirstName" placeholder="FirstName" 
-                            onkeyup="isAlphaNumeric(this.value,'#c_FirstName')"/>
+                            <input type="text" class="form-control" id="a_FirstName" placeholder="FirstName" 
+                            onkeyup="isAlphaNumeric(this.value,'#a_FirstName')"/>
                         </div>
 
 
                         <div class="form-group">
                             <label 8>Email address</label>
-                            <input type="email" class="form-control" id="c_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" 
-                            onkeyup="isEmpty(this.value,'#c_EmailAddress');isEmail(this.value,'#c_EmailAddress')" />
+                            <input type="email" class="form-control" id="a_EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" 
+                            onkeyup="isEmpty(this.value,'#a_EmailAddress');isEmail(this.value,'#c_EmailAddress')" />
 
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="c_password" placeholder="Password" 
-                            onkeyup="isPassword(this.value,'#c_password')" />
+                            <input type="password" class="form-control" id="a_password" placeholder="Password" 
+                            onkeyup="isPassword(this.value,'#a_password')" />
                         </div>
                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="UpdateClient">Save Updated Details</button>
+                        <button type="submit" class="btn btn-primary" id="updateAdmin">Save Updated Details</button>
 
                     </div>
                 </form>
@@ -190,8 +190,8 @@
                 method: "POST",
 
                 data: JSON.stringify({
-                    CLIENT_NAME: $('#FirstName').val(),
-                    CLIENT_SURNAME: $('#LastName').val(),
+                    ADMIN_NAME: $('#FirstName').val(),
+                    ADMIN_SURNAME: $('#LastName').val(),
                     EMAIL: $('#EmailAddress').val(),
                     USER_PASSWORD: $('#password').val()
                 }),
@@ -200,8 +200,8 @@
 
                 success: function(data) {
                     swal({
-                        title: "Adding client",
-                        text: "Client Added succesfully",
+                        title: "Adding ADMIN",
+                        text: "ADMIN Added succesfully",
                         icon: "success",
                         button: "Ok",
                     });
@@ -252,21 +252,12 @@
                     var data = JSON.parse(data);
 
                     success: (function(data) {
-<<<<<<< HEAD
                         // $(c_firstname).html(data.data["CLIENT_NAME"]);
-                         document.getElementById("c_firstname").innerHTML.value= data.data["CLIENT_NAME"];
-                        document.getElementById("c_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
-                        document.getElementById("c_Emailaddress").innerHTML.value = data.data["EMAIL"];
-                        document.getElementById("c_password").innerHTML.value = data.data["CLIENT_ID"];
-=======
->>>>>>> a5cd39af196f9456fdcbb0556f943282edc855e6
+                         document.getElementById("a_firstname").innerHTML.value= data.data["CLIENT_NAME"];
+                        document.getElementById("a_surname").innerHTML.value = data.data["CLIENT_SURNAME"];
+                        document.getElementById("a_Emailaddress").innerHTML.value = data.data["EMAIL"];
+                        document.getElementById("a_password").innerHTML.value = data.data["CLIENT_ID"];
 
-                     $("#c_firstname").html(data.data["CLIENT_NAME"]);
-                    $('#c_surname').html(data.data["CLIENT_SURNAME"]),
-                    $('#c_surname').html(data.data["EMAIL"]),
-                    $('#c_surname').html(data.data["CLIENT_ID"])
-                   
-                   
                     });
 
                 });
@@ -281,7 +272,7 @@
       <script src="js/main.js"></script>
       <script src="js/jquery.js"></script>
       <script>
-          $('#UpdateClient').click(function(kho) {
+          $('#updateAdmin').click(function(kho) {
               kho.preventDefault();
   
   
@@ -290,10 +281,10 @@
                   method: "POST",
   
                   data: JSON.stringify({
-                      CLIENT_NAME: $('#c_FirstName').val(),
-                      CLIENT_SURNAME: $('#c_FirstName').val(),
-                      EMAIL: $('#c_EmailAddress').val(),
-                      USER_PASSWORD: $('#c_password').val()
+                      ADMIN_NAME: $('a_FirstName').val(),
+                      ADMIN_SURNAME: $('#a_FirstName').val(),
+                      EMAIL: $('#a_EmailAddress').val(),
+                      USER_PASSWORD: $('#a_password').val()
                   }),
                   contentType: "application/json; charset=utf-8",
                   dataType: "JSON",
@@ -301,7 +292,7 @@
                   success: function(data) {
                       swal({
                           title: "update client",
-                          text: "Client updated succesfully",
+                          text: "ADMIN updated succesfully",
                           icon: "success",
                           button: "Ok",
                       });

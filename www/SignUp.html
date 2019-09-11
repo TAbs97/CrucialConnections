@@ -96,7 +96,7 @@
                 dataType: "JSON",
 
                 success: function (data) {
-
+                    console.log(data);
                     swal("Succesfully registered", "Thank you signing up ", "success")
                     window.location.href = "Client_Login.html";
                 },
@@ -104,7 +104,7 @@
 
                     // console.log(err);
                     swal("Warning", "User already registered ", "warning")
-                    window.location.href = "Client_Login.html";
+                    // window.location.href = "Client_Login.html";
 
 
                     console.log(err);

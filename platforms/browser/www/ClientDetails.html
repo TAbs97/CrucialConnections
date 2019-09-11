@@ -76,7 +76,7 @@
                 success: function (data) {
                     console.log(data[0]);
                     data = data[0];
-
+                    localStorage.setItem("PS_ID",data['PS_ID']);
                     $("#name").html(data['CLIENT_NAME']);
                     $('#surname').html(data["CLIENT_SURNAME"]),
                     $('#email').html(data["EMAIL"]),
